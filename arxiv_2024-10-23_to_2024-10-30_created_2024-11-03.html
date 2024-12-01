@@ -1,0 +1,1533 @@
+
+            <html>
+              <head>
+                <style>/* 
+
+I tweaked the file but it is mostly unchanged
+
+*/
+
+/*
+"GitHub Flavor", a GitHub flavored CSS style sheet for Markdown documents.
+Based on Chris Patuzzo's github.css (https://gist.github.com/tuzz/3331384).
+
+
+author: Fabrizio Musacchio (https://www.fabriziomusacchio.com)
+date: 03.01.2020
+
+
+License:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+
+/*Main body*/
+body {
+  /* font-family:      Helvetica, arial, sans-serif; */
+  font-family:      Calibri, 'Trebuchet MS', sans-serif, 'Gill Sans', 'Gill Sans MT';
+  font-size:        8px;
+  line-height:      1.6em;
+  background-color: white;
+  padding-top:      0px;
+  padding-bottom:   0px;
+  padding-left:     0px;
+  padding-right:    0px; }
+
+body > *:first-child {
+  margin-top:   0 !important; }
+body > *:last-child {
+  margin-bottom:0 !important; }
+
+/* Smooth scrolling */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/*Links*/
+a {
+  color:            #3973ad;
+  text-decoration:  none;}
+a:hover{
+  /* text-decoration: underline; */
+  color:            #4183C4;
+}
+a.absent {
+  color:            #cc0000; }
+a.anchor {
+  display:          block;
+  padding-left:     30px;
+  margin-left:      -30px;
+  cursor:           pointer;
+  position:         absolute;
+  top:              0;
+  left:             0;
+  bottom:           0; }
+
+/*Headlines*/
+h1, h2, h3, h4, h5, h6 {
+  margin:       6px 0 6px;
+  padding:      0px;
+  line-height:  2em;
+  font-weight:  lighter;
+  -webkit-font-smoothing: antialiased;
+  cursor:       text;
+  position:   relative; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 16px;
+  color: black; }
+
+h2 {
+  font-size: 13px;
+  border-bottom: 1px solid #cccccc;
+  color: rgb(12, 0, 123); }
+
+h3 {
+  font-size: 10px; }
+
+h4 {
+  font-size: 10px; }
+
+h5 {
+  font-size: 10px; }
+
+h6 {
+  color: #777777;
+  font-size: 10px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 5px 0; }
+
+/*Margins and paddings of the first line content*/
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0;
+}
+
+/*Lists*/
+ul li,ol li{
+  margin-top:     .15em;
+  margin-bottom:  .15em;
+}
+ul li li{
+  margin-left:    -15px;
+}
+ul ul,ul ol,ol ol,ol ul{
+  margin-top:     0;
+  margin-bottom:  0em;
+}
+
+/*Footnotes*/
+a[href^="#fn:"]:after{
+    content:        ')';
+    font-size:      0.83em;
+    vertical-align: super;
+    line-height:    0;
+}
+/*Highlights the BG of current jumped-to footnote:*/
+li:target {
+    background-color: #e8fef6;
+}
+.footnotes > ol > li > p {
+    display:        inline;
+}
+.footnotes ol {
+    list-style:     none;
+    counter-reset:  footnotes;
+    padding-left:   15px;
+}
+.footnotes ol li {
+    counter-increment:footnotes;
+}
+.footnotes ol li:before {
+    /* background-color: #e8fef6; */
+    font-weight:      bold;
+    /* counter-reset: footnotes; */
+    content:          counters(footnotes, ".") ")";
+}
+.footnotes li {
+    padding-bottom:     0.45em;
+}
+.footnotes {
+    /* only use is for border, background-color of block */
+	/* border: dashed 0px #f4f5f8; */
+	background-color: #f4f5f8;
+	padding:          0em 0em 0.25em 0em;
+}
+/*.footnotes:before{
+    content:        "Footnotes";
+    font-size:      1.2em;
+    font-weight:    bold;
+    line-height:    2.5em;
+    padding-left:   0.5em;
+}*/
+
+/*TOC (for DEVONthink Markdown documents; for other editors, try e.g. ".toc")*/
+.TOC {
+    background:     #f4f5f8 none repeat scroll 0 0; //f3f6f6
+    border:         0px solid #aaa;
+    border-radius:  10px;
+    display:        table;
+    font-size:      95%;
+    margin-bottom:  1em;
+    padding-left:   2px;
+    padding-top:    2px;
+    padding-bottom: 2px;
+    padding-right:  2px;
+    width:          100%;
+}
+
+/*uncomment if you'd like to automatically add a title to your TOC:*/
+/*.TOC:before {
+    content:        "Table of Contents";
+    font-weight:    bold;
+    font-size:      1.1em;
+    color:          #3973ad;
+    padding-left:   1em;
+    margin-bottom: -1em;
+    line-height:    3em;
+}*/
+
+.TOC li, .TOC ul, .TOC ul li{
+    list-style:     decimal;
+}
+
+.top-link {
+  transition:       all .25s ease-in-out;
+  position:         fixed;
+  bottom:           0;
+  right:            0;
+  display:          inline-flex;
+  color:            #000000;
+
+  cursor:           pointer;
+  align-items:      center;
+  justify-content:  center;
+  margin:           0 2em 2em 0;
+  border-radius:    50%;
+  padding:          .25em;
+  width:            1em;
+  height:           1em;
+  background-color: #F8F8F8;
+}
+
+/*Check-Boxes/To-Do-Boxes (doesn't work in DEVONthink Markdown documents)*/
+/* ul li.checkbox {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #b2b2b2;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #b2b2b2;
+  border-radius: 0.15em;
+} */
+
+/* input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #b2b2b2;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #b2b2b2;
+  border-radius: 0.15em;
+}
+
+input[type="checkbox"]::before {
+  content: " ";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "_";
+  color: #cdef9a;
+  box-shadow: inset 4em 2em #cdef9a;
+}
+
+.task-list-item {
+  list-style-type: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.task-list-item input {
+  margin: 0 0.2em .25em -1.6em;
+  vertical-align: middle;
+  padding-bottom: 0px;
+  opacity: 1;
+} */
+
+/*Definition lists*/
+dl {
+  padding:            0; }
+  dl dt {
+    font-size:        14px;
+    font-weight:      bold;
+    font-style:       italic;
+    padding:          0;
+    margin:           15px 0 5px; }
+    dl dt:first-child {
+      padding:        0; }
+    dl dt > :first-child {
+      margin-top:     0; }
+    dl dt > :last-child {
+      margin-bottom:  0; }
+  dl dd {
+    margin:           0 0 15px;
+    padding:          0 15px; }
+    dl dd > :first-child {
+      margin-top:     0; }
+    dl dd > :last-child {
+      margin-bottom:  0; }
+
+/*Quotes*/
+blockquote {
+  border-left:        4px solid #dddddd;
+  padding:            0 15px;
+  font-style:         normal;
+  color:              #5598c1; }  /* 777777 */
+  blockquote > :first-child {
+    margin-top:       0; }
+  blockquote > :last-child {
+    margin-bottom:    0; }
+
+/*Tables*/
+table {
+  padding:            0;border-collapse: collapse;
+  margin-left:        auto;
+  margin-right:       auto;
+  text-align:         center;}
+  table tr {
+    /* border-top: 1px solid #cccccc; */
+    background-color: white;
+    margin:           0;
+    padding:          0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight:    bold;
+      /* border: 0.5px solid #cccccc; */
+      /* border-left: 0.5px solid #cccccc;
+      border-right: 0.5px solid #cccccc; */
+      background-color: #eefbff;
+      font-size:      14px;
+      margin:         0;
+      padding:        0.4em 0.35em 0.4em 0.35em; }
+    table tr td {
+      /* border: 1px solid #cccccc; */
+      margin:         0;
+       font-size:     14px;
+       padding:       5px 5px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top:     0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom:  0; }
+
+/*Images*/
+img {
+  max-width: 100%;}
+/*Alternative: center Images*/
+/* img {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+*/
+
+/*Span*/
+span.frame {
+  display:      block;
+  overflow:     hidden;
+}
+span.frame > span {
+    border:     1px solid #dddddd;
+    display:    block;
+    float:      left;
+    overflow:   hidden;
+    margin:     13px 0 0;
+    padding:    7px;
+    width:      auto;
+}
+span.frame span img {
+    display:    block;
+    float:      left;
+}
+span.frame span span {
+    clear:      both;
+    color:      #333333;
+    display:    block;
+    padding:    5px 0 0;
+}
+span.align-center {
+  display:      block;
+  overflow:     hidden;
+  clear:        both;
+}
+span.align-center > span {
+    display:    block;
+    overflow:   hidden;
+    margin:     13px auto 0;
+    text-align: center;
+}
+span.align-center span img {
+    margin:     0 auto;
+    text-align: center;
+}
+span.align-right {
+  display:      block;
+  overflow:     hidden;
+  clear:        both;
+}
+span.align-right > span {
+    display:    block;
+    overflow:   hidden;
+    margin:     13px 0 0;
+    text-align: right;
+}
+span.align-right span img {
+    margin:     0;
+    text-align: right;
+}
+span.float-left {
+  display:      block;
+  margin-right: 13px;
+  overflow:     hidden;
+  float:        left;
+}
+span.float-left span {
+    margin:     13px 0 0;
+}
+span.float-right {
+  display:      block;
+  margin-left:  13px;
+  overflow:     hidden;
+  float:        right;
+}
+span.float-right > span {
+    display:    block;
+    overflow:   hidden;
+    margin:     13px auto 0;
+    text-align: right;
+}
+
+/*Code blocks*/
+code, tt {
+    margin:             0 2px;
+    padding:            0 5px;
+    white-space:        nowrap;
+    border:             1px solid #eaeaea;
+    background-color:   #f8f8f8;
+    border-radius:      3px;
+}
+
+pre code {
+    margin:             0;
+    padding:            0;
+    white-space:        pre;
+    border:             none;
+    background:         transparent;
+}
+
+.highlight pre {
+    background-color:   #f8f8f8;
+    border:             1px solid #cccccc;
+    font-size:          13px;
+    line-height:        19px;
+    overflow:           auto;
+    padding:            6px 10px;
+    border-radius:      3px;
+}
+
+/*Preformatted text*/
+pre {
+    background-color:   #f8f8f8;
+    border:             1px solid #cccccc;
+    /*font-size:          13px;*/
+    font-size:          0.90em !important;
+    line-height:        1.6em !important; //19px
+    overflow:           auto;
+    padding:            6px 10px;
+    border-radius:      3px;
+}
+pre code, pre tt {
+    background-color:   transparent;
+    border:             none;
+}
+
+/*Superscript text*/
+sup {
+    font-size:          0.83em;
+    vertical-align:     super;
+    line-height:        0;
+}
+
+/*Subscript text*/
+sub {
+    font-size:          0.83em;
+    vertical-align:     sub;
+    line-height:        0;
+}
+
+/*Define keyboard input*/
+kbd {
+  display:            inline-block;
+  padding:            3px 5px;
+  font-size:          11px;
+  line-height:        10px;
+  color:              #555;
+  vertical-align:     middle;
+  background-color:   #fcfcfc;
+  border:             solid 1px #ccc;
+  border-bottom-color:#bbb;
+  border-radius:      3px;
+  box-shadow:         inset 0 -1px 0 #bbb
+}
+
+/*Color of highlighted text*/
+mark {
+  background-color: #fdfdcc;
+  color: black;
+}
+
+/*Adjustments for printing*/
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width:              854px;
+        margin:             0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside:  avoid;
+	}
+	pre {
+		word-wrap:          break-word;
+	}
+  body {
+    padding:                0cm;
+  }
+}</style>
+              </head>
+              <body><h1>arXiv:quant-ph—from Wednesday, 2024-10-23 to Wednesday, 2024-10-30</h1>
+<h2>Wednesday | 2024-10-23</h2>
+<p><b>Decoherence of spin superposition state caused by a quantum electromagnetic field</b>—2024-07-19 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2407.14581v2">arXiv</a>] Kensuke Gallock-Yoshimura, Yuuki Sugiyama, Akira Matsumura, Kazuhiro Yamamoto</p>
+<p><b>Selective continuous-variable quantum process tomography</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17516v1">arXiv</a>] Virginia Feldman, Ariel Bendersky</p>
+<p><b>Comparing Quantum Encoding Techniques</b>—2024-10-11 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2410.09121v2">arXiv</a>] Nidhi Munikote</p>
+<p><b>Can Constrained Quantum Annealing Be Effective in Noisy Quantum Annealers?</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17528v1">arXiv</a>] Ryoya Igata, Myonsok I, Yuya Seki, Yuta Mizuno, Shohei Watabe</p>
+<p><b>Prethermal Floquet time crystals in chiral multiferroic chains and applications as quantum sensors of AC fields</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17530v1">arXiv</a>] Rohit Kumar Shukla, Levan Chotorlishvili, Sunil K. Mishra, Fernando Iemini</p>
+<p><b>Generating entanglement of two acoustic modes by driving the qubit in circuit quantum acoustodynamics system</b>—2024-10-15 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2410.11630v2">arXiv</a>] Mei-Rong Wei, Qi Guo, Gang Li, Tiancai Zhang</p>
+<p><b>SuperGrad: a differentiable simulator for superconducting processors</b>—2024-06-26 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2406.18155v2">arXiv</a>] Ziang Wang, Feng Wu, Hui-Hai Zhao, Xin Wan, Xiaotong Ni</p>
+<p><b>Quantum illumination using polarization-entangled photon pairs for enhanced object detection</b>—2024-01-18 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2401.10182v2">arXiv</a>] Kanad Sengupta, K. Muhammed Shafi, Soumya Asokan, C. M. Chandrashekar</p>
+<p><b>Universal Entanglement Revival of Topological Origin</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17562v1">arXiv</a>] Dongni Chen, Stefano Chesi, Mahn-Soo Choi</p>
+<p><b>Coalescing hardcore-boson condensate states with nonzero momentum</b>—2024-04-20 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2404.13297v2">arXiv</a>] C. H. Zhang, Z. Song</p>
+<p><b>Ultratight confinement of atoms in a Rydberg empowered optical lattice</b>—2023-01-11 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2301.04450v3">arXiv</a>] Mohammadsadegh Khazali</p>
+<p><b>Phase sensitivity for an SU(1,1) interferometer via multiphoton subtraction at the output port</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17612v1">arXiv</a>] Tao Jiang, Zekun Zhao, Qingqian Kang, Teng Zhao, Nanrun Zhou, Cunjin Liu, Liyun Hu</p>
+<p><b>Generalized Extended Uncertainty Principles, Liouville theorem and density of states: Snyder-de Sitter and Yang models</b>—2024-09-08 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2409.05110v2">arXiv</a>] A. Pachoł</p>
+<p><b>Deterministic formation of carbon-functionalized quantum emitters in hexagonal boron nitride</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17653v1">arXiv</a>] Manlin Luo, Junyu Ge, Pengru Huang, Yi Yu, In Cheol Seo, Kunze Lu, Hao Sun, Jian Kwang Tan, Sejeong Kim, Weibo Gao, Hong Li, Donguk Nam</p>
+<p><b>Dynamic Tuning of Single-Photon Emission in Monolayer WSe2 via Localized Strain Engineering</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17654v1">arXiv</a>] Yi Yu, Junyu Ge, Manlin Luo, In Cheol Seo, Youngmin Kim, John J. H. Eng, Kunze Lu, Tian-Ran Wei, Weibo Gao, Hong Li, Donguk Nam</p>
+<p><b>Lissajous dynamics of a quantum particle in a tilted two-dimensional discrete lattice</b>—2024-09-03 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2409.02268v2">arXiv</a>] Grzegorz Jaczewski, Tomasz Sowiński</p>
+<p><b>Multi-Excitation Projective Simulation with a Many-Body Physics Inspired Inductive Bias</b>—2024-02-15 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2402.10192v3">arXiv</a>] Philip A. LeMaitre, Marius Krumm, Hans J. Briegel</p>
+<p><b>Non-Hermitian Hamiltonian Approach for Two-Dimensional Spectroscopy</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17672v1">arXiv</a>] Hao-Yue Zhang, Bin-Yao Huang, Jing-Yi-Ran Jin, Yi-Xuan Yao, Qing Ai</p>
+<p><b>Self-consistency, relativism and many-particle system</b>—2024-04-21 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2404.13580v2">arXiv</a>] E. E. Perepelkin, B. I. Sadovnikov, N. G. Inozemtseva, M. V. Klimenko</p>
+<p><b>Neural networks with quantum states of light</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17702v1">arXiv</a>] Adrià Labay-Mora, Jorge García-Beni, Gian Luca Giorgi, Miguel C. Soriano, Roberta Zambrini</p>
+<p><b>Quantum correlations of the photon fields in a waveguide quantum electrodynamics</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17710v1">arXiv</a>] Ya. S. Greenberg. O. A. Chuikin, A. G. Moiseev, A. A. Shtygashev</p>
+<p><b>Exponential Separations between Quantum Learning with and without Purification</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17718v1">arXiv</a>] Zhenhuan Liu, Weiyuan Gong, Zhenyu Du, Zhenyu Cai</p>
+<p><b>Fragile spin liquid in three dimensions</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17720v1">arXiv</a>] Anna Fancelli, R. Flores-Calderón, Owen Benton, Bella Lake, Roderich Moessner, Johannes Reuther</p>
+<p><b>Klein-Gordon oscillators and Bergman spaces</b>—2024-05-23 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2405.14349v3">arXiv</a>] Alexander D. Popov</p>
+<p><b>On the explainability of quantum neural networks based on variational quantum circuits</b>—2023-01-12 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2301.05549v3">arXiv</a>] Ammar Daskin</p>
+<p><b>Compilation of Trotter-Based Time Evolution for Partially Fault-Tolerant Quantum Computing Architecture</b>—2024-08-27 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2408.14929v2">arXiv</a>] Yutaro Akahoshi, Riki Toshio, Jun Fujisaki, Hirotaka Oshima, Shintaro Sato, Keisuke Fujii</p>
+<p><b>Quantum many-body scars as remnants of stable many-body periodic orbits</b>—2024-10-22 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2410.16916v2">arXiv</a>] Keita Omiya</p>
+<p><b>An improvement of optical PPM communication with high security</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17775v1">arXiv</a>] Osamu Hirota, Masaki Sohma</p>
+<p><b>Universal quantum processors in spin systems via robust local pulse sequences</b>—2023-11-17 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2311.10600v3">arXiv</a>] Matteo Votto, Johannes Zeiher, Benoît Vermersch</p>
+<p><b>Subsystem Evolution Speed as Indicator of Relaxation</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17798v1">arXiv</a>] Jiaju Zhang, M. A. Rajabpour, Markus Heyl, Reyhaneh Khasseh</p>
+<p><b>Lumped-element two-section impedance-matched SNAIL parametric amplifier</b>—2024-08-12 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2408.06154v2">arXiv</a>] D. Moskaleva, N. Smirnov, D. Moskalev, A. Ivanov, A. Matanin, D. Baklykov, M. Teleganov, V. Polozov, V. Echeistov, E. Malevannaya, I. Korobenko. A. Kuguk, G. Nikerov, J. Agafonova, I. Rodionov</p>
+<p><b>Quantized two terminal conductance, edge states and current patterns in an open geometry 2-dimensional Chern insulator</b>—2023-05-12 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2305.07640v3">arXiv</a>] Junaid Majeed Bhat, R. Shankar, Abhishek Dhar</p>
+<p><b>Introduction to quantum entanglement in many-body systems</b>—2024-02-14 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2402.09523v3">arXiv</a>] Anubhav Kumar Srivastava, Guillem Müller-Rigat, Maciej Lewenstein, Grzegorz Rajchel-Mieldzioć</p>
+<p><b>Quantum-inspired activation functions and quantum Chebyshev-polynomial network</b>—2024-04-08 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2404.05901v3">arXiv</a>] Shaozhi Li, M Sabbir Salek, Yao Wang, Mashrur Chowdhury</p>
+<p><b>Polarimetry With Spins in the Solid State</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17867v1">arXiv</a>] Lorenzo Peri, Felix-Ekkehard von Horstig, Sylvain Barraud, Christopher J. B. Ford, Mónica Benito, M. Fernando Gonzalez-Zalba</p>
+<p><b>Detecting positive quantum capacities of quantum channels</b>—2021-05-13 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2105.06327v2">arXiv</a>] Satvik Singh, Nilanjana Datta</p>
+<p><b>Fast classical simulation of qubit-qudit hybrid systems</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17876v1">arXiv</a>] Haemanth Velmurugan, Arnav Das, Turbasu Chatterjee, Amit Saha, Anupam Chattopadhyay, Amlan Chakrabarti</p>
+<p><b>Fully undistillable quantum states are separable</b>—2022-07-11 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2207.05193v4">arXiv</a>] Satvik Singh, Nilanjana Datta</p>
+<p><b>Controlling cooperative emission and superradiance in waveguide-coupled quantum dots</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17890v1">arXiv</a>] D. Hallett, J. Wiercinski, L. Hallacy, S. Sheldon, R. Dost, N. Martin, A. Fenzl, I. Farrer, A. Verma, M. Cygorek, E. M. Gauger, M. S. Skolnick, L. R. Wilson</p>
+<p><b>Fully smooth one shot multipartite covering and decoupling of quantum states via telescoping</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17893v1">arXiv</a>] Pranab Sen</p>
+<p><b>Information transmission under Markovian noise</b>—2024-09-26 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2409.17743v2">arXiv</a>] Satvik Singh, Nilanjana Datta</p>
+<p><b>Fully smooth one shot multipartite soft covering of quantum states without pairwise independence</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17908v1">arXiv</a>] Pranab Sen</p>
+<p><b>Geometric Antibunching and Directional Shaping of Photon Anticorrelations</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17911v1">arXiv</a>] Blas Durá-Azorín, Alejandro Manjavacas, Antonio I. Fernández-Domínguez</p>
+<p><b>Testing local realistic hidden-variable theories without inequalities</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17912v1">arXiv</a>] Andrea Aiello</p>
+<p><b>Dependency-Aware Compilation for Surface Code Quantum Architectures</b>—2023-11-29 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2311.18042v2">arXiv</a>] Abtin Molavi, Amanda Xu, Swamit Tannu, Aws Albarghouthi</p>
+<p><b>Linearly Multiplexed Photon Number Resolving Single-photon Detectors Array</b>—2024-08-22 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2408.12345v2">arXiv</a>] Leonardo Limongi, Francesco Martini, Thu Ha Dao, Alessandro Gaggero, Hamza Hasnaoui, Igor Lopez-Gonzalez, Fabio Chiarello, Fabio de Matteis, Alberto Quaranta, Andrea Salamon, Francesco Mattioli, Martino Bernard, Mirko Lobino</p>
+<p><b>Parallel quench and dynamic geometrical order parameter</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17940v1">arXiv</a>] Jia-Chen Tang, Xu-Yang Hou, Hao Guo</p>
+<p><b>Learning the dynamics of Markovian open quantum systems from experimental data</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17942v1">arXiv</a>] Stewart Wallace, Yoann Altmann, Brian D. Gerardot, Erik M. Gauger, Cristian Bonato</p>
+<p><b>Quantum Architecture Search with Unsupervised Representation Learning</b>—2024-01-21 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2401.11576v3">arXiv</a>] Yize Sun, Zixin Wu, Yunpu Ma, Volker Tresp</p>
+<p><b>Embezzling entanglement from quantum fields</b>—2024-01-14 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2401.07292v3">arXiv</a>] Lauritz van Luijk, Alexander Stottmeister, Reinhard F. Werner, Henrik Wilming</p>
+<p><b>Learning a quantum computer's capability</b>—2023-04-20 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2304.10650v2">arXiv</a>] Daniel Hothem, Kevin Young, Tommie Catanach, Timothy Proctor</p>
+<p><b>Constant-time magic state distillation</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.17992v1">arXiv</a>] Kwok Ho Wan</p>
+<p><b>Non-Clifford and parallelizable fault-tolerant logical gates on constant and almost-constant rate homological quantum LDPC codes via higher symmetries</b>—2023-10-25 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2310.16982v2">arXiv</a>] Guanyu Zhu, Shehryar Sikander, Elia Portnoy, Andrew W. Cross, Benjamin J. Brown</p>
+<p><b>Correlations and signaling in the Schrödinger-Newton model</b>—2024-06-13 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2406.09230v2">arXiv</a>] Jacek Aleksander Gruca, Ankit Kumar, Ray Ganardi, Paramasivan Arumugam, Karolina Kropielnicka, Tomasz Paterek</p>
+<p><b>An improved Bell-CHSH observable for gauge boson pairs</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18022v1">arXiv</a>] Radosław Grabarczyk</p>
+<p><b>TANQ-Sim: Tensorcore Accelerated Noisy Quantum System Simulation via QIR on Perlmutter HPC</b>—2024-04-19 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2404.13184v2">arXiv</a>] Ang Li, Chenxu Liu, Samuel Stein, In-Saeng Suh, Muqing Zheng, Meng Wang, Yue Shi, Bo Fang, Martin Roetteler, Travis Humble</p>
+<p><b>Quantum optomechanical control of long-lived bulk acoustic phonons</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18037v1">arXiv</a>] Hilel Hagai Diamandi, Yizhi Luo, David Mason, Tevfik Bulent Kanmaz, Sayan Ghosh, Margaret Pavlovich, Taekwan Yoon, Ryan Behunin, Shruti Puri, Jack G. E. Harris, Peter T. Rakich</p>
+<p><b>Hopf algebras and solvable unitary circuits</b>—2024-09-25 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2409.17215v2">arXiv</a>] Zhiyuan Wang</p>
+<p><b>Time evolution in quantum mechanics with a minimal time scale</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18044v1">arXiv</a>] Ziemowit Domański</p>
+<p><b>Floquet-Lindblad Master Equation Approach to Open Quantum System Dynamics</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18046v1">arXiv</a>] Fenton Clawson, Edward B. Flagg</p>
+<p><b>Alternative Bell's states and teleportation</b>—2024-09-10 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2409.06885v3">arXiv</a>] Juan M. Romero, Emiliano Montoya-Gonzalez, Oscar Velazquez-Alvarado</p>
+<p><b>Efficient cavity-assisted storage of photonic qubits in a solid-state quantum memory</b>—2023-07-07 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2307.03509v2">arXiv</a>] Stefano Duranti, Sören Wengerowsky, Leo Feldmann, Alessandro Seri, Bernardo Casabone, Hugues de Riedmatten</p>
+<p><b>What resources do agents need to acquire knowledge in Quantum Thermodynamics?</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18167v1">arXiv</a>] Jake Xuereb, A. de Oliveira Junior, Fabien Clivaz, Pharnam Bakhshinezhad, Marcus Huber</p>
+<p><b>Quantum linear system algorithm with optimal queries to initial state preparation</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18178v1">arXiv</a>] Guang Hao Low, Yuan Su</p>
+<p><b>Simulating quantum chaos without chaos</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18196v1">arXiv</a>] Andi Gu, Yihui Quek, Susanne Yelin, Jens Eisert, Lorenzo Leone</p>
+<p><b>Cooling limits of coherent refrigerators</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18201v1">arXiv</a>] Rodolfo R. Soldati, Durga B. R. Dasari, Jörg Wrachtrup, Eric Lutz</p>
+<p><b>Quantum Transport Straintronics and Mechanical Aharonov-Bohm Effect in Quasi-metallic SWCNTs</b>—2024-08-19 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2408.10355v2">arXiv</a>] L. Huang, G. Wei, A. R. Champagne</p>
+<p><b>Self-similar phase diagram of the Fibonacci-driven quantum Ising model</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18219v1">arXiv</a>] Harald Schmid, Yang Peng, Gil Refael, Felix von Oppen</p>
+<p><b>KMS states of Information Flow in Directed Brain Synaptic Networks</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18222v1">arXiv</a>] El-kaïoum M. Moutuou, Habib Benali</p>
+<p><b>$2+1$ dimensional Floquet systems and lattice fermions: Exact bulk spectral equivalence</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18226v1">arXiv</a>] Thomas Iadecola, Srimoyee Sen, Lars Sivertsen</p>
+<p><b>Interplay between the Hilbert-space dimension of a control system and the memory induced by a quantum SWITCH</b>—2023-12-18 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2312.11685v3">arXiv</a>] Saheli Mukherjee, Bivas Mallick, Sravani Yanamandra, Samyadeb Bhattacharya, Ananda G. Maity</p>
+<p><b>Topological frequency conversion in rhombohedral multilayer graphene</b>—2024-03-15 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2403.09935v2">arXiv</a>] Étienne Lantagne-Hurtubise, Iliya Esin, Gil Refael, Frederik Nathan</p>
+<p><b>Refining Ky Fan's majorization relation with linear programming</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18254v1">arXiv</a>] Mohammad A. Alhejji</p>
+<p><b>Floquet Codes from Coupled Spin Chains</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18265v1">arXiv</a>] Bowen Yan, Penghua Chen, Shawn X. Cui</p>
+<p><b>Quantum Probability Geometrically Realized in Projective Space</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18266v1">arXiv</a>] Stephen Bruce Sontz</p>
+<p><b>Enhanced Gaussian interferometric power, entanglement and Gaussian quantum steering in magnonics system with squeezed light</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18288v1">arXiv</a>] Noura Chabar, M bark Amghar, Mohamed Amazioug</p>
+<p><b>Comparing Three Generations of D-Wave Quantum Annealers for Minor Embedded Combinatorial Optimization Problems</b>—2023-01-08 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2301.03009v4">arXiv</a>] Elijah Pelofske</p>
+<p><b>Dicke State Generation and Extreme Spin Squeezing via Rapid Adiabatic Passage</b>—2023-06-05 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2306.03190v2">arXiv</a>] Sebastian C. Carrasco, Michael H. Goerz, Svetlana A. Malinovskaya, Vladan Vuletic, Wolfgang Schleich, Vladimir S. Malinovsky</p>
+<p><b>An integrated photonic engine for programmable atomic control</b>—2022-08-13 (updated: 2024-10-23)</p>
+<p>[<a href="http://arxiv.org/abs/2208.06732v2">arXiv</a>] Ian Christen, Madison Sutula, Thomas Propson, Hamed Sattari, Gregory Choong, Christopher Panuski, Alexander Melville, Justin Mallek, Scott Hamilton, P. Benjamin Dixon, Adrian J. Menssen, Danielle Braje, Amir H. Ghadimi, Dirk Englund</p>
+<p><b>Quantum Computing Education in Latin America: Experiences and Strategies</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18307v1">arXiv</a>] Laura Tenjo Patiño, Alcides Montoya Cañola, Cristian E. Bello</p>
+<p><b>Quantum equations of motion and the geometrical imperative II: relativistic</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.21305v1">arXiv</a>] R N Henriksen</p>
+<p><b>Hidden variable theory for non-relativistic QED: the critical role of selection rules</b>—2024-10-23</p>
+<p>[<a href="http://arxiv.org/abs/2410.18324v1">arXiv</a>] H. Ishikawa</p>
+<h2>Thursday | 2024-10-24</h2>
+<p><b>Scale-tailored localization and its observation in non-Hermitian electrical circuits</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18339v1">arXiv</a>] Cui-Xian Guo, Luhong Su, Yongliang Wang, Li Li, Jinzhe Wang, Xinhui Ruan, Yanjing Du, Dongning Zheng, Shu Chen, Haiping Hu</p>
+<p><b>Quantum set theory: Equality and order of internal reals defined through different quantum conditionals</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18347v1">arXiv</a>] Masanao Ozawa</p>
+<p><b>Quantum circuit synthesis via a random combinatorial search</b>—2023-11-29 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2311.17298v3">arXiv</a>] Sahel Ashhab, Fumiki Yoshihara, Miwako Tsuji, Mitsuhisa Sato, Kouichi Semba</p>
+<p><b>How High a Field Can Be and Has Been Achieved in Superconducting Bulk Niobium Cavities Across Different RRR Values?</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18365v1">arXiv</a>] Takayuki Kubo</p>
+<p><b>How to correct Ehrenfest nonadiabatic dynamics in open quantum systems: Ehrenfest plus random force (E$+$$σ$) dynamics</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18369v1">arXiv</a>] Jingqi Chen, Joonho Lee, Wenjie Dou</p>
+<p><b>Programmable integrated source of polarization and frequency-bin hyperentangled photon pairs</b>—2023-11-29 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2311.17313v3">arXiv</a>] Colin Vendromin, J. E. Sipe, Marco Liscidini</p>
+<p><b>Edge state behavior of interacting Bosons in a Su-Schrieffer-Heeger lattice</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19020v1">arXiv</a>] Anirban Ghosh, Andy Martin</p>
+<p><b>Operator entanglement in $\mathrm{SU}(2)$-symmetric dissipative quantum many-body dynamics</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18468v1">arXiv</a>] Lin Zhang</p>
+<p><b>Self-distributive structures in physics</b>—2024-03-21 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2403.14458v3">arXiv</a>] Tobias Fritz</p>
+<p><b>Experimental Quantum Simulation of Chemical Dynamics</b>—2024-09-06 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2409.04044v2">arXiv</a>] T. Navickas, R. J. MacDonell, C. H. Valahu, V. C. Olaya-Agudelo, F. Scuccimarra, M. J. Millican, V. G. Matsos, H. L. Nourse, A. D. Rao, M. J. Biercuk, C. Hempel, I. Kassal, T. R. Tan</p>
+<p><b>Enumeration of all superconducting circuits up to 5 nodes</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18497v1">arXiv</a>] Eli J. Weissler, Mohit Bhat, Zhenxing Liu, Joshua Combes</p>
+<p><b>Time-dependent Dunkl-Pauli Oscillator</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18500v1">arXiv</a>] A. Benchikha, B. Khantoul, B. Hamil, B. C. Lütfüoğlu</p>
+<p><b>Multidimensional Electrical Networks and their Application to Exponential Speedups for Graph Problems</b>—2023-11-13 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2311.07372v4">arXiv</a>] Jianqiang Li, Sebastian Zur</p>
+<p><b>Integrated spectrally multiplexed light-matter interface at telecom band</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18516v1">arXiv</a>] Xueying Zhang, Bin Zhang, Shihai Wei, Hao Li, Jinyu Liao, Tao Zhou, Guangwei Deng, You Wang, Haizhi Song, Lixing You, Boyu Fan, Yunru Fan, Feng Chen, Guangcan Guo, Qiang Zhou</p>
+<p><b>Generation of Structured Light and Controlled-NOT Gate in Microwave Regime</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18523v1">arXiv</a>] Parkhi Bhardwaj, Shubhrangshu Dasgupta</p>
+<p><b>Suppressing chaos with mixed superconducting qubit devices</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18543v1">arXiv</a>] Ben Blain, Giampiero Marchegiani, Luigi Amico, Gianluigi Catelani</p>
+<p><b>Emergence of non-ergodic multifractal quantum states in geometrical fractals</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18559v1">arXiv</a>] Fabio Salvati, Mikhail I. Katsnelson, Andrey A. Bagrov</p>
+<p><b>Industrially fabricated single-electron quantum dots in Si/Si-Ge heterostructures</b>—2024-10-22 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2410.16913v2">arXiv</a>] Till Huckemann, Pascal Muster, Wolfram Langheinrich, Varvara Brackmann, Michael Friedrich, Nikola D. Komerički, Laura K. Diebel, Verena Stieß, Dominique Bougeard, Claus Dahl, Lars R. Schreiber, Hendrik Bluhm</p>
+<p><b>Topological Order in the Spectral Riemann Surfaces of Non-Hermitian Systems</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18616v1">arXiv</a>] Anton Montag, Alexander Felski, Flore K. Kunst</p>
+<p><b>Adiabatic training for Variational Quantum Algorithms</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18618v1">arXiv</a>] Ernesto Acosta, Carlos Cano Gutierrez, Guillermo Botella, Roberto Campos</p>
+<p><b>How to integrate a miniature optical cavity in a linear ion trap: shielding dielectrics and trap symmetry</b>—2024-09-08 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2409.05123v4">arXiv</a>] Ezra Kassa, Shaobo Gao, Soon Teh, Dyon van Dinter, Hiroki Takahashi</p>
+<p><b>Weak ergodicity breaking transition in randomly constrained model</b>—2023-09-20 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2309.11180v2">arXiv</a>] Aydin Deger, Achilleas Lazarides</p>
+<p><b>Stochastic optimal control of open quantum systems</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18635v1">arXiv</a>] Aarón Villanueva, Hilbert Kappen</p>
+<p><b>A distributed and parallel $(k, n)$ QSS scheme with verification capability</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18643v1">arXiv</a>] Theodore Andronikos</p>
+<p><b>Metro-scale QKD using multimode fiber</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18646v1">arXiv</a>] Adam Brzosko, Robert I Woodward, Yuen San Lo, Mirko Pittaluga, Peter Raymond Smith, James F Dynes, Andrew J Shields</p>
+<p><b>Quantum Theory, Gravity and Second Order Geometry</b>—2024-10-09 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2410.06799v2">arXiv</a>] Folkert Kuipers</p>
+<p><b>A Superconducting Single-Atom Phonon Laser</b>—2023-12-21 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2312.13948v2">arXiv</a>] C. A. Potts, W. J. M. Franse, V. A. S. V. Bittencourt, A. Metelmann, G. A. Steele</p>
+<p><b>Gate Efficient Composition of Hamiltonian Simulation and Block-Encoding with its Application on HUBO, Fermion Second-Quantization Operators and Finite Difference Method</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18685v1">arXiv</a>] Robin Ollive, Stephane Louise</p>
+<p><b>Distributed and Secure Kernel-Based Quantum Machine Learning</b>—2024-08-16 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2408.10265v2">arXiv</a>] Arjhun Swaminathan, Mete Akgün</p>
+<p><b>A complete continuous-variable quantum computation architecture based on the 2D spatiotemporal cluster state</b>—2023-12-21 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2312.13877v4">arXiv</a>] Peilin Du, Jing Zhang, Tiancai Zhang, Rongguo Yang, Jiangrui Gao</p>
+<p><b>Quantifying the rotating-wave approximation of the Dicke model</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18694v1">arXiv</a>] Leonhard Richter, Daniel Burgarth, Davide Lonigro</p>
+<p><b>Self-Adaptive Physics-Informed Quantum Machine Learning for Solving Differential Equations</b>—2023-12-14 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2312.09215v2">arXiv</a>] Abhishek Setty, Rasul Abdusalamov, Felix Motzoi</p>
+<p><b>Encoded quantum gates by geometric rotation on tessellations</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18713v1">arXiv</a>] Yixu Wang, Yijia Xu, Zi-Wen Liu</p>
+<p><b>RKHS, Berezin and Odzijewicz-type quantizations on arbitrary compact smooth manifold</b>—2024-05-05 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2405.02838v2">arXiv</a>] Rukmini Dey</p>
+<p><b>Flow of dynamical causal structures with an application to correlations</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18735v1">arXiv</a>] Ämin Baumeler, Stefan Wolf</p>
+<p><b>Error convergence of quantum linear system solvers</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18736v1">arXiv</a>] Matias Ginzburg, Ugo Marzolino</p>
+<p><b>Variational Tensor Network Simulation of Gaussian Boson Sampling and Beyond</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18740v1">arXiv</a>] Jonas Vinther, Michael James Kastoryano</p>
+<p><b>Temporally correlated quantum noise in driven quantum systems</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18748v1">arXiv</a>] Balázs Gulácsi, Guido Burkard</p>
+<p><b>Logarithmic-Depth Quantum Circuits for Hamming Weight Projections</b>—2024-04-10 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2404.07151v3">arXiv</a>] Soorya Rethinasamy, Margarite L. LaBorde, Mark M. Wilde</p>
+<p><b>Benchmarking quantum chaos from geometric complexity</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18754v1">arXiv</a>] Arpan Bhattacharyya, Suddhasattwa Brahma, Satyaki Chowdhury, Xiancong Luo</p>
+<p><b>Network-Device-Independent Certification of Causal Nonseparability</b>—2023-08-24 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2308.12760v2">arXiv</a>] Hippolyte Dourdent, Alastair A. Abbott, Ivan Šupić, Cyril Branciard</p>
+<p><b>Spin-dependent Force from an NV center Ensemble on a Microlever</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18762v1">arXiv</a>] Maxime Perdriat, Alrik Durand, Julien Voisin, Gabriel Hétet</p>
+<p><b>CountCrypt: Quantum Cryptography between QCMA and PP</b>—2024-10-18 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2410.14792v2">arXiv</a>] Eli Goldin, Tomoyuki Morimae, Saachi Mutreja, Takashi Yamakawa</p>
+<p><b>Secure quantum-enhanced measurements on a network of sensors</b>—2024-06-27 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2406.19285v3">arXiv</a>] Sean William Moore, Jacob A. Dunningham</p>
+<p><b>Run-and-tumble exact work statistics in a lazy quantum measurement engine: stochastic information processing</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18783v1">arXiv</a>] Léa Bresque, Debraj Das, Édgar Roldán</p>
+<p><b>Signatures of superradiance in intensity correlation measurements in a two-emitter solid-state system</b>—2024-08-03 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2408.01799v3">arXiv</a>] Madhura Ghosh Dastidar, Aprameyan Desikan, Gniewomir Sarbicki, Vidya Praveen Bhallamudi</p>
+<p><b>From $SU(2)$ holonomies to holographic duality via tensor networks</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18812v1">arXiv</a>] Grzegorz Czelusta, Jakub Mielczarek</p>
+<p><b>Hybrid Quantum-Classical Feature Extraction approach for Image Classification using Autoencoders and Quantum SVMs</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18814v1">arXiv</a>] Donovan Slabbert, Francesco Petruccione</p>
+<p><b>Low-excitation transport and separation of high-mass-ratio mixed-species ion chains</b>—2023-12-21 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2312.14006v2">arXiv</a>] Francesco Lancellotti, Stephan Welte, Matteo Simoni, Carmelo Mordini, Tanja Behrle, Brennan de Neeve, Matteo Marinelli, Vlad Negnevitsky, Jonathan Home</p>
+<p><b>Multi-qubit entanglement swapping with squeezed modes</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18843v1">arXiv</a>] Alexandru Macridin, Andrew Cameron, Cristian Pena, Si Xie, Raju Valivarthi, Panagiotis Spentzouris</p>
+<p><b>A novel quantum machine learning classifier to search for new physics</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18847v1">arXiv</a>] Ji-Chong Yang, Shuai Zhang, Chong-Xing Yue</p>
+<p><b>Bose-Fermi $N$-polaron state emergence from correlation-mediated blocking of phase separation</b>—2024-09-20 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2409.13785v2">arXiv</a>] Felipe Gómez-Lozada, Hoshu Hiyane, Thomas Busch, Thomás Fogarty</p>
+<p><b>Preempting Fermion Sign Problem: Unveiling Quantum Criticality through Nonequilibrium Dynamics</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18854v1">arXiv</a>] Yin-Kai Yu, Zhi-Xuan Li, Shuai Yin, Zi-Xiang Li</p>
+<p><b>Spatial averaging for light reflection and transmission through cold atom arrays</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18855v1">arXiv</a>] F. Robicheaux</p>
+<p><b>Block encoding of matrix product operators</b>—2023-12-14 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2312.08861v3">arXiv</a>] Martina Nibbi, Christian B. Mendl</p>
+<p><b>Exact Thermal Eigenstates of Nonintegrable Spin Chains at Infinite Temperature</b>—2024-03-19 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2403.12330v4">arXiv</a>] Yuuya Chiba, Yasushi Yoneta</p>
+<p><b>Experimental observation of spin defects in van der Waals material GeS$_2$</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18892v1">arXiv</a>] W. Liu, S. Li, N. -J. Guo, X. -D. Zeng, L. -K. Xie, J. -Y. Liu, Y. -H. Ma, Y. -Q. Wu, Y. -T. Wang, Z. -A. Wang, J. -M. Ren, C. Ao, J. -S. Xu, J. -S. Tang, A. Gali, C. -F. Li, G. -C. Guo</p>
+<p><b>Simulating 2D lattice gauge theories on a qudit quantum computer</b>—2023-10-18 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2310.12110v3">arXiv</a>] Michael Meth, Jan F. Haase, Jinglei Zhang, Claire Edmunds, Lukas Postler, Alex Steiner, Andrew J. Jena, Luca Dellantonio, Rainer Blatt, Peter Zoller, Thomas Monz, Philipp Schindler, Christine Muschik, Martin Ringbauer</p>
+<p><b>A quantum computing approach to fixed-node Monte Carlo using classical shadows</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18901v1">arXiv</a>] Nick S. Blunt, Laura Caune, Javiera Quiroz-Fernandez</p>
+<p><b>Finite-Time Processes In Quantum Thermodynamics: The Limits Of Irreversibility</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18903v1">arXiv</a>] Alberto Rolandi</p>
+<p><b>Entanglement Spectrum as a diagnostic of chirality of Topological Spin Liquids: Analysis of an $\mathrm{SU}(3)$ PEPS</b>—2023-05-22 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2305.13240v2">arXiv</a>] Mark J. Arildsen, Ji-Yao Chen, Norbert Schuch, Andreas W. W. Ludwig</p>
+<p><b>Characterizing conical intersections of nucleobases on quantum computers</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18910v1">arXiv</a>] Yuchen Wang, Cameron Cianci, Irma Avdic, Rishab Dutta, Samuel Warren, Brandon Allen, Nam P. Vu, Lea F. Santos, Victor S. Batista, David A. Mazziotti</p>
+<p><b>Quantum Many-Body Scars beyond the PXP model in Rydberg simulators</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18913v1">arXiv</a>] Aron Kerschbaumer, Marko Ljubotina, Maksym Serbyn, Jean-Yves Desaules</p>
+<p><b>How to Design a Quantum Streaming Algorithm Without Knowing Anything About Quantum Computing</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18922v1">arXiv</a>] John Kallaugher, Ojas Parekh, Nadezhda Voronova</p>
+<p><b>Learning $k$-body Hamiltonians via compressed sensing</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18928v1">arXiv</a>] Muzhou Ma, Steven T. Flammia, John Preskill, Yu Tong</p>
+<p><b>More on the Operator Space Entanglement (OSE): Rényi OSE, revivals, and integrability breaking</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18930v1">arXiv</a>] Vincenzo Alba</p>
+<p><b>ML-Powered FPGA-based Real-Time Quantum State Discrimination Enabling Mid-circuit Measurements</b>—2024-06-27 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2406.18807v3">arXiv</a>] Neel R. Vora, Yilun Xu, Akel Hashim, Neelay Fruitwala, Ho Nam Nguyen, Haoran Liao, Jan Balewski, Abhi Rajagopala, Kasra Nowrouzi, Qing Ji, K. Birgitta Whaley, Irfan Siddiqi, Phuc Nguyen, Gang Huang</p>
+<p><b>Internal structure of gauge-invariant Projected Entangled Pair States</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18947v1">arXiv</a>] David Blanik, José Garre-Rubio, András Molnár, Erez Zohar</p>
+<p><b>An Open-Source Data Storage and Visualization Platform for Collaborative Qubit Control</b>—2024-03-07 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2403.14672v3">arXiv</a>] Devanshu Brahmbhatt, Yilun Xu, Neel Vora, Larry Chen, Neelay Fruitwala, Gang Huang, Qing Ji, Phuc Nguyen</p>
+<p><b>The Learning Stabilizers with Noise problem</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18953v1">arXiv</a>] Alexander Poremba, Yihui Quek, Peter Shor</p>
+<p><b>Casimir repulsion turned into attraction by the nonlocal response of salted water</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.18961v1">arXiv</a>] Larissa Inácio, Felipe S. S. Rosa, Serge Reynaud, Paulo A. Maia Neto</p>
+<p><b>Quantum State Tomography of Photonic Qubits with Realistic Coherent Light Sources</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19039v1">arXiv</a>] Artur Czerwinski</p>
+<p><b>The complexity of entanglement embezzlement</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19051v1">arXiv</a>] Tal Schwartzman</p>
+<p><b>1D Spontaneous Symmetry Breaking in thermal equilibrium via Non-Hermitian Construction</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19052v1">arXiv</a>] Jia-Bao Wang, Zi-Hao Dong, Yi Zhang</p>
+<p><b>Oracle Separations for the Quantum-Classical Polynomial Hierarchy</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19062v1">arXiv</a>] Avantika Agarwal, Shalev Ben-David</p>
+<p><b>Realistic Cost to Execute Practical Quantum Circuits using Direct Clifford+T Lattice Surgery Compilation</b>—2023-11-17 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2311.10686v4">arXiv</a>] Tyler LeBlond, Christopher Dean, George Watkins, Ryan S. Bennink</p>
+<p><b>SU($N$) symmetry with ultracold alkali dimers: weak dependence of scattering properties on hyperfine state</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19068v1">arXiv</a>] Bijit Mukherjee, Jeremy M. Hutson</p>
+<p><b>Bell's inequality in relativistic Quantum Field Theory</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19101v1">arXiv</a>] M. S. Guimaraes, I. Roditi, S. P. Sorella</p>
+<p><b>The advent of fully variational quantum eigensolvers using a hybrid multiresolution approach</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19116v1">arXiv</a>] Fabian Langkabel, Stefan Knecht, Jakob S. Kottmann</p>
+<p><b>Reproducing the effects of quantum deformation in the undeformed Jaynes-Cummings model</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19118v1">arXiv</a>] Thiago T. Tsutsui, Antonio S. M. de Castro, Fabiano M. Andrade</p>
+<p><b>Exactly solvable models for fermionic symmetry-enriched topological phases and fermionic 't Hooft anomaly</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19126v1">arXiv</a>] Jing-Ren Zhou, Zheng-Cheng Gu</p>
+<p><b>Ultra precise determination of Cs($nS_{1/2}$) and Cs($nD_J$) quantum defects for sensing and computing: Evaluation of core contributions</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19129v1">arXiv</a>] Pinrui Shen, Donald Booth, Chang Liu, Scott Beattie, Claude Marceau, James P. Shaffer, Mariusz Pawlak, H. R. Sadeghpour</p>
+<p><b>Towards a complete classification of non-chiral topological phases in 2D fermion systems</b>—2021-12-12 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2112.06124v3">arXiv</a>] Jing-Ren Zhou, Qing-Rui Wang, Zheng-Cheng Gu</p>
+<p><b>Quantum Merlin-Arthur with an internally separable proof</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19152v1">arXiv</a>] Roozbeh Bassirian, Bill Fefferman, Itai Leigh, Kunal Marwaha, Pei Wu</p>
+<p><b>Nanoscale magnetic ordering dynamics in a high Curie temperature ferromagnet</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19158v1">arXiv</a>] Yueh-Chun Wu, Gábor B. Halász, Joshua T. Damron, Zheng Gai, Huan Zhao, Yuxin Sun, Karin A Dahmen, Changhee Sohn, Erica W. Carlson, Chengyun Hua, Shan Lin, Jeongkeun Song, Ho Nyung Lee, Benjamin J. Lawrie</p>
+<p><b>Emergence of Light Cones in Long-range Interacting Spin Chains due to Destructive Interference</b>—2024-07-16 (updated: 2024-10-24)</p>
+<p>[<a href="http://arxiv.org/abs/2407.11639v2">arXiv</a>] Peyman Azodi, Herschel A. Rabitz</p>
+<p><b>Absorption of a twisted photon by an electron in strong magnetic field</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19162v1">arXiv</a>] A. A. Shchepkin, D. V. Grosman, I. I. Shkarupa, D. V. Karlovets</p>
+<p><b>Role of Quantum Coherence in Chirped Dynamic Nuclear Polarization</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19170v1">arXiv</a>] Mayur Jhamnani, Sajith V Sadasivan, Sheetal Kumar Jain, Asif Equbal</p>
+<p><b>Probabilistic Representation of Commutative Quantum Circuit Models</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19173v1">arXiv</a>] Richard Yu, Jorge Ramirez, Elaine Wong</p>
+<p><b>Quantum Probabilities Are Objective Degrees of Epistemic Justification</b>—2024-10-24</p>
+<p>[<a href="http://arxiv.org/abs/2410.19175v1">arXiv</a>] Philipp Berghofer</p>
+<h2>Friday | 2024-10-25</h2>
+<p><b>Antineutrinos produced from $β$ decays of neutrons cannot be in coherent superpositions of different mass eigenstates</b>—2024-10-04 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2410.03133v2">arXiv</a>] Shi-Biao Zheng</p>
+<p><b>Performance advantage of discriminating one-versus-two incoherent sources based on quantum hypothesis testing</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19259v1">arXiv</a>] Jian-Dong Zhang, Mei-Ming Zhang, Chuang Li, Shuai Wang</p>
+<p><b>Characterizations of Strongly Entanglement Breaking channels for infinite-dimensional quantum systems</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19270v1">arXiv</a>] Bui Ngoc Muoi, Nung-Sing Sze</p>
+<p><b>Finite Temperature Casimir Effect of Scalar Field: Revisit and New Results</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19275v1">arXiv</a>] Liang Chen, Sheng-Yan Li</p>
+<p><b>Quantum Simulation of Spin-Boson Models with Structured Bath</b>—2024-05-23 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2405.14624v4">arXiv</a>] Ke Sun, Mingyu Kang, Hanggai Nuomin, George Schwartz, David N. Beratan, Kenneth R. Brown, Jungsang Kim</p>
+<p><b>Phonon-induced contrast in a matter-wave interferometer</b>—2024-04-05 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2404.04210v2">arXiv</a>] Qian Xiang, Run Zhou, Sougato Bose, Anupam Mazumdar</p>
+<p><b>Cavity-Magnon-Polariton spectroscopy of strongly hybridized electro-nuclear spin excitations in LiHoF4</b>—2023-09-10 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2309.05051v3">arXiv</a>] Yikai Yang, Peter Babkevich, Richard Gaal, Ivica Zivkovic, Henrik M. Ronnow</p>
+<p><b>Development of a high-power ultraviolet laser system and observation of fast coherent Rydberg excitation of ytterbium</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19284v1">arXiv</a>] Yuma Nakamura, Naoya Ozawa, Toshi Kusano, Rei Yokoyama, Kosuke Shibata, Tetsushi Takano, Yosuke Takasu, Yoshiro Takahashi</p>
+<p><b>An Evidence of Addressing Coherence Errors in VQE Observables by Pulse-level VQE Approach</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19286v1">arXiv</a>] Xiaoan Lin</p>
+<p><b>Ultrafast single-photon detection using nanophotonic parametric amplifiers</b>—2024-10-24 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2410.18397v2">arXiv</a>] Elina Sendonaris, James Williams, Rajveer Nehra, Robert Gray, Ryoto Sekine, Luis Ledezma, Alireza Marandi</p>
+<p><b>Efficient charging of multiple open quantum batteries through dissipation and pumping</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19303v1">arXiv</a>] Josephine Dias, Hui Wang, Kae Nemoto, Franco Nori, William J. Munro</p>
+<p><b>Entanglement dynamics for SCTS in the Jaynes-Cummings model with atoms in Werner state</b>—2024-10-24 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2410.18466v2">arXiv</a>] Koushik Mandal, M. V. Satyanarayana</p>
+<p><b>Quantum electrometry of non-volatile space charges in diamond</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19309v1">arXiv</a>] R. M. Goldblatt, N. Dontschuk, D. J. McCloskey, A. M. Martin, A. A. Wood</p>
+<p><b>Pseudorandomness in the (Inverseless) Haar Random Oracle Model</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19320v1">arXiv</a>] Prabhanjan Ananth, John Bostanci, Aditya Gulati, Yao-Ting Lin</p>
+<p><b>Enhancing Quantum Key Distribution with Entanglement Distillation and Classical Advantage Distillation</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19334v1">arXiv</a>] Shin Sun, Kenneth Goodenough, Daniel Bhatti, David Elkouss</p>
+<p><b>Runtime Reduction in Linear Quantum Charge-Coupled Devices using the Parity Flow Formalism</b>—2024-10-21 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2410.16382v2">arXiv</a>] Federico Domínguez, Michael Fellner, Berend Klaver, Stefan Rombouts, Christian Ertler, Wolfgang Lechner</p>
+<p><b>Generalized Wigner-Smith analysis of resonance perturbations in low $Q$ non-Hermitian systems</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19357v1">arXiv</a>] Niall Byrnes, Matthew R. Foreman</p>
+<p><b>Tensor-based quantum phase difference estimation for large-scale demonstration</b>—2024-08-09 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2408.04946v3">arXiv</a>] Shu Kanno, Kenji Sugisaki, Hajime Nakamura, Hiroshi Yamauchi, Rei Sakuma, Takao Kobayashi, Qi Gao, Naoki Yamamoto</p>
+<p><b>Matrix-product unitaries: Beyond quantum cellular automata</b>—2024-06-14 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2406.10195v2">arXiv</a>] Georgios Styliaris, Rahul Trivedi, David Pérez-García, J. Ignacio Cirac</p>
+<p><b>Atomic clock locking with Bayesian quantum parameter estimation: scheme and experiment</b>—2023-06-11 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2306.06608v4">arXiv</a>] Chengyin Han, Zhu Ma, Yuxiang Qiu, Ruihuan Fang, Jiatao Wu, Chang Zhan, Maojie Li, Jiahao Huang, Bo Lu, Chaohong Lee</p>
+<p><b>Entanglement Entropy of a Scalar Field in a Squeezed State</b>—2024-03-05 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2403.03136v3">arXiv</a>] Dimitrios Katsinis, Georgios Pastras, Nikolaos Tetradis</p>
+<p><b>Pushing the Boundaries: Interferometric Mass Photometry at the Quantum Limit of Sensitivity</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19417v1">arXiv</a>] Fabian Müller, Emre Köse, Alfred J. Meixner, Erik Schäffer, Daniel Braun</p>
+<p><b>Identifying non-Hermitian critical points with quantum metric</b>—2024-04-24 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2404.15628v3">arXiv</a>] Jun-Feng Ren, Jing Li, Hai-Tao Ding, Dan-Wei Zhang</p>
+<p><b>The probabilistic world</b>—2020-11-04 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2011.02867v3">arXiv</a>] C. Wetterich</p>
+<p><b>Comparative study of quantum methods in the resolution of track findings instances</b>—2024-10-24 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2410.18552v2">arXiv</a>] Duy Dao Do, Hervé Kerivin, Philippe Lacomme, Bogdan Vulpescu</p>
+<p><b>Quantum eigenvalue processing</b>—2024-01-11 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2401.06240v2">arXiv</a>] Guang Hao Low, Yuan Su</p>
+<p><b>Four-parameter Mittag-Leffler functions and their associated coherent states</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19462v1">arXiv</a>] Dušan Popov</p>
+<p><b>Robust teleportation of a surface code and cascade of topological quantum phase transitions</b>—2024-03-07 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2403.04767v3">arXiv</a>] Finn Eckstein, Bo Han, Simon Trebst, Guo-Yi Zhu</p>
+<p><b>Quantum optimization for Nonlinear Model Predictive Control</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19467v1">arXiv</a>] Carlo Novara, Mattia Boggio, Deborah Volpe</p>
+<p><b>Monte Carlo particle transport on quantum computers</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19489v1">arXiv</a>] Noé Olivier, Michel Nowak</p>
+<p><b>Quantum Graph-State Synthesis with SAT</b>—2023-09-07 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2309.03593v2">arXiv</a>] Sebastiaan Brand, Tim Coopmans, Alfons Laarman</p>
+<p><b>A 300 mm foundry silicon spin qubit unit cell exceeding 99% fidelity in all operations</b>—2024-10-21 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2410.15590v2">arXiv</a>] Paul Steinacker, Nard Dumoulin Stuyck, Wee Han Lim, Tuomo Tanttu, MengKe Feng, Andreas Nickl, Santiago Serrano, Marco Candido, Jesus D. Cifuentes, Fay E. Hudson, Kok Wai Chan, Stefan Kubicek, Julien Jussot, Yann Canvel, Sofie Beyne, Yosuke Shimura, Roger Loo, Clement Godfrin, Bart Raes, Sylvain Baudot, Danny Wan, Arne Laucht, Chih Hwan Yang, Andre Saraiva, Christopher C. Escott, Kristiaan De Greve, Andrew S. Dzurak</p>
+<p><b>Enhanced strong interaction effect in synthetic spin-orbit coupling with mixed spin symmetry</b>—2024-03-11 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2403.07188v2">arXiv</a>] Ayaka Usui, Abel Rojo-Francàs, James Schloss, Bruno Juliá-Díaz</p>
+<p><b>Resonances, mobility edges and gap-protected Anderson localization in generalized disordered mosaic lattices</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19521v1">arXiv</a>] Stefano Longhi</p>
+<p><b>Symmetry-informed transferability of optimal parameters in the Quantum Approximate Optimization Algorithm</b>—2024-07-05 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2407.04496v2">arXiv</a>] Isak Lyngfelt, Laura García-Álvarez</p>
+<p><b>Hierarchy of approximations for describing quantum light from high-harmonic generation: A Fermi-Hubbard model study</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19533v1">arXiv</a>] Christian Saugbjerg Lange, Lars Bojer Madsen</p>
+<p><b>Coherent spectroscopy of a single Mn-doped InGaAs quantum dot</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19537v1">arXiv</a>] Jovana Filipovic, Ankit Kundu, Neelesh Kumar Vij, Simon Fécherolle, Aristide Lemaître, Shilpi Gupta, Olivier Krebs</p>
+<p><b>The product structure of MPS-under-permutations</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19541v1">arXiv</a>] Marta Florido-Llinàs, Álvaro M. Alhambra, Rahul Trivedi, Norbert Schuch, David Pérez-García, J. Ignacio Cirac</p>
+<p><b>Floquet Engineering of Hilbert Space Fragmentation in Stark Lattices</b>—2023-11-20 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2311.11771v2">arXiv</a>] Li Zhang, Yongguan Ke, Ling Lin, Chaohong Lee</p>
+<p><b>Topological bosonic Bogoliubov excitations with sublattice symmetry</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19554v1">arXiv</a>] Ling-Xia Guo, Liang-Liang Wan, Liu-Gang Si, Xin-You Lü, Ying Wu</p>
+<p><b>Reply to Comment on "Neutrino oscillations originate from virtual excitation of Z bosons" and "Neutrinos produced from $β$ decays of neutrons cannot be in coherent superpositions of different mass eigenstates"</b>—2024-10-17 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2410.13475v2">arXiv</a>] Shi-Biao Zheng</p>
+<p><b>Topological fingerprints in Liouvillian gaps</b>—2024-01-24 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2401.13732v2">arXiv</a>] Kevin Kavanagh, Joost K. Slingerland, Shane Dooley, Graham Kells</p>
+<p><b>Optimizing Unitary Coupled Cluster Wave Functions on Quantum Hardware: Error Bound and Resource-Efficient Optimizer</b>—2024-10-19 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2410.15129v2">arXiv</a>] Martin Plazanet, Thomas Ayral</p>
+<p><b>Shortcut-to-adiabaticity for coupled harmonic oscillators</b>—2023-10-14 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2310.09576v3">arXiv</a>] Jonas F. G. Santos</p>
+<p><b>Harnessing Room-Temperature Ferroelectricity in Metal Oxide Monolayers for Advanced Logic Devices</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19582v1">arXiv</a>] Ateeb Naseer, Musaib Rafiq, Somnath Bhowmick, Amit Agarwal, Yogesh Singh Chauhan</p>
+<p><b>Extracting Dynamical Maps of Non-Markovian Open Quantum Systems</b>—2024-09-25 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2409.17051v2">arXiv</a>] David J. Strachan, Archak Purkayastha, Stephen R. Clark</p>
+<p><b>Dynamics and Geometry of Entanglement in Many-Body Quantum Systems</b>—2023-08-18 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2308.09784v2">arXiv</a>] Peyman Azodi, Herschel A Rabitz</p>
+<p><b>High-impedance resonators for strong coupling to an electron on helium</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19592v1">arXiv</a>] G. Koolstra, E. O. Glen, N. R. Beysengulov, H. Byeon, K. E. Castoria, M. Sammon, B. Dizdar, C. S. Wang, D. I. Schuster, S. A. Lyon, J. Pollanen, D. G. Rees</p>
+<p><b>The Fast Mode-Fourier-Transform and the bands of the Bethe chain</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19597v1">arXiv</a>] Jose Reslen</p>
+<p><b>The Bose-Marletto-Vedral experiment with nanodiamond interferometers: an insight on entanglement detection</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19601v1">arXiv</a>] Giuseppe Di Pietra, Fabrizio Piacentini, Ettore Bernardi, Ekaterina Moreva, Carmine Napoli, Ivo Pietro Degiovanni, Marco Genovese, Vlatko Vedral, Chiara Marletto</p>
+<p><b>Collisional thermometry for Gaussian systems</b>—2024-05-20 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2405.12030v2">arXiv</a>] Gabriel O. Alves, Marcelo A. F. Santos, Gabriel T. Landi</p>
+<p><b>The complexity of Gottesman-Kitaev-Preskill states</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19610v1">arXiv</a>] Lukas Brenner, Libor Caha, Xavier Coiteux-Roy, Robert Koenig</p>
+<p><b>Fast Scrambling in Classically Simulable Quantum Circuits</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19614v1">arXiv</a>] Mike Blake, Noah Linden, Anthony P. Thompson</p>
+<p><b>Controlled dissipation for Rydberg atom experiments</b>—2023-10-31 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2310.20687v3">arXiv</a>] Bleuenn Bégoc, Giovanni Cichelli, Sukhjit P. Singh, Fabio Bensch, Valerio Amico, Francesco Perciavalle, Davide Rossini, Luigi Amico, Oliver Morsch</p>
+<p><b>Measurement-device-independent resource characterization protocols</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19617v1">arXiv</a>] Chenxu Li, Mingze Xu, Hao Dai, Xiongfeng Ma</p>
+<p><b>The game of metaphysics</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19622v1">arXiv</a>] Raoni Arroyo, Matteo Morganti</p>
+<p><b>Simulating thermodynamic properties of dinuclear metal complexes using Variational Quantum Algorithms</b>—2024-04-09 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2404.06527v2">arXiv</a>] Ana Clara das Neves Silva, Clebson Cruz</p>
+<p><b>Fermion and Boson Pairs in Beamsplitters and MZIs</b>—2024-09-20 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2409.13835v2">arXiv</a>] Jonte R. Hance</p>
+<p><b>Counting statistics of ultra-broadband microwave photons</b>—2024-04-11 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2404.07868v4">arXiv</a>] Simon Bolduc Beaudoin, Edouard Pinsolle, Bertrand Reulet</p>
+<p><b>Improved Electron-Nuclear Quantum Gates for Spin Sensing and Control</b>—2024-09-20 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2409.13610v2">arXiv</a>] H. B. van Ommen, G. L. van de Stolpe, N. Demetriou, H. K. C. Beukers, J. Yun, T. R. J. Fortuin, M. Iuliano, A. R. -P. Montblanch, R. Hanson, T. H. Taminiau</p>
+<p><b>Automated generation of photonic circuits for Bell tests with homodyne measurements</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19670v1">arXiv</a>] Corentin Lanore, Federico Grasselli, Xavier Valcarce, Jean-Daniel Bancal, Nicolas Sangouard</p>
+<p><b>Coherent and incoherent light scattering by single-atom wavepackets</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19671v1">arXiv</a>] Vitaly Fedoseev, Hanzhen Lin, Yu-Kun Lu, Yoo Kyung Lee, Jiahao Lyu, Wolfgang Ketterle</p>
+<p><b>Controlling dephasing of coupled qubits via shared-bath coherence</b>—2024-05-23 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2405.14685v2">arXiv</a>] L. M. J. Hall, L. S. Sirkina, A. Morreau, W. Langbein, E. A. Muljarov</p>
+<p><b>The Many-Worlds Calculus</b>—2022-06-21 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2206.10234v4">arXiv</a>] Kostia Chardonnet, Marc de Visme, Benoît Valiron, Renaud Vilmart</p>
+<p><b>Quantum Algorithm for Online Exp-concave Optimization</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19688v1">arXiv</a>] Jianhao He, Chengchang Liu, Xutong Liu, Lvzhou Li, John C. S. Lui</p>
+<p><b>Crosstalk-Robust Quantum Control in Multimode Bosonic Systems</b>—2024-03-01 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2403.00275v2">arXiv</a>] Xinyuan You, Yunwei Lu, Taeyoon Kim, Doga Murat Kurkcuoglu, Shaojiang Zhu, David van Zanten, Tanay Roy, Yao Lu, Srivatsan Chakram, Anna Grassellino, Alexander Romanenko, Jens Koch, Silvia Zorzetti</p>
+<p><b>Entanglement Criteria Based on Quantum Fisher Information</b>—2024-07-22 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2407.15413v2">arXiv</a>] Ao-Xiang Liu, Ma-Cheng Yang, Cong-Feng Qiao</p>
+<p><b>Relative descriptors for quantum agents</b>—2024-06-10 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2406.06719v2">arXiv</a>] David Möckli, Lorenzo Spies Perraro</p>
+<p><b>Quantum Uncertainty Equalities and Inequalities for Unitary Operators</b>—2024-01-15 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2401.07409v2">arXiv</a>] Ao-Xiang Liu, Ma-Cheng Yang, Cong-Feng Qiao</p>
+<p><b>Probing spontaneously symmetry-broken phases with spin-charge separation through noise correlation measurements</b>—2024-04-12 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2404.08374v3">arXiv</a>] Kerman Gallego-Lizarribar, Sergi Julià-Farré, Maciej Lewenstein, Christof Weitenberg, Luca Barbiero, Javier Argüello-Luengo</p>
+<p><b>Efficient Hamiltonian engineering</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19903v1">arXiv</a>] Pascal Baßler, Markus Heinrich, Martin Kliesch</p>
+<p><b>Method for noise-induced regularization in quantum neural networks</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19921v1">arXiv</a>] Wilfrid Somogyi, Ekaterina Pankovets, Viacheslav Kuzmin, Alexey Melnikov</p>
+<p><b>Halving the Cost of Quantum Algorithms with Randomization</b>—2024-09-05 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2409.03744v3">arXiv</a>] John M. Martyn, Patrick Rall</p>
+<p><b>Thermal cycling -- evidence for a generalized tunneling model and a tool to distinguish noise sources in quantum circuits</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19930v1">arXiv</a>] Yigal Reiss, Moshe Schechter</p>
+<p><b>Microwave-Induced Cooling in Double Quantum Dots: Achieving Millikelvin Temperatures to Reduce Thermal Noise around Spin Qubits</b>—2024-08-21 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2408.12024v4">arXiv</a>] Daryoosh Vashaee, Jahanfar Abouie</p>
+<p><b>Inverse magneto-conductance design by automatic differentiation</b>—2024-09-03 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2409.02009v2">arXiv</a>] Yuta Hirasaki, Koji Inui, Eiji Saitoh</p>
+<p><b>Hyperfine rovibrational states of H$_3^+$ in a weak external magnetic field</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19963v1">arXiv</a>] Gustavo Avila, Ayaki Sunaga, Stanislav Komorovsky, Edit Matyus</p>
+<p><b>LatentQGAN: A Hybrid QGAN with Classical Convolutional Autoencoder</b>—2024-09-22 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2409.14622v3">arXiv</a>] Alexis Vieloszynski, Soumaya Cherkaoui, Jean-Frédéric Laprade, Oliver Nahman-Lévesque, Abdallah Aaraba, Shengrui Wang</p>
+<p><b>Observation of quantum thermalization restricted to Hilbert space fragments</b>—2024-03-14 (updated: 2024-10-25)</p>
+<p>[<a href="http://arxiv.org/abs/2403.09517v2">arXiv</a>] Luheng Zhao, Prithvi Raj Datla, Weikun Tian, Mohammad Mujahid Aliyu, Huanqian Loh</p>
+<p><b>A Photonic Crystal Receiver for Rydberg Atom-Based Sensing</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.19994v1">arXiv</a>] Hadi Amarloo, Mohammad Noaman, Su-Peng Yu, Donald Booth, Somayeh Mirzaee, Rajesh Pandiyan, Florian Christaller, James P. Shaffer</p>
+<p><b>Can Alice do science and have friends, in a relational quantum world? Solipsism and Relational Quantum Mechanics</b>—2024-10-25</p>
+<p>[<a href="http://arxiv.org/abs/2410.20012v1">arXiv</a>] Carlo Rovelli</p>
+<h2>Saturday | 2024-10-26</h2>
+<p><b>Classifying coherence with a finite set of witnesses</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20023v1">arXiv</a>] Xue-Na Zhu, Zhi-Xiang Jin, Gui Bao, Shao-Ming Fei</p>
+<p><b>Quantum teleportation coexisting with classical communications in optical fiber</b>—2024-04-16 (updated: 2024-10-26)</p>
+<p>[<a href="http://arxiv.org/abs/2404.10738v4">arXiv</a>] Jordan M. Thomas, Fei I. Yeh, Jim Hao Chen, Joe J. Mambretti, Scott J. Kohlert, Gregory S. Kanter, Prem Kumar</p>
+<p><b>Cavity dark mode mediated by atom array without atomic scattering loss</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20044v1">arXiv</a>] Xiaotian Zhang, Zhanhai Yu, Hongrui Zhang, Di Xiang, Hao Zhang</p>
+<p><b>Resonator-mediated quantum gate between distant charge qubits</b>—2024-06-10 (updated: 2024-10-26)</p>
+<p>[<a href="http://arxiv.org/abs/2406.06442v2">arXiv</a>] Florian Kayatz, Jonas Mielke, Guido Burkard</p>
+<p><b>Bifurcations of nonlinear dynamics in coupled twin spin masers</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20087v1">arXiv</a>] Tishuo Wang, Zhenhua Yu</p>
+<p><b>Nonlinear spin dynamics induced by feedback under continuous Larmor frequency distributions</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20090v1">arXiv</a>] Tishuo Wang, Zhihuang Luo, Shizhong Zhang, Zhenhua Yu</p>
+<p><b>The Communication Complexity of Approximating Matrix Rank</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20094v1">arXiv</a>] Alexander A. Sherstov, Andrey A. Storozhenko</p>
+<p><b>Fidelity preserving and decoherence for mixed unitary quantum channels</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20117v1">arXiv</a>] Kai Liu, Deguang Han</p>
+<p><b>Controllable single-photon wave packet scattering in two-dimensional waveguide by a giant atom</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20123v1">arXiv</a>] Weijun Cheng, Zhihai Wang, Yu-Xi Liu</p>
+<p><b>Prediction of chaotic dynamics and extreme events: A recurrence-free quantum reservoir computing approach</b>—2024-05-06 (updated: 2024-10-26)</p>
+<p>[<a href="http://arxiv.org/abs/2405.03390v2">arXiv</a>] Osama Ahmed, Felix Tennie, Luca Magri</p>
+<p><b>Parametric longitudinal coupling of a semiconductor charge qubit and a RF resonator</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20217v1">arXiv</a>] Victor Champain, Simon Zihlmann, Alessandro Chessari, Benoit Bertrand, Heimanu Niebojewski, Etienne Dumur, Xavier Jehl, Vivien Schmitt, Boris Brun, Clemens Winkelmann, Yann-Michel Niquet, Michele Filippone, Silvano De Franceschi, Romain Maurand</p>
+<p><b>Generalized and new solutions of the NRT nonlinear Schrödinger equation</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20228v1">arXiv</a>] P. R. Gordoa, A. Pickering, D. Puertas-Centeno, E. V. Toranzo</p>
+<p><b>Characterization of $n$-Dimensional Toric and Burst-Error-Correcting Quantum Codes from Lattice Codes</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20233v1">arXiv</a>] Cibele Cristina Trinca, Reginaldo Palazzo Jr., J. Carmelo Interlando, Ricardo Augusto Watanabe, Clarice Dias de Albuquerque, Edson Donizete de Carvalho, Antonio Aparecido de Andrade</p>
+<p><b>Experimental demonstration of the Bell-type inequalities for four qubit Dicke state using IBM Quantum Processing Unit</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20241v1">arXiv</a>]  Tomis, Harsh Mehta, Shreya Banerjee, Prasanta K. Panigrahi, V. Narayanan</p>
+<p><b>Phase-Space methods for neutrino oscillations: extension to multi-beams</b>—2024-09-30 (updated: 2024-10-26)</p>
+<p>[<a href="http://arxiv.org/abs/2409.20215v3">arXiv</a>] Denis Lacroix, Angel Bauge, Bulent Yilmaz, Mariane Mangin-Brinet, Alessandro Roggero, A. Baha Balantekin</p>
+<p><b>New MiniBooNE excess interpretation using Pseudo-Hermitian neutrino oscillation</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20260v1">arXiv</a>] M. L. Abdelali, N. Mebarki, B. Boutaghane, M. Trirat</p>
+<p><b>Generalized fusions of photonic quantum states using static linear optics</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20261v1">arXiv</a>] Frank Schmidt, Peter van Loock</p>
+<p><b>Generalized Rényi entropy accumulation theorem and generalized quantum probability estimation</b>—2024-05-09 (updated: 2024-10-26)</p>
+<p>[<a href="http://arxiv.org/abs/2405.05912v4">arXiv</a>] Amir Arqand, Thomas A. Hahn, Ernest Y. -Z. Tan</p>
+<p><b>Upconversion of Phonon Modes into Microwave Photons in a Lithium Niobate Bulk Acoustic Wave Resonator Coupled to a Microwave Cavity</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20271v1">arXiv</a>] S. Parashar, W. M. Campbell, J. Bourhill, E. N. Ivanov, M. Goryachev, M. E. Tobar</p>
+<p><b>Efficient Frequency Allocation for Superconducting Quantum Processors Using Improved Optimization Techniques</b>—2024-10-26</p>
+<p>[<a href="http://arxiv.org/abs/2410.20283v1">arXiv</a>] Zewen Zhang, Pranav Gokhale, Jeffrey M. Larson</p>
+<p><b>Magic Can Enhance the Quantum Capacity of Channels</b>—2024-01-22 (updated: 2024-10-26)</p>
+<p>[<a href="http://arxiv.org/abs/2401.12105v2">arXiv</a>] Kaifeng Bu, Arthur Jaffe</p>
+<h2>Sunday | 2024-10-27</h2>
+<p><b>Efficient Circuit Wire Cutting Based on Commuting Groups</b>—2024-10-27</p>
+<p>[<a href="http://arxiv.org/abs/2410.20313v1">arXiv</a>] Xinpeng Li, Vinooth Kulkarni, Daniel T. Chen, Qiang Guan, Weiwen Jiang, Ning Xie, Shuai Xu, Vipin Chaudhary</p>
+<p><b>A hybrid quantum solver for the Lorenz system</b>—2024-10-20 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2410.15417v2">arXiv</a>] Sajad Fathi Hafshejani, Daya Gaur, Arundhati Dasgupta, Robert Benkoczi, Narasimha Gosala, Alfredo Iorio</p>
+<p><b>Majorana fermions solve the tetrahedron equations as well as higher simplex equations</b>—2024-10-27</p>
+<p>[<a href="http://arxiv.org/abs/2410.20328v1">arXiv</a>] Pramod Padmanabhan, Vladimir Korepin</p>
+<p><b>On the exact quantum query complexity of $\text{MOD}<em k_l="k,l">m^n$ and $\text{EXACT}</em>^n$</b>—2023-03-20 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2303.10935v5">arXiv</a>] Penghui Yao, Zekun Ye</p>
+<p><b>Gain-Loss Coupled Systems</b>—2024-10-27</p>
+<p>[<a href="http://arxiv.org/abs/2410.20338v1">arXiv</a>] Chunlei Zhang, Mun Kim, Yi-Hui Zhang, Yi-Pu Wang, Deepanshu Trivedi, Alex Krasnok, Jianbo Wang, Dustin Isleifson, Roy Roshko, Can-Ming Hu</p>
+<p><b>Bidirectional quantum teleportation using quantum walks</b>—2024-10-27</p>
+<p>[<a href="http://arxiv.org/abs/2410.20339v1">arXiv</a>] A. S. Abay Krishna, K. K. Naseeda, N. C. Randeep</p>
+<p><b>Quantum many-body simulation of finite-temperature systems with sampling a series expansion of a quantum imaginary-time evolution</b>—2024-09-11 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2409.07070v2">arXiv</a>] Norifumi Matsumoto, Shoichiro Tsutsui, Yuya O. Nakagawa, Yuichiro Hidaka, Shota Kanasugi, Kazunori Maruyama, Hirotaka Oshima, Shintaro Sato</p>
+<p><b>Bosonic Mpemba effect with non-classical states of light</b>—2024-10-21 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2410.16463v2">arXiv</a>] Stefano Longhi</p>
+<p><b>Phonon state tomography of electron correlation dynamics in optically excited solids</b>—2024-03-07 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2403.04209v2">arXiv</a>] Mattia Moroder, Matteo Mitrano, Ulrich Schollwöck, Sebastian Paeckel, John Sous</p>
+<p><b>Characterizing entangled state update in different reference frames with weak measurements</b>—2024-10-27</p>
+<p>[<a href="http://arxiv.org/abs/2410.20450v1">arXiv</a>] Jawad Allam, Alex Matzkin</p>
+<p><b>Tripartite entanglement from experimental data: $B^0\to K^{*0}μ^+μ^-$ as a case study</b>—2024-09-19 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2409.13033v2">arXiv</a>] Roberto A. Morales, Alejandro Szynkman</p>
+<p><b>Certifying classes of $d$-outcome measurements with quantum steering</b>—2024-10-27</p>
+<p>[<a href="http://arxiv.org/abs/2410.20477v1">arXiv</a>] Alexandre C. Orthey Jr, Remigiusz Augusiak</p>
+<p><b>On the set of reduced states of translation invariant, infinite quantum systems</b>—2023-08-28 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2308.14585v2">arXiv</a>] Vjosa Blakaj, Michael M. Wolf</p>
+<p><b>Perspectives on epitaxial InGaP for quantum and nonlinear optics</b>—2024-10-27</p>
+<p>[<a href="http://arxiv.org/abs/2410.20507v1">arXiv</a>] Joshua Akin, Yunlei Zhao, A. K. M. Naziul Haque, Kejie Fang</p>
+<p><b>A Path Integral Treatment of Time-dependent Dunkl Quantum Mechanics</b>—2024-10-27</p>
+<p>[<a href="http://arxiv.org/abs/2410.20531v1">arXiv</a>] A. Benchikha, B. Hamil, B. C. Lütfüoğlu</p>
+<p><b>Stable dynamic helix state in the nonintegrable XXZ Heisenberg model</b>—2023-08-11 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2308.06146v3">arXiv</a>] Gang Zhang, Zhi Song</p>
+<p><b>Synthesis of Binary-Input Multi-Valued Output Optical Cascades for Reversible and Quantum Technologies</b>—2024-10-24 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2410.18367v2">arXiv</a>] Ishani Agarwal, Miroslav Saraivanov, Marek Perkowski</p>
+<p><b>Complexity of two-level systems</b>—2024-08-10 (updated: 2024-10-27)</p>
+<p>[<a href="http://arxiv.org/abs/2408.05557v2">arXiv</a>] Imre Varga</p>
+<h2>Monday | 2024-10-28</h2>
+<p><b>Entanglement Entropy of Free Fermions in Timelike Slices</b>—2022-10-06 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2210.03134v4">arXiv</a>] Bowei Liu, Hao Chen, Biao Lian</p>
+<p><b>Machine Learning and Quantum Intelligence for Health Data Scenarios</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21339v1">arXiv</a>] Sanjeev Naguleswaran</p>
+<p><b>Simulating and probing many-body quantum states in waveguide-QED systems with giant atoms</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20653v1">arXiv</a>] C. L. Yang, W. Z. Jia</p>
+<p><b>Photon-mediated dipole-dipole interactions as a resource for quantum science and technology in cold atoms</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20665v1">arXiv</a>] H. H. Jen</p>
+<p><b>Cosmological Bell Tests with Decoherence Effects</b>—2024-05-12 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2405.07141v3">arXiv</a>] Chon Man Sou, Junqi Wang, Yi Wang</p>
+<p><b>All-optical measurement-device-free feedforward enabling ultra-fast quantum information processing</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20693v1">arXiv</a>] Taichi Yamashima, Takahiro Kashiwazaki, Takumi Suzuki, Rajveer Nehra, Tomohiro Nakamura, Asuka Inoue, Takeshi Umeki, Kan Takase, Warit Asavanant, Mamoru Endo, Akira Furusawa</p>
+<p><b>EQB: Synthesizing Permutative Quantum Gates and Circuits Using Rotation-Based Group Decomposition</b>—2024-10-25 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.19229v2">arXiv</a>] Ishani Agarwal, Miroslav Saraivanov, Ali Al-Bayaty, Marek Perkowski</p>
+<p><b>A computational test of quantum contextuality, and even simpler proofs of quantumness</b>—2024-05-10 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2405.06787v2">arXiv</a>] Atul Singh Arora, Kishor Bharti, Alexandru Cojocaru, Andrea Coladangelo</p>
+<p><b>Detecting the Chern number via quench dynamics in two independent chains</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20748v1">arXiv</a>] D. K. He, Y. B. Shi, Z. Song</p>
+<p><b>On Quantum Reliability Characterizing Systematic Errors in Quantum Sensing</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20759v1">arXiv</a>] Lian-Xiang Cui, Yi-Mu Du, C. P. Sun</p>
+<p><b>Efficient simulation of inhomogeneously correlated systems using block interaction product states</b>—2024-08-15 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2408.07965v2">arXiv</a>] Yifan Cheng, Zhaoxuan Xie, Xiaoyu Xie, Haibo Ma</p>
+<p><b>Maneuvering measurement-coherence into measurement-entanglement</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20793v1">arXiv</a>] Ho-Joon Kim, Soojoon Lee</p>
+<p><b>Pancharatnam phase as an entanglement witness for quantum gravity in dual Stern-Gerlach interferometers</b>—2024-09-29 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2409.19692v2">arXiv</a>] Samuel Moukouri</p>
+<p><b>Fast Phase Factor Finding for Quantum Signal Processing</b>—2024-10-08 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.06409v2">arXiv</a>] Hongkang Ni, Lexing Ying</p>
+<p><b>Of gyrators and anyons</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20835v1">arXiv</a>] O. Kashuba, R. Mummadavarapu, R. -P. Riwar</p>
+<p><b>Simulating NMR Spectra with a Quantum Computer</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20836v1">arXiv</a>] Joaquín Ossorio-Castillo, Alexandre Rodríguez-Coello</p>
+<p><b>Quantum landscape tomography for efficient single-gate optimization on quantum computers</b>—2024-07-25 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2407.18305v2">arXiv</a>] Matan Ben-Dov, Itai Arad, Emanuele G. Dalla Torre</p>
+<p><b>Two-mode Open Quantum Systems: Decoherence and Localized Bound State Dynamics</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20840v1">arXiv</a>] Chia-Yi Lin, Chuan-Zhe Yao, Hon-Lam Lai, Chin-Chun Tsai, Wei-Min Zhang</p>
+<p><b>Quantum Computational Insurance and Actuarial Science</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20841v1">arXiv</a>] Huan-Yu Liu, Xi-Ning Zhuang, Chao Wang, Meng-Han Dou, Zhao-Yun Chen, Cheng Xue, Yu-Chun Wu, Guo-Ping Guo</p>
+<p><b>Logarithmic light cone, slow entanglement growth, and quantum memory</b>—2023-05-15 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2305.08334v3">arXiv</a>] Yu Zeng, Alioscia Hamma, Yu-Ran Zhang, Qiang Liu, Rengang Li, Heng Fan, Wu-Ming Liu</p>
+<p><b>Post-Quantum Security: Origin, Fundamentals, and Adoption</b>—2024-05-20 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2405.11885v2">arXiv</a>] Johanna Barzen, Frank Leymann</p>
+<p><b>Finding Quantum Codes via Riemannian Optimization</b>—2024-07-11 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2407.08423v2">arXiv</a>] Miguel Casanova, Kentaro Ohki, Francesco Ticozzi</p>
+<p><b>Towards high-sensitivity magnetometry with nitrogen vacancy centers in diamond using the singlet infrared absorption</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20876v1">arXiv</a>] Ali Tayefeh Younesi, Muhib Omar, Arne Wickenbrock, Dmitry Budker, Ronald Ulbricht</p>
+<p><b>Geometric-Like imaginarity: quantification and state conversion</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20879v1">arXiv</a>] Meng-Li Guo, Bo Li, Shao-Ming Fei</p>
+<p><b>Decoherence rate expression due to air molecule scattering in spatial qubits</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20910v1">arXiv</a>] Martine Schut, Patrick Andriolo, Marko Toroš, Sougato Bose, Anupam Mazumdar</p>
+<p><b>Faster and Better Quantum Software Testing through Specification Reduction and Projective Measurements</b>—2024-05-24 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2405.15450v2">arXiv</a>] Noah H. Oldfield, Christoph Laaber, Tao Yue, Shaukat Ali</p>
+<p><b>Improved separation between quantum and classical computers for sampling and functional tasks</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.20935v1">arXiv</a>] Simon C. Marshall, Scott Aaronson, Vedran Dunjko</p>
+<p><b>Thermodynamic Approach to Quantifying Incompatible Instruments</b>—2024-02-20 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2402.13080v5">arXiv</a>] Chung-Yun Hsieh, Shin-Liang Chen</p>
+<p><b>Simple Fermionic backflow states via a systematically improvable tensor decomposition</b>—2024-07-16 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2407.11779v2">arXiv</a>] Massimo Bortone, Yannic Rath, George H. Booth</p>
+<p><b>The quantum vortices dynamics: spatio-temporal scale hierarchy and origin of turbulence</b>—2023-09-03 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2309.01085v2">arXiv</a>] S. V. Talalov</p>
+<p><b>Extending Simulability of Cliffords and Matchgates</b>—2024-10-14 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.10068v2">arXiv</a>] Andrew M. Projansky, Jason Necaise, James D. Whitfield</p>
+<p><b>Entanglement Hamiltonian and effective temperature of non-Hermitian quantum spin ladders</b>—2024-09-25 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2409.17062v2">arXiv</a>] Pei-Yun Yang, Yu-Chin Tzeng</p>
+<p><b>State Swapping via Semiclassical Gravity</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21009v1">arXiv</a>] Praveer K. Gollapudi, M. Kemal Döner, André Großardt</p>
+<p><b>Quantum Metrology with Higher-order Exceptional Points in Atom-cavity Magnonics</b>—2024-05-16 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2405.09899v2">arXiv</a>] Minwei Shi, Guzhi Bao, Jinxian Guo, Weiping Zhang</p>
+<p><b>Hybrid Quantum-Classical Reinforcement Learning in Latent Observation Spaces</b>—2024-10-23 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.18284v2">arXiv</a>] Dániel T. R. Nagy, Csaba Czabán, Bence Bakó, Péter Hága, Zsófia Kallus, Zoltán Zimborás</p>
+<p><b>Equivalence in virtual transitions between uniformly accelerated and static atoms: from a bird's eye</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21051v1">arXiv</a>] Pradeep Kumar Kumawat, Subhajit Barman, Bibhas Ranjan Majhi</p>
+<p><b>Effect of environment-induced interatomic interaction on entanglement generation for uniformly accelerated atoms with a boundary</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21056v1">arXiv</a>] Chenhao Ma, Zixu Zhao</p>
+<p><b>Position measurement and the Huygens-Fresnel principle: A quantum model of Fraunhofer diffraction for polarized pure states</b>—2017-10-26 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/1710.09758v7">arXiv</a>] Bernard Fabbro</p>
+<p><b>Bounded light cone and robust topological order out of equilibrium</b>—2022-08-29 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2208.13839v4">arXiv</a>] Yu Zeng, Alioscia Hamma, Yu-Ran Zhang, Jun-Peng Cao, Heng Fan, Wu-Ming Liu</p>
+<p><b>Consistency of EFT illuminated via relative entropy: A case study in scalar field theory</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21062v1">arXiv</a>] Daiki Ueda, Kazuhiro Tatsumi</p>
+<p><b>Transforming optimization problems into a QUBO form: A tutorial</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21074v1">arXiv</a>] Alexander M. Semenov, Sergey R. Usmanov, Aleksey K. Fedorov</p>
+<p><b>Topologically driven no-superposing theorem with a tight error bound</b>—2021-11-03 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2111.02391v3">arXiv</a>] Zuzana Gavorová</p>
+<p><b>Minisuperspace model of quantum geometrodynamics in the Madelung-Bohm formalism</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21095v1">arXiv</a>] V. E. Kuzmichev, V. V. Kuzmichev</p>
+<p><b>Robustness and Generalization in Quantum Reinforcement Learning via Lipschitz Regularization</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21117v1">arXiv</a>] Nico Meyer, Julian Berberich, Christopher Mutschler, Daniel D. Scherer</p>
+<p><b>Quantum entanglement and Einstein-Podolsky-Rosen steering in magnon frequency comb</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21122v1">arXiv</a>] Qianjun Zheng, H. Y. Yuan, Yunshan Cao, Peng Yan</p>
+<p><b>Quantum channel coding: Approximation algorithms and strong converse exponents</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21124v1">arXiv</a>] Aadil Oufkir, Mario Berta</p>
+<p><b>Stabilizer configuration interaction: Finding molecular subspaces with error detection properties</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21125v1">arXiv</a>] Abhinav Anand, Kenneth R. Brown</p>
+<p><b>Quantum magic dynamics in random circuits</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21128v1">arXiv</a>] Yuzhen Zhang, Yingfei Gu</p>
+<p><b>Thresholds for post-selected quantum error correction from statistical mechanics</b>—2024-10-10 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.07598v2">arXiv</a>] Lucas H. English, Dominic J. Williamson, Stephen D. Bartlett</p>
+<p><b>Manipulation of Quantum Strings by Edge Defect in Kagome Rydberg Atom Array</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21135v1">arXiv</a>] Wei Xu, Xue-Feng Zhang</p>
+<p><b>Information Scrambling with Higher-Form Fields</b>—2024-10-06 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.04625v2">arXiv</a>] Karunava Sil, Sourav Maji, Stavros Christodoulou, Abhishek Chowdhury</p>
+<p><b>Simulation of the 1d XY model on a quantum computer</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21143v1">arXiv</a>] Marc Farreras, Alba Cervera-Lierta</p>
+<p><b>Defending the Quantum Reconstruction Program</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21152v1">arXiv</a>] Philipp Berghofer</p>
+<p><b>End-to-end variational quantum sensing</b>—2024-03-04 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2403.02394v2">arXiv</a>] Benjamin MacLellan, Piotr Roztocki, Stefanie Czischek, Roger G. Melko</p>
+<p><b>GHZ protocols enhance frequency metrology despite spontaneous decay</b>—2024-06-17 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2406.11639v2">arXiv</a>] Timm Kielinski, Piet O. Schmidt, Klemens Hammerer</p>
+<p><b>The Composite Particle Duality: A New Class of Topological Quantum Matter</b>—2023-06-01 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2306.00825v3">arXiv</a>] Gerard Valentí-Rojas, Joel Priestley, Patrik Öhberg</p>
+<p><b>Microscale Sensing with Strongly Interacting NV Ensembles at High Fields</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21182v1">arXiv</a>] Ainitze Biteri-Uribarren, Ana Martin, Jorge Casanova</p>
+<p><b>Improving BB84 Efficiency with Delayed Measurement via Quantum Memory</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21191v1">arXiv</a>] Mohammed Hassan, Omar Abouelazm</p>
+<p><b>A quantum expectation identity: Applications to statistical mechanics</b>—2024-03-14 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2403.09860v3">arXiv</a>] Boris Maulén, Sergio Davis, Daniel Pons</p>
+<p><b>Sample-Optimal Quantum Estimators for Pure-State Trace Distance and Fidelity via Samplizer</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21201v1">arXiv</a>] Qisheng Wang, Zhicheng Zhang</p>
+<p><b>Simple analytical model describing the collective nonlinear response of an ensemble of two-level emitters weakly coupled to a waveguide</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21202v1">arXiv</a>] Max Schemmer, Martin Cordier, Lucas Pache, Philipp Schneeweiss, Jürgen Volz, Arno Rauschenbeutel</p>
+<p><b>Standalone mobile quantum memory system</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21209v1">arXiv</a>] Martin Jutisz, Alexander Erl, Janik Wolters, Mustafa Gündoğan, Markus Krutzik</p>
+<p><b>Digital stabilization of an IQ modulator in the carrier suppressed single side-band (CS-SSB) mode for atom interferometry</b>—2024-08-29 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2408.16678v3">arXiv</a>] Arif Ullah, Samuel Legge, John D. Close, Simon A. Haine, Ryan J. Thomas</p>
+<p><b>Noise robustness and threshold of many-body quantum magic</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21215v1">arXiv</a>] Fuchuan Wei, Zi-Wen Liu</p>
+<p><b>Qureka! Box -- An ENSAR methodology based tool for understanding quantum computing concepts</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21219v1">arXiv</a>] Abhishek Purohit, Jose Jorge Christen, Richard Kienhoefer, Simon Armstrong, Maninder Kaur, Araceli Venegas-Gomez</p>
+<p><b>RE-completeness of entangled constraint satisfaction problems</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21223v1">arXiv</a>] Eric Culf, Kieran Mastel</p>
+<p><b>Trapping of Bose-Einstein condensates in a three-dimensional dark focus generated by conical refraction</b>—2017-05-06 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/1705.02425v3">arXiv</a>] D. Pfeiffer, L. Lind, J. Küber, F. Schmaltz, A. Turpin, V. Ahufinger, J. Mompart, G. Birkl</p>
+<p><b>Shot-noise reduction for lattice Hamiltonians</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21251v1">arXiv</a>] Timo Eckstein, Refik Mansuroglu, Stefan Wolf, Ludwig Nützel, Stephan Tasler, Martin Kliesch, Michael J. Hartmann</p>
+<p><b>Quantum computing and persistence in topological data analysis</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21258v1">arXiv</a>] Casper Gyurik, Alexander Schmidhuber, Robbie King, Vedran Dunjko, Ryu Hayakawa</p>
+<p><b>Pseudochaotic Many-Body Dynamics as a Pseudorandom State Generator</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21268v1">arXiv</a>] Wonjun Lee, Hyukjoon Kwon, Gil Young Cho</p>
+<p><b>Supersymmetry dynamics on Rydberg atom arrays</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21386v1">arXiv</a>] Shuo Liu, Zhengzhi Wu, Shi-Xin Zhang, Hong Yao</p>
+<p><b>Extendibility limits quantum-secured communication and key distillation</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21393v1">arXiv</a>] Vishal Singh, Mark M. Wilde</p>
+<p><b>Observable-projected ensembles</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21397v1">arXiv</a>] Alexey Milekhin, Sara Murciano</p>
+<p><b>Stabilizing Non-Abelian Topological Order against Heralded Noise via Local Lindbladian Dynamics</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21402v1">arXiv</a>] Sanket Chirame, Abhinav Prem, Sarang Gopalakrishnan, Fiona J. Burnell</p>
+<p><b>Approaches to Simultaneously Solving Variational Quantum Eigensolver Problems</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21413v1">arXiv</a>] Adam Hutchings, Eric Yarnot, Xinpeng Li, Qiang Guan, Ning Xie, Shuai Xu, Vipin Chaudhary</p>
+<p><b>Nearly tight bounds for testing tree tensor network states</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21417v1">arXiv</a>] Benjamin Lovitz, Angus Lowe</p>
+<p><b>Near-field dynamical Casimir effect</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21420v1">arXiv</a>] Renwen Yu, Shanhui Fan</p>
+<p><b>Spin-1 Haldane phase in a chain of Rydberg atoms</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21424v1">arXiv</a>] J. Mögerle, K. Brechtelsbauer, A. T. Gea-Caballero, J. Prior, G. Emperauger, G. Bornet, C. Chen, T. Lahaye, A. Browaeys, H. P. Büchler</p>
+<p><b>Generalization Error in Quantum Machine Learning in the Presence of Sampling Noise</b>—2024-10-18 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.14654v2">arXiv</a>] Fangjun Hu, Xun Gao</p>
+<p><b>Quantum Spread-Spectrum CDMA Communication Systems: Mathematical Foundations</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21450v1">arXiv</a>] Mohammad Amir Dastgheib, Jawad A. Salehi, Mohammad Rezai</p>
+<p><b>Hardness-Dependent Adiabatic Schedules for Analog Quantum Computing</b>—2024-10-11 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.08995v2">arXiv</a>] Sébastien Perseguers</p>
+<p><b>Quantized Integrated Shift Effect in Multigap Topological Phases</b>—2024-02-20 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2402.13245v2">arXiv</a>] Wojciech J. Jankowski, Robert-Jan Slager</p>
+<p><b>Quantum optimization using a 127-qubit gate-model IBM quantum computer can outperform quantum annealers for nontrivial binary optimization problems</b>—2024-06-03 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2406.01743v4">arXiv</a>] Natasha Sachdeva, Gavin S. Hartnett, Smarak Maity, Samuel Marsh, Yulun Wang, Adam Winick, Ryan Dougherty, Daniel Canuto, You Quan Chong, Michael Hush, Pranav S. Mundada, Christopher D. B. Bentley, Michael J. Biercuk, Yuval Baum</p>
+<p><b>Long-time behavior of multi-level open systems interacting with non-vacuum reservoirs</b>—2024-10-07 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.05505v2">arXiv</a>] A. E. Teretenkov</p>
+<p><b>Reinforcement Learning for Rotation Sensing with Ultracold Atoms in an Optical Lattice</b>—2022-12-29 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2212.14473v2">arXiv</a>] Liang-Ying Chih, Murray Holland</p>
+<p><b>Disentanglement process in dephasing channel with machine learning</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21504v1">arXiv</a>] Qihang Liu, Anran Qiao, Jung-Tsung Shen</p>
+<p><b>Cavity Spectroscopy for Strongly Correlated Systems</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21515v1">arXiv</a>] Lukas Grunwald, Emil Viñas Boström, Mark Kamper Svendsen, Dante M. Kennes, Angel Rubio</p>
+<p><b>Quantum coarsening and collective dynamics on a programmable quantum simulator</b>—2024-07-03 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2407.03249v2">arXiv</a>] Tom Manovitz, Sophie H. Li, Sepehr Ebadi, Rhine Samajdar, Alexandra A. Geim, Simon J. Evered, Dolev Bluvstein, Hengyun Zhou, Nazli Ugur Koyluoglu, Johannes Feldmeier, Pavel E. Dolgirev, Nishad Maskara, Marcin Kalinowski, Subir Sachdev, David A. Huse, Markus Greiner, Vladan Vuletić, Mikhail D. Lukin</p>
+<p><b>Entanglement generation using single-photon pulse reflection in realistic networks</b>—2024-10-28</p>
+<p>[<a href="http://arxiv.org/abs/2410.21555v1">arXiv</a>] Ferdinand Omlor, Benedikt Tissot, Guido Burkard</p>
+<p><b>Experimental lower bounds on entanglement entropy without twin copy</b>—2024-04-15 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2404.09935v4">arXiv</a>] Yannick Meurice</p>
+<p><b>Low-overhead quantum error correction codes with a cyclic topology</b>—2022-11-06 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2211.03094v2">arXiv</a>] Ilya. A. Simakov, Ilya. S. Besedin</p>
+<p><b>Demonstration of a programmable optical lattice atom interferometer</b>—2023-05-28 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2305.17603v2">arXiv</a>] Catie LeDesma, Kendall Mehling, Jieqiu Shao, John Drew Wilson, Penina Axelrad, Marco Nicotra, Dana Z. Anderson, Murray Holland</p>
+<p><b>Discovery of Quasi-Integrable Equations from traveling-wave data using the Physics-Informed Neural Networks</b>—2024-10-23 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2410.19014v2">arXiv</a>] A. Nakamula, N. Sawado, K. Shimasaki, Y. Shimazaki, Y. Suzuki, K. Toda</p>
+<p><b>The Hidden Ontological Variable in Quantum Harmonic Oscillators</b>—2024-07-25 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2407.18153v4">arXiv</a>] Gerard t Hooft</p>
+<p><b>Topological Signal Processing on Quantum Computers for Higher-Order Network Analysis</b>—2023-12-12 (updated: 2024-10-28)</p>
+<p>[<a href="http://arxiv.org/abs/2312.07672v3">arXiv</a>] Caesnan M. G. Leditto, Angus Southwell, Behnam Tonekaboni, Gregory A. L. White, Muhammad Usman, Kavan Modi</p>
+<h2>Tuesday | 2024-10-29</h2>
+<p><b>Quantum HodgeRank: Topology-Based Rank Aggregation on Quantum Computers</b>—2024-07-29 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2407.20452v3">arXiv</a>] Caesnan M. G. Leditto, Angus Southwell, Behnam Tonekaboni, Muhammad Usman, Kavan Modi</p>
+<p><b>Learning the structure of any Hamiltonian from minimal assumptions</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21635v1">arXiv</a>] Andrew Zhao</p>
+<p><b>High-Entanglement Capabilities for Variational Quantum Algorithms: The Poisson Equation Case</b>—2024-06-14 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2406.10156v5">arXiv</a>] Fouad Ayoub, James D. Baeder</p>
+<p><b>The $φ^n$ trajectory bootstrap</b>—2024-02-08 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2402.05778v3">arXiv</a>] Wenliang Li</p>
+<p><b>Efficient quantum Gibbs samplers with Kubo--Martin--Schwinger detailed balance condition</b>—2024-04-09 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2404.05998v5">arXiv</a>] Zhiyan Ding, Bowen Li, Lin Lin</p>
+<p><b>Enantiomer-Specific Pumping of Chiral Molecules</b>—2024-06-23 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2406.15978v2">arXiv</a>] Fen Zou, Yong Li, Peng Zhang</p>
+<p><b>Lorentz violation alleviates gravitationally induced entanglement degradation</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21681v1">arXiv</a>] Wentao Liu, Cuihong Wen, Jieci Wang</p>
+<p><b>Entanglement-enhanced AC magnetometry in the presence of Markovian noises</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21699v1">arXiv</a>] Thanaporn Sichanugrist, Hajime Fukuda, Takeo Moroi, Kazunori Nakayama, So Chigusa, Norikazu Mizuochi, Masashi Hazumi, Yuichiro Matsuzaki</p>
+<p><b>Antichiral and trap-skin dynamics in a nonreciprocal bosonic two-leg ladder with artificial magnetic flux</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21701v1">arXiv</a>] Rui-Jie Chen, Guo-Qing Zhang, Zhi Li, Dan-Wei Zhang</p>
+<p><b>Quantum enhanced balanced heterodyne readout for differential interferometry</b>—2024-01-10 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2401.04940v4">arXiv</a>] Daniel W. Gould, Vaishali B. Adya, Sheon S. Y. Chua, Jonas Junker, Dennis Wilken, Terry G. McRae, Bram J. J. Slagmolen, Min Jet Yap, Robert L. Ward, Michèle Heurs, David E. McClelland</p>
+<p><b>Design nearly optimal quantum algorithm for linear differential equations via Lindbladians</b>—2024-10-25 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2410.19628v2">arXiv</a>] Zhong-Xia Shang, Naixu Guo, Dong An, Qi Zhao</p>
+<p><b>The aspect of bipartite coherence in quantum discord to semi-device-independent nonlocality and its implication for quantum information processing</b>—2024-10-06 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2410.04430v3">arXiv</a>] Chellasamy Jebarathinam, Huan-Yu Ku, Hao-Chung Cheng, Hsi-Sheng Goan</p>
+<p><b>Quantum Locking of Intrinsic Spin Squeezed State in Earth-field-range Magnetometry</b>—2023-09-21 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2309.11855v2">arXiv</a>] Peiyu Yang, Guzhi Bao, Jun Chen, Wei Du, Jinxian Guo, Weiping Zhang</p>
+<p><b>Néel Spin-Orbit Torque in Antiferromagnetic Quantum Spin and Anomalous Hall Insulators</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21751v1">arXiv</a>] Junyu Tang, Hantao Zhang, Ran Cheng</p>
+<p><b>Entanglement dynamics of a two-qutrits system coupled to a spin chain</b>—2024-07-29 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2407.19661v2">arXiv</a>] Seyed Mohsen Moosavi Khansari, Fazlollah Kazemi Hasanvand</p>
+<p><b>Impact of spatial curvature on quantum Otto engines</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21780v1">arXiv</a>] S. Kourkinejat, A. Mahdifar, E. Amooghorban</p>
+<p><b>Photonic Quantum Receiver Attaining the Helstrom Bound</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21800v1">arXiv</a>] Aakash Warke, Janis Nötzel, Kan Takase, Warit Asavanant, Hironari Nagayoshi, Kosuke Fukui, Shuntaro Takeda, Akira Furusawa, Peter van Loock</p>
+<p><b>Tolerant testing of stabilizer states with a polynomial gap via a generalized uncertainty relation</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21811v1">arXiv</a>] Zongbo Bao, Philippe van Dordrecht, Jonas Helsen</p>
+<p><b>Unifying recent experiments on spin-valley locking in TMDC quantum dots</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21814v1">arXiv</a>] Aakash Shandilya, Sundeep Kapila, Radha Krishnan, Bent Weber, Bhaskaran Muralidharan</p>
+<p><b>Classical Algorithms for Constant Approximation of the Ground State Energy of Local Hamiltonians</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21833v1">arXiv</a>] François Le Gall</p>
+<p><b>Theory of vibrational Stark effect for adsorbates and diatomic molecules</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22378v1">arXiv</a>] Sang Yang, Jun Cai, Yanxia Chen, Ming Gong</p>
+<p><b>Coupler-Assisted Leakage Reduction for Scalable Quantum Error Correction with Superconducting Qubits</b>—2024-03-24 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2403.16155v2">arXiv</a>] Xiaohan Yang, Ji Chu, Zechen Guo, Wenhui Huang, Yongqi Liang, Jiawei Liu, Jiawei Qiu, Xuandong Sun, Ziyu Tao, Jiawei Zhang, Jiajian Zhang, Libo Zhang, Yuxuan Zhou, Weijie Guo, Ling Hu, Ji Jiang, Yang Liu, Xiayu Linpeng, Tingyong Chen, Yuanzhen Chen, Jingjing Niu, Song Liu, Youpeng Zhong, Dapeng Yu</p>
+<p><b>Ultrafast spintronics with geometric effects in non-adiabatic wave-packet dynamics</b>—2022-08-09 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2208.04805v2">arXiv</a>] Matisse Wei-Yuan Tu, Li-Sheng Lin, Chung-Yu Wang, Jyh-Pin Chou, Sin-Yi Wei, Chien-Ming Tu, Chia-Nung Kuo, Chin-Shan Lue, Chih-Wei Luo</p>
+<p><b>Quantum Digital Twins for Uncertainty Quantification</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.23311v1">arXiv</a>] Soronzonbold Otgonbaatar, Elise Jennings</p>
+<p><b>Metastability-Induced Solid-State Quantum Batteries for Powering Microwave Quantum Electronics</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21900v1">arXiv</a>] Yuanjin Wang, Hao Wu, Qing Zhao</p>
+<p><b>Adding or Subtracting a single Photon is the same for Pure Squeezed Vacuum States</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21907v1">arXiv</a>] Ole Steuernagel, Ray-Kuang Lee</p>
+<p><b>Tunable generation of spatial entanglement in nonlinear waveguide arrays</b>—2024-05-13 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2405.08176v2">arXiv</a>] A. Raymond, A. Zecchetto, J. Palomo, M. Morassi, A. Lemaître, F. Raineri, M. I. Amanti, S. Ducci, F. Baboux</p>
+<p><b>Covariant correlation-disturbance and its experimental realization with spin-1/2 particles</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21918v1">arXiv</a>] Ali Asadian, Florian Gams, Stephan Sponar</p>
+<p><b>Advantages of fixing spins in quantum annealing</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21924v1">arXiv</a>] Tomohiro Hattori, Hirotaka Irie, Tadashi Kadowaki, Shu Tanaka</p>
+<p><b>A fast hybrid classical-quantum algorithm based on block successive over-relaxation for the heat differential equation</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21930v1">arXiv</a>] Azim Farghadan, Mohammad Mahdi Masteri Farahani, Mohsen Akbari</p>
+<p><b>Characterization of Noise using variants of Unitarity Randomized Benchmarking</b>—2024-10-27 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2410.20528v2">arXiv</a>] Adarsh Chandrashekar, Soumya Das, Goutam Paul</p>
+<p><b>Quantum simulation of the microscopic to macroscopic crossover using superconducting quantum impurities</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21941v1">arXiv</a>] Amir Burshtein, Moshe Goldstein</p>
+<p><b>Quantum entanglement as an ambiguity of classical dynamics</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21949v1">arXiv</a>] Piotr Dulian, Adam Sawicki</p>
+<p><b>Tensor Train Multiplication</b>—2024-10-10 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2410.19747v2">arXiv</a>] Alexios A Michailidis, Christian Fenton, Martin Kiffner</p>
+<p><b>Limited Parallelization in Gate Operations Leads to Higher Space Overhead and Lower Noise Threshold</b>—2024-10-05 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2410.04156v2">arXiv</a>] Sai Sanjay Narayanan, Smita Bagewadi, Avhishek Chatterjee</p>
+<p><b>Single-qubit rotation algorithm with logarithmic Toffoli count and gate depth</b>—2024-04-08 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2404.05618v4">arXiv</a>] Christoffer Hindlycke, Jan-Åke Larsson</p>
+<p><b>Quantum Conditional Entropies</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21976v1">arXiv</a>] Roberto Rubboli, Milad M. Goodarzi, Marco Tomamichel</p>
+<p><b>Multi-partite entanglement in extreme nanophotonic cavities</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21977v1">arXiv</a>] Angus Crookes, Ben Yuen, Stephen M. Hanham, Angela Demetriadou</p>
+<p><b>Practical implementation of a single-qubit rotation algorithm</b>—2024-10-24 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2410.18746v2">arXiv</a>] Christoffer Hindlycke, Jan-Åke Larsson</p>
+<p><b>Optimal convergence rates in trace distance and relative entropy for the quantum central limit theorem</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.21998v1">arXiv</a>] Salman Beigi, Milad M. Goodarzi, Hami Mehrabi</p>
+<p><b>Harnessing spin-qubit decoherence to probe strongly-interacting quantum systems</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22003v1">arXiv</a>] Marcin Płodzień, Sambunath Das, Maciej Lewenstein, Christina Psaroudaki, Katarzyna Roszak</p>
+<p><b>Complex-Phase Extensions of Szegedy Quantum Walk on Graphs</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22011v1">arXiv</a>] Sergio A. Ortega, Miguel A. Martin-Delgado</p>
+<p><b>Training via quantum superposition circumventing local minima and vanishing gradient of sinusoidal neural network</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22016v1">arXiv</a>] Zujin Wen, Jin-Long Huang, Oscar Dahlsten</p>
+<p><b>A relativistic discrete spacetime formulation of 3+1 QED</b>—2022-05-06 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2205.03148v4">arXiv</a>] Nathanaël Eon, Giuseppe Di Molfetta, Giuseppe Magnifico, Pablo Arrighi</p>
+<p><b>Classifying Multipartite Continuous Variable Entanglement Structures through Data-augmented Neural Networks</b>—2024-09-12 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2409.07909v2">arXiv</a>] Xiaoting Gao, Mingsheng Tian, Feng-Xiao Sun, Ya-Dong Wu, Yu Xiang, Qiongyi He</p>
+<p><b>From spin squeezing to fast state discrimination</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22032v1">arXiv</a>] Michael R. Geller</p>
+<p><b>Quantum Circuits, Feature Maps, and Expanded Pseudo-Entropy: A Categorical Theoretic Analysis of Encoding Real-World Data into a Quantum Computer</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22084v1">arXiv</a>] Andrew Vlasic</p>
+<p><b>Quantum Fast Implementation of Functional Bootstrapping and Private Information Retrieval</b>—2024-09-30 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2409.20182v3">arXiv</a>] Guangsheng Ma, Hongbo Li</p>
+<p><b>Optical signatures of dynamical excitonic condensates</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22116v1">arXiv</a>] Alexander Osterkorn, Yuta Murakami, Tatsuya Kaneko, Zhiyuan Sun, Andrew J. Millis, Denis Golež</p>
+<p><b>Measurement-Induced Landscape Transitions and Coding Barren Plateaus in Hybrid Variational Quantum Circuits</b>—2023-12-14 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2312.09135v2">arXiv</a>] Gaurav Gyawali, Sonny Rappaport, Tiago Sereno, Michael J. Lawler</p>
+<p><b>Mapping of a many-qubit state onto an oscillator using controlled displacements</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22385v1">arXiv</a>] Anders J. E. Bjerrum, Ulrik L. Andersen, Peter Rabl</p>
+<p><b>Quantum Reconstructions as Stepping Stones toward Psi-Doxastic Interpretations?</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22132v1">arXiv</a>] Philipp Berghofer</p>
+<p><b>A quantum cloning game with applications to quantum position verification</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22157v1">arXiv</a>] Llorenç Escolà-Farràs, Léo Colisson Palais, Florian Speelman</p>
+<p><b>On the representation-free formalism in quantum mechanics</b>—2022-12-20 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2212.10597v8">arXiv</a>] V. D. Efros</p>
+<p><b>Charging a quantum spin network towards Heisenberg-limited precision</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22212v1">arXiv</a>] Beatrice Donelli, Stefano Gherardini, Raffaele Marino, Francesco Campaioli, Lorenzo Buffoni</p>
+<p><b>Quantum Simulation of Spin-1 XXZ-Heisenberg Models and the Haldane Phase with Dysprosium</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22216v1">arXiv</a>] Katharina Brechtelsbauer, Johannes Mögerle, Hans Peter Büchler</p>
+<p><b>Hybrid model of the kernel method for quantum computers</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.23315v1">arXiv</a>] Jhordan Silveira de Borba, Jonas Maziero</p>
+<p><b>A note on polynomial-time tolerant testing stabilizer states</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22220v1">arXiv</a>] Srinivasan Arunachalam, Sergey Bravyi, Arkopal Dutt</p>
+<p><b>Testing Whether Gravity Acts as a Quantum Entity When Measured</b>—2023-07-16 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2307.08133v5">arXiv</a>] Farhan Hanif, Debarshi Das, Jonathan Halliwell, Dipankar Home, Anupam Mazumdar, Hendrik Ulbricht, Sougato Bose</p>
+<p><b>Automorphism-Assisted Quantum Approximate Optimization Algorithm for efficient graph optimization</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22247v1">arXiv</a>] V. N Prakash</p>
+<p><b>An approximation of the $S$ matrix for solving the Marchenko equation</b>—2024-10-27 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2410.20409v2">arXiv</a>] N. A. Khokhlov</p>
+<p><b>Bloch classification surface for three-band systems</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22251v1">arXiv</a>] Gilles Abramovici</p>
+<p><b>Proto-Quipper with Reversing and Control</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22261v1">arXiv</a>] Peng Fu, Kohei Kishida, Neil J. Ross, Peter Selinger</p>
+<p><b>Quantum permutation puzzles with indistinguishable particles</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22287v1">arXiv</a>] Noah Lordi, Maedee Trank-Greene, Akira Kyle, Joshua Combes</p>
+<p><b>Optical manifestations of topological Euler class</b>—2023-11-13 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2311.07545v2">arXiv</a>] Wojciech J. Jankowski, Arthur S. Morris, Adrien Bouhon, F. Nur Ünal, Robert-Jan Slager</p>
+<p><b>Adaptive Channel Reshaping for Improved Entanglement Distillation</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22295v1">arXiv</a>] Dina Abdelhadi, Tomas Jochym-O'Connor, Vikesh Siddhu, John Smolin</p>
+<p><b>Distribution of lowest eigenvalue in $k$-body bosonic random matrix ensembles</b>—2024-04-30 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2405.00190v3">arXiv</a>] N. D. Chavda, Priyanka Rao, V. K. B. Kota, Manan Vyas</p>
+<p><b>Zero-point energy of tensor fluctuations on the MPS manifold</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22411v1">arXiv</a>] Sebastian Leontica, Andrew G. Green</p>
+<p><b>Eliminating Incoherent Noise: A Coherent Quantum Approach in Multi-Sensor Dark Matter Detection</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22413v1">arXiv</a>] Jing Shu, Bin Xu, Yuan Xu</p>
+<p><b>Entanglement Entropy is Elastic Cross Section</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22414v1">arXiv</a>] Ian Low, Zhewei Yin</p>
+<p><b>Improving absolute separability bounds for arbitrary dimensions</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22415v1">arXiv</a>] Jofre Abellanet-Vidal, Guillem Müller-Rigat, Grzegorz Rajchel-Mieldzioć, Anna Sanpera</p>
+<p><b>Quantum-private distributed sensing</b>—2024-10-01 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2410.00970v2">arXiv</a>] Joseph Ho, Jonathan W. Webb, Russell M. J. Brooks, Federico Grasselli, Erik Gauger, Alessandro Fedrizzi</p>
+<p><b>Hybrid quantum-classical approach for combinatorial problems at hadron colliders</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22417v1">arXiv</a>] Jacob L. Scott, Zhongtian Dong, Taejoon Kim, Kyoungchul Kong, Myeonghun Park</p>
+<p><b>Engineering propagating cat states with driving-assisted cavity QED</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22423v1">arXiv</a>] Seigo Kikura, Hayato Goto, Takao Aoki</p>
+<p><b>Designing Majorana Quasiparticles in InAsP Quantum Dots in InP Nanowires with Variational Quantum Eigenvalue Solver</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22431v1">arXiv</a>] Mahan Mohseni, Iann Cunha, Daniel Miravet, Alina Wania Rodrigues, Hassan Allami, Ibsal Assi, Marek Korkusinski, Pawel Hawrylak</p>
+<p><b>Statistical mechanical mapping and maximum-likelihood thresholds for the surface code under generic single-qubit coherent errors</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22436v1">arXiv</a>] Jan Behrends, Benjamin Béri</p>
+<p><b>Rotational state changes in collisions of diatomic molecular ions with atomic ions</b>—2019-05-06 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/1905.02130v2">arXiv</a>] J. Martin Berglund, Michael Drewsen, Christiane P. Koch</p>
+<p><b>Rotational excitation in sympathetic cooling of diatomic molecular ions by laser-cooled atomic ions</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22458v1">arXiv</a>] J. Martin Berglund, Michael Drewsen, Christiane P. Koch</p>
+<p><b>Metalens formed by structured arrays of atomic emitters</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22469v1">arXiv</a>] Francesco Andreoli, Charlie-Ray Mann, Alexander A. High, Darrick E. Chang</p>
+<p><b>Quantum Cosmology on Quantum Computer</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22485v1">arXiv</a>] Chih-Chien Erich Wang, Jiun-Huei Proty Wu</p>
+<p><b>Breaking Rayleigh's curse for two unbalanced single-photon emitters: BLESS technique</b>—2021-12-25 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2112.13244v5">arXiv</a>] Konstantin Katamadze, Boris Bantysh, Andrey Chernyavskiy, Yurii Bogdanov, Sergei Kulik</p>
+<p><b>Quantum and classical correlations in four-wave mixing from cold ensembles of two-level atoms</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22513v1">arXiv</a>] Lucas S. Marinho, Michelle O. Araújo, Daniel Felinto</p>
+<p><b>Entanglement renormalization of fractonic anisotropic $\mathbb{Z}_N$ Laplacian models</b>—2024-09-26 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2409.18206v3">arXiv</a>] Yuan Xue, Pranay Gorantla, Zhu-Xi Luo</p>
+<p><b>Informational analysis of the confinement of an electron in an asymmetric double quantum dot</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22538v1">arXiv</a>] W. S. Nascimento, A. M. Maniero, F. V. Prudente, C. R. de Carvalho, Ginette Jalbert</p>
+<p><b>Bremermann's limit in cGh-physics</b>—2009-10-18 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/0910.3424v4">arXiv</a>] Gennady Gorelik</p>
+<p><b>Compact frequency multiplexed readout of silicon quantum dots in monolithic FDSOI 28nm technology</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22565v1">arXiv</a>] Quentin Schmidt, Baptiste Jadot, Brian Martinez, Thomas Houriez, Adrien Morel, Tristan Meunier, Gaël Pillonnet, Gérard Billiot, Aloysius Jansen, Xavier Jehl, Yvain Thonnart, Franck Badets</p>
+<p><b>Scaling of diffusion constants in perturbed easy-axis Heisenberg spin chains</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22586v1">arXiv</a>] Markus Kraft, Mariel Kempa, Jiaozi Wang, Sourav Nandy, Robin Steinigeweg</p>
+<p><b>Escaping the Shadow of Bell's Theorem in Network Nonlocality</b>—2024-06-21 (updated: 2024-10-29)</p>
+<p>[<a href="http://arxiv.org/abs/2406.15587v2">arXiv</a>] Maria Ciudad-Alañón, Emanuel-Cristian Boghiu, Paolo Abiuso, Elie Wolfe</p>
+<p><b>Quantum optimal control of superconducting qubits based on machine-learning characterization</b>—2024-10-29</p>
+<p>[<a href="http://arxiv.org/abs/2410.22603v1">arXiv</a>] Elie Genois, Noah J. Stevenson, Noah Goss, Irfan Siddiqi, Alexandre Blais</p></body>
+            </html>
+            
