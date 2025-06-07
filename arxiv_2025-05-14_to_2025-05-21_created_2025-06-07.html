@@ -1,0 +1,1579 @@
+
+            <html>
+              <head>
+                <style>/* 
+
+I tweaked the file but it is mostly unchanged
+
+*/
+
+/*
+"GitHub Flavor", a GitHub flavored CSS style sheet for Markdown documents.
+Based on Chris Patuzzo's github.css (https://gist.github.com/tuzz/3331384).
+
+
+author: Fabrizio Musacchio (https://www.fabriziomusacchio.com)
+date: 03.01.2020
+
+
+License:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+
+/*Main body*/
+body {
+  /* font-family:      Helvetica, arial, sans-serif; */
+  font-family:      Calibri, 'Trebuchet MS', sans-serif, 'Gill Sans', 'Gill Sans MT';
+  font-size:        8px;
+  line-height:      1.6em;
+  background-color: white;
+  padding-top:      0px;
+  padding-bottom:   0px;
+  padding-left:     0px;
+  padding-right:    0px; }
+
+body > *:first-child {
+  margin-top:   0 !important; }
+body > *:last-child {
+  margin-bottom:0 !important; }
+
+/* Smooth scrolling */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/*Links*/
+a {
+  color:            #3973ad;
+  text-decoration:  none;}
+a:hover{
+  /* text-decoration: underline; */
+  color:            #4183C4;
+}
+a.absent {
+  color:            #cc0000; }
+a.anchor {
+  display:          block;
+  padding-left:     30px;
+  margin-left:      -30px;
+  cursor:           pointer;
+  position:         absolute;
+  top:              0;
+  left:             0;
+  bottom:           0; }
+
+/*Headlines*/
+h1, h2, h3, h4, h5, h6 {
+  margin:       6px 0 6px;
+  padding:      0px;
+  line-height:  2em;
+  font-weight:  lighter;
+  -webkit-font-smoothing: antialiased;
+  cursor:       text;
+  position:   relative; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 16px;
+  color: black; }
+
+h2 {
+  font-size: 13px;
+  border-bottom: 1px solid #cccccc;
+  color: rgb(12, 0, 123); }
+
+h3 {
+  font-size: 10px; }
+
+h4 {
+  font-size: 10px; }
+
+h5 {
+  font-size: 10px; }
+
+h6 {
+  color: #777777;
+  font-size: 10px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 5px 0; }
+
+/*Margins and paddings of the first line content*/
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0;
+}
+
+/*Lists*/
+ul li,ol li{
+  margin-top:     .15em;
+  margin-bottom:  .15em;
+}
+ul li li{
+  margin-left:    -15px;
+}
+ul ul,ul ol,ol ol,ol ul{
+  margin-top:     0;
+  margin-bottom:  0em;
+}
+
+/*Footnotes*/
+a[href^="#fn:"]:after{
+    content:        ')';
+    font-size:      0.83em;
+    vertical-align: super;
+    line-height:    0;
+}
+/*Highlights the BG of current jumped-to footnote:*/
+li:target {
+    background-color: #e8fef6;
+}
+.footnotes > ol > li > p {
+    display:        inline;
+}
+.footnotes ol {
+    list-style:     none;
+    counter-reset:  footnotes;
+    padding-left:   15px;
+}
+.footnotes ol li {
+    counter-increment:footnotes;
+}
+.footnotes ol li:before {
+    /* background-color: #e8fef6; */
+    font-weight:      bold;
+    /* counter-reset: footnotes; */
+    content:          counters(footnotes, ".") ")";
+}
+.footnotes li {
+    padding-bottom:     0.45em;
+}
+.footnotes {
+    /* only use is for border, background-color of block */
+	/* border: dashed 0px #f4f5f8; */
+	background-color: #f4f5f8;
+	padding:          0em 0em 0.25em 0em;
+}
+/*.footnotes:before{
+    content:        "Footnotes";
+    font-size:      1.2em;
+    font-weight:    bold;
+    line-height:    2.5em;
+    padding-left:   0.5em;
+}*/
+
+/*TOC (for DEVONthink Markdown documents; for other editors, try e.g. ".toc")*/
+.TOC {
+    background:     #f4f5f8 none repeat scroll 0 0; //f3f6f6
+    border:         0px solid #aaa;
+    border-radius:  10px;
+    display:        table;
+    font-size:      95%;
+    margin-bottom:  1em;
+    padding-left:   2px;
+    padding-top:    2px;
+    padding-bottom: 2px;
+    padding-right:  2px;
+    width:          100%;
+}
+
+/*uncomment if you'd like to automatically add a title to your TOC:*/
+/*.TOC:before {
+    content:        "Table of Contents";
+    font-weight:    bold;
+    font-size:      1.1em;
+    color:          #3973ad;
+    padding-left:   1em;
+    margin-bottom: -1em;
+    line-height:    3em;
+}*/
+
+.TOC li, .TOC ul, .TOC ul li{
+    list-style:     decimal;
+}
+
+.top-link {
+  transition:       all .25s ease-in-out;
+  position:         fixed;
+  bottom:           0;
+  right:            0;
+  display:          inline-flex;
+  color:            #000000;
+
+  cursor:           pointer;
+  align-items:      center;
+  justify-content:  center;
+  margin:           0 2em 2em 0;
+  border-radius:    50%;
+  padding:          .25em;
+  width:            1em;
+  height:           1em;
+  background-color: #F8F8F8;
+}
+
+/*Check-Boxes/To-Do-Boxes (doesn't work in DEVONthink Markdown documents)*/
+/* ul li.checkbox {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #b2b2b2;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #b2b2b2;
+  border-radius: 0.15em;
+} */
+
+/* input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #b2b2b2;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #b2b2b2;
+  border-radius: 0.15em;
+}
+
+input[type="checkbox"]::before {
+  content: " ";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "_";
+  color: #cdef9a;
+  box-shadow: inset 4em 2em #cdef9a;
+}
+
+.task-list-item {
+  list-style-type: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.task-list-item input {
+  margin: 0 0.2em .25em -1.6em;
+  vertical-align: middle;
+  padding-bottom: 0px;
+  opacity: 1;
+} */
+
+/*Definition lists*/
+dl {
+  padding:            0; }
+  dl dt {
+    font-size:        14px;
+    font-weight:      bold;
+    font-style:       italic;
+    padding:          0;
+    margin:           15px 0 5px; }
+    dl dt:first-child {
+      padding:        0; }
+    dl dt > :first-child {
+      margin-top:     0; }
+    dl dt > :last-child {
+      margin-bottom:  0; }
+  dl dd {
+    margin:           0 0 15px;
+    padding:          0 15px; }
+    dl dd > :first-child {
+      margin-top:     0; }
+    dl dd > :last-child {
+      margin-bottom:  0; }
+
+/*Quotes*/
+blockquote {
+  border-left:        4px solid #dddddd;
+  padding:            0 15px;
+  font-style:         normal;
+  color:              #5598c1; }  /* 777777 */
+  blockquote > :first-child {
+    margin-top:       0; }
+  blockquote > :last-child {
+    margin-bottom:    0; }
+
+/*Tables*/
+table {
+  padding:            0;border-collapse: collapse;
+  margin-left:        auto;
+  margin-right:       auto;
+  text-align:         center;}
+  table tr {
+    /* border-top: 1px solid #cccccc; */
+    background-color: white;
+    margin:           0;
+    padding:          0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight:    bold;
+      /* border: 0.5px solid #cccccc; */
+      /* border-left: 0.5px solid #cccccc;
+      border-right: 0.5px solid #cccccc; */
+      background-color: #eefbff;
+      font-size:      14px;
+      margin:         0;
+      padding:        0.4em 0.35em 0.4em 0.35em; }
+    table tr td {
+      /* border: 1px solid #cccccc; */
+      margin:         0;
+       font-size:     14px;
+       padding:       5px 5px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top:     0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom:  0; }
+
+/*Images*/
+img {
+  max-width: 100%;}
+/*Alternative: center Images*/
+/* img {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+*/
+
+/*Span*/
+span.frame {
+  display:      block;
+  overflow:     hidden;
+}
+span.frame > span {
+    border:     1px solid #dddddd;
+    display:    block;
+    float:      left;
+    overflow:   hidden;
+    margin:     13px 0 0;
+    padding:    7px;
+    width:      auto;
+}
+span.frame span img {
+    display:    block;
+    float:      left;
+}
+span.frame span span {
+    clear:      both;
+    color:      #333333;
+    display:    block;
+    padding:    5px 0 0;
+}
+span.align-center {
+  display:      block;
+  overflow:     hidden;
+  clear:        both;
+}
+span.align-center > span {
+    display:    block;
+    overflow:   hidden;
+    margin:     13px auto 0;
+    text-align: center;
+}
+span.align-center span img {
+    margin:     0 auto;
+    text-align: center;
+}
+span.align-right {
+  display:      block;
+  overflow:     hidden;
+  clear:        both;
+}
+span.align-right > span {
+    display:    block;
+    overflow:   hidden;
+    margin:     13px 0 0;
+    text-align: right;
+}
+span.align-right span img {
+    margin:     0;
+    text-align: right;
+}
+span.float-left {
+  display:      block;
+  margin-right: 13px;
+  overflow:     hidden;
+  float:        left;
+}
+span.float-left span {
+    margin:     13px 0 0;
+}
+span.float-right {
+  display:      block;
+  margin-left:  13px;
+  overflow:     hidden;
+  float:        right;
+}
+span.float-right > span {
+    display:    block;
+    overflow:   hidden;
+    margin:     13px auto 0;
+    text-align: right;
+}
+
+/*Code blocks*/
+code, tt {
+    margin:             0 2px;
+    padding:            0 5px;
+    white-space:        nowrap;
+    border:             1px solid #eaeaea;
+    background-color:   #f8f8f8;
+    border-radius:      3px;
+}
+
+pre code {
+    margin:             0;
+    padding:            0;
+    white-space:        pre;
+    border:             none;
+    background:         transparent;
+}
+
+.highlight pre {
+    background-color:   #f8f8f8;
+    border:             1px solid #cccccc;
+    font-size:          13px;
+    line-height:        19px;
+    overflow:           auto;
+    padding:            6px 10px;
+    border-radius:      3px;
+}
+
+/*Preformatted text*/
+pre {
+    background-color:   #f8f8f8;
+    border:             1px solid #cccccc;
+    /*font-size:          13px;*/
+    font-size:          0.90em !important;
+    line-height:        1.6em !important; //19px
+    overflow:           auto;
+    padding:            6px 10px;
+    border-radius:      3px;
+}
+pre code, pre tt {
+    background-color:   transparent;
+    border:             none;
+}
+
+/*Superscript text*/
+sup {
+    font-size:          0.83em;
+    vertical-align:     super;
+    line-height:        0;
+}
+
+/*Subscript text*/
+sub {
+    font-size:          0.83em;
+    vertical-align:     sub;
+    line-height:        0;
+}
+
+/*Define keyboard input*/
+kbd {
+  display:            inline-block;
+  padding:            3px 5px;
+  font-size:          11px;
+  line-height:        10px;
+  color:              #555;
+  vertical-align:     middle;
+  background-color:   #fcfcfc;
+  border:             solid 1px #ccc;
+  border-bottom-color:#bbb;
+  border-radius:      3px;
+  box-shadow:         inset 0 -1px 0 #bbb
+}
+
+/*Color of highlighted text*/
+mark {
+  background-color: #fdfdcc;
+  color: black;
+}
+
+/*Adjustments for printing*/
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width:              854px;
+        margin:             0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside:  avoid;
+	}
+	pre {
+		word-wrap:          break-word;
+	}
+  body {
+    padding:                0cm;
+  }
+}</style>
+              </head>
+              <body><h1>arXiv:quant-ph—from Wednesday, 2025-05-14 to Wednesday, 2025-05-21</h1>
+<h2>Wednesday | 2025-05-14</h2>
+<p><b>Quantum Computation based on Open Quantum Walks</b>—2025-03-22 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2503.17591v2">arXiv</a>] Pedro Linck Maciel, Nadja K. Bernardes</p>
+<p><b>Hardware-aware Compilation for Chip-to-Chip Coupler-Connected Modular Quantum Systems</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09036v1">arXiv</a>] Zefan Du, Shuwen Kan, Samuel Stein, Zhiding Liang, Ang Li, Ying Mao</p>
+<p><b>Heisenberg and Heisenberg-Like Representations via Hilbert Space Bundle Geometry in the Non-Hermitian Regime</b>—2025-03-05 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2503.03527v2">arXiv</a>] Chia-Yi Ju, Adam Miranowicz, Jacob Barnett, Guang-Yin Chen, Franco Nori</p>
+<p><b>Multi-player quantum data hiding by nonlocal quantum state ensembles</b>—2024-03-08 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2403.14363v2">arXiv</a>] Donghoon Ha, Jeong San Kim</p>
+<p><b>Efficient Detection of Strong-To-Weak Spontaneous Symmetry Breaking via the Rényi-1 Correlator</b>—2024-10-30 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2410.23512v3">arXiv</a>] Zack Weinstein</p>
+<p><b>Properties and dynamics of generalized squeezed states</b>—2024-11-26 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2411.17022v2">arXiv</a>] Sahel Ashhab, Mohammad Ayyash</p>
+<p><b>Super-bath Quantum Eigensolver</b>—2024-12-27 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2412.19599v3">arXiv</a>] Tianren Wang, Zongkang Zhang, Bing-Nan Lu, Mauro Cirio, Ying Li</p>
+<p><b>Critical properties in the non-Hermitian Aubry-Andre-Stark model</b>—2025-01-07 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2501.03777v2">arXiv</a>] Ji-Long Dong, En-Wen Liang, Shi-Yang Liu, Guo-Qing Zhang, Ling-Zhi Tang, Dan-Wei Zhang</p>
+<p><b>Building a fusion-based quantum computer using teleported gates</b>—2024-04-01 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2404.01477v3">arXiv</a>] Ashot Avanesov, Alexander Shurinov, Ivan Dyakonov, Stanislav Straupe</p>
+<p><b>Hybrid Heuristic Algorithms for Adiabatic Quantum Machine Learning Models</b>—2024-07-26 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2407.21062v2">arXiv</a>] Bahram Alidaee, Haibo Wang, Lutfu Sua, Wade Liu</p>
+<p><b>Quantum Error-Corrected Computation of Molecular Energies</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09133v1">arXiv</a>] Kentaro Yamamoto, Yuta Kikuchi, David Amaro, Ben Criger, Silas Dilkes, Ciarán Ryan-Anderson, Andrew Tranter, Joan M. Dreiling, Dan Gresh, Cameron Foltz, Michael Mills, Steven A. Moses, Peter E. Siegfried, Maxwell D. Urmey, Justin J. Burau, Aaron Hankin, Dominic Lucchetti, John P. Gaebler, Natalie C. Brown, Brian Neyenhuis, David Muñoz Ramo</p>
+<p><b>Comparing Quantum Annealing and Spiking Neuromorphic Computing for Sampling Binary Sparse Coding QUBO Problems</b>—2024-05-30 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2405.20525v2">arXiv</a>] Kyle Henke, Elijah Pelofske, Garrett Kenyon, Georg Hahn</p>
+<p><b>An Efficient Iterative Algorithm for Qubit Mapping via Layer-Weight Assignment and Search Space Reduction</b>—2025-02-11 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2502.07536v2">arXiv</a>] Kang Xu, Zeyang Li, Xinjian Liu, Dandan Li, Yukun Wang</p>
+<p><b>Localization with non-Hermitian off-diagonal disorder</b>—2023-10-20 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2310.13744v3">arXiv</a>] Aitijhya Saha, Debraj Rakshit</p>
+<p><b>Optimal randomized measurements for a family of non-linear quantum properties</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09206v1">arXiv</a>] Zhenyu Du, Yifan Tang, Andreas Elben, Ingo Roth, Jens Eisert, Zhenhuan Liu</p>
+<p><b>Wafer-Scale Characterization of Al/AlxOy/Al Josephson Junctions at Room Temperature</b>—2025-04-23 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2504.16686v3">arXiv</a>] Simon J. K. Lang, Ignaz Eisele, Johannes Weber, Alexandra Schewski, Emir Music, Alwin Maiwald, Martin Heigl, Daniela Zahn, Zhen Luo, Lars Nebrich, Benedikt Schoof, Thomas Mayer, Leonhard Sturm-Rogon, Wilfried Lerch, Rui N. Pereira, Christoph Kutter</p>
+<p><b>Multifractal-enriched mobility edges and emergent quantum phases in Rydberg atomic arrays</b>—2025-01-14 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2501.07866v3">arXiv</a>] Shan-Zhong Li, Yi-Cai Zhang, Yucheng Wang, Shanchao Zhang, Shi-Liang Zhu, Zhi Li</p>
+<p><b>Computing-heightened low-cost high-dimensional controlled-SUM gates</b>—2025-04-24 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2504.17388v2">arXiv</a>] Zhi-Guo Fan, Zhuo-Ya Bai, Qiu-Lin Tan, Fang-Fang Du</p>
+<p><b>On the non-hermitian Kitaev chain</b>—2024-11-22 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2411.14776v2">arXiv</a>] Eddy Ardonne, Viktor Kurasov</p>
+<p><b>Bosonic randomized benchmarking with passive transformations</b>—2024-08-20 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2408.11111v2">arXiv</a>] Mirko Arienzo, Dmitry Grinko, Martin Kliesch, Markus Heinrich</p>
+<p><b>Experimental Frequency-Comb-Based Mode-Pairing Quantum Key Distribution Beyond the Rate-Loss Limit</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09223v1">arXiv</a>] Yi-Fei Lu, Yan-Yang Zhou, Yu-Yao Guo, Xin-Hang Li, Xiao-Lei Jiang, Yang Wang, Yu Zhou, Jia-Ji Li, Chun Zhou, Hong-Wei Li, Lin-Jie Zhou, Wan-Su Bao</p>
+<p><b>A Hybrid Quantum-Classical Particle-in-Cell Method for Plasma Simulations</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09260v1">arXiv</a>] Pratibha Raghupati Hegde, Paolo Marcandelli, Yuanchun He, Luca Pennati, Jeremy J. Williams, Ivy Peng, Stefano Markidis</p>
+<p><b>Beyond Robertson-Schrödinger: A General Uncertainty Relation Unveiling Hidden Noncommutative Trade-offs</b>—2025-04-29 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2504.20404v3">arXiv</a>] Gen Kimura, Aina Mayumi, Hiromichi Ohno, Jaeha Lee, Dariusz Chruściński</p>
+<p><b>Enhanced Photonic Chip Design via Interpretable Machine Learning Techniques</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09266v1">arXiv</a>] Lirandë Pira, Airin Antony, Nayanthara Prathap, Daniel Peace, Jacquiline Romero</p>
+<p><b>High-Fidelity Control of a Strongly Coupled Electro-Nuclear Spin-Photon Interface</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09267v1">arXiv</a>] Isaac B. W. Harris, Ian Christen, Sofia M. Patomäki, Hamza Raniwala, Maxim Sirotin, Marco Colangelo, Kevin C. Chen, Carlos Errando-Herranz, David J. Starling, Ryan Murphy, Katia Shtyrkova, Owen Medeiros, Matthew E. Trusheim, Karl K. Berggren, P. Benjamin Dixon, Dirk Englund</p>
+<p><b>Optimizing photon-number resolution with superconducting nanowire multi-photon detectors</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09271v1">arXiv</a>] Timon Schapeler, Fabian Schlue, Michael Stefszky, Benjamin Brecht, Christine Silberhorn, Tim J. Bartley</p>
+<p><b>Robust transfer of a quantum state from an absorbed photon into a diamond spin</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09292v1">arXiv</a>] Daisuke Ito, Yuhei Sekiguchi, Raustin Reyes, Taichi Fujiwara, Toshiharu Makino, Hiromitsu Kato, Hideo Kosaka</p>
+<p><b>Explicit Pfaffian Formula for Amplitudes of Fermionic Gaussian Pure States in Arbitrary Pauli Bases</b>—2025-02-07 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2502.04857v2">arXiv</a>] M. A. Rajabpour, M. A. Seifi Mirjafarlou, Reyhaneh Khasseh</p>
+<p><b>Randomized adiabatic quantum linear solver algorithm with optimal complexity scaling and detailed running costs</b>—2023-05-19 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2305.11352v2">arXiv</a>] David Jennings, Matteo Lostaglio, Sam Pallister, Andrew T Sornborger, Yiğit Subaşı</p>
+<p><b>Optical cavity as a directional quantum emitter</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09298v1">arXiv</a>] Luiz O. R. Solak, Bruno L. Vermes, Antonio S. M. de Castro, Daniel Z. Rossatto, Celso J. Villas-Boas</p>
+<p><b>One-dimensional extended Hubbard model coupled with an optical cavity</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09311v1">arXiv</a>] Taiga Nakamoto, Kazuaki Takasan, Naoto Tsuji</p>
+<p><b>Dephasing in Rydberg Facilitation Due to State-Dependent Dipole Forces</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09314v1">arXiv</a>] Tom Schlegel, Evangelia Konstantinidou, Michael Fleischhauer, Daniel Brady</p>
+<p><b>Experimental realization of an analog of entanglement between two Brownian particles</b>—2024-08-13 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2408.06708v3">arXiv</a>] Lakshmanan Theerthagiri, Sergio Ciliberto</p>
+<p><b>Quantum ($t$,$n$) Threshold Multi-Secret Sharing based on Cluster States</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09317v1">arXiv</a>] Rui-Hai Ma, Hui-Nan Chen, Bin-Bin Cai, Song Lin, Xiao-Chen Zhang</p>
+<p><b>Context and Complementarity: Formalizing Bohr's Vision through Many-Valued Contextual Logic</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09333v1">arXiv</a>] Partha Ghose, Sudip Patra</p>
+<p><b>Tunable Hilbert space fragmentation and extended critical regime</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09346v1">arXiv</a>] Mateusz Lisiecki, Janez Bonča, Marcin Mierzejewski, Jacek Herbrych, Patrycja Łydżba</p>
+<p><b>Entanglement islands in 1D and 2D lattices with defects</b>—2025-05-05 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2505.02612v2">arXiv</a>] Ivan P. Christov</p>
+<p><b>Quantum Simulation of Two-Dimensional $\mathrm{U(1)}$ Gauge Theory in Rydberg and Rydberg-Dressed Atom Arrays</b>—2022-12-21 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2212.10863v2">arXiv</a>] Zheng Zhou, Zheng Yan, Changle Liu, Yan Chen, Xue-Feng Zhang</p>
+<p><b>TensorRL-QAS: Reinforcement learning with tensor networks for scalable quantum architecture search</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09371v1">arXiv</a>] Akash Kundu, Stefano Mangini</p>
+<p><b>Critical Unstable Qubits: an Application to $B^0\bar{B}^0$-Meson System</b>—2025-02-21 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2502.15625v3">arXiv</a>] Dimitrios Karamitros, Thomas McKelvey, Apostolos Pilaftsis</p>
+<p><b>Anderson Localization in Photonic Time Crystals</b>—2024-10-30 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2410.23095v2">arXiv</a>] Karthik Subramaniam Eswaran, Ali Emami Kopaei, Krzysztof Sacha</p>
+<p><b>Quantum-Enhanced Parameter-Efficient Learning for Typhoon Trajectory Forecasting</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09395v1">arXiv</a>] Chen-Yu Liu, Kuan-Cheng Chen, Yi-Chien Chen, Samuel Yen-Chi Chen, Wei-Hao Huang, Wei-Jia Huang, Yen-Jui Chang</p>
+<p><b>Error bounds for the Floquet-Magnus expansion and their application to the semiclassical quantum Rabi model</b>—2025-04-29 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2504.20533v2">arXiv</a>] Anirban Dey, Davide Lonigro, Kazuya Yuasa, Daniel Burgarth</p>
+<p><b>Quantum complexity in gravity, quantum field theory, and quantum information science</b>—2025-03-13 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2503.10753v2">arXiv</a>] Stefano Baiguera, Vijay Balasubramanian, Pawel Caputa, Shira Chapman, Jonas Haferkamp, Michal P. Heller, Nicole Yunger Halpern</p>
+<p><b>Spins extracted from fermionic states and their entanglement properties</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09411v1">arXiv</a>] Filippo Troiani, Andrea Secchi, Stefano Pittalis</p>
+<p><b>Gravimetry enhanced by nonreciprocal optomechanical coupling</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09417v1">arXiv</a>] Dong Xie, Chunling Xu</p>
+<p><b>Unraveling spin entanglement using quantum gates with scanning tunneling microscopy-driven electron spin resonance</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09428v1">arXiv</a>] Eric D. Switzer, Jose Reina-Gálvez, Géza Giedke, Talat S. Rahman, Christoph Wolf, Deung-Jang Choi, Nicolás Lorente</p>
+<p><b>Zassenhaus Expansion in Solving the Schrödinger Equation</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09441v1">arXiv</a>] Molena Nguyen, Naihuan Jing</p>
+<p><b>High-efficiency quantum Monte Carlo algorithm for extracting entanglement entropy in interacting fermion systems</b>—2024-09-30 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2409.20009v3">arXiv</a>] Weilun Jiang, Gaopei Pan, Zhe Wang, Bin-Bin Mao, Heng Shen, Zheng Yan</p>
+<p><b>Quantum state-agnostic work extraction (almost) without dissipation</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09456v1">arXiv</a>] Josep Lumbreras, Ruo Cheng Huang, Yanglin Hu, Mile Gu, Marco Tomamichel</p>
+<p><b>Monte-Carlo Option Pricing in Quantum Parallel</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09459v1">arXiv</a>] Robert Scriba, Yuying Li, Jingbo B Wang</p>
+<p><b>Long-Range Interacting Many-Body Systems in the Irrep Basis</b>—2025-05-05 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2505.02997v3">arXiv</a>] Ivy Pannier-Günther, Andrew Kolmer Forbes, Pablo M. Poggi, Ivan H. Deutsch</p>
+<p><b>The Parity Flow Formalism: Tracking Quantum Information Throughout Computation</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09468v1">arXiv</a>] Berend Klaver, Katharina Ludwig, Anette Messinger, Stefan M. A. Rombouts, Michael Fellner, Kilian Ender, Wolfgang Lechner</p>
+<p><b>Informational non-equilibrium concentration</b>—2024-09-19 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2409.12759v3">arXiv</a>] Chung-Yun Hsieh, Benjamin Stratton, Hao-Cheng Weng, Valerio Scarani</p>
+<p><b>A Quantum-Centric Super-Krylov Diagonalization Method</b>—2024-12-23 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2412.17289v2">arXiv</a>] Adam Byrne, William Kirby, Kirk M. Soodhalter, Sergiy Zhuk</p>
+<p><b>Subskin modes in a nonlinear non-Hermitian system</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09502v1">arXiv</a>] C. Yuce</p>
+<p><b>Time-dependent conserved operators for autonomous systems and quantization of resistance</b>—2024-04-08 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2404.05115v3">arXiv</a>] Jorge A. Lizarraga</p>
+<p><b>Unveiling Connections between Tensor Network and Stabilizer Formalism by Cutting in Time</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09512v1">arXiv</a>] Zhong-Xia Shang, Si-Yuan Chen, Wenjun Yu, Qi Zhao</p>
+<p><b>Fast quantum gates for exchange-only qubits using simultaneous exchange pulses</b>—2024-09-09 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2409.05843v2">arXiv</a>] Irina Heinz, Felix Borjans, Matthew J. Curry, Roza Kotlyar, Florian Luthi, Mateusz T. Mądzik, Fahd A. Mohiyaddin, Nathaniel Bishop, Guido Burkard</p>
+<p><b>Criticality-amplified quantum probing of a spontaneous collapse model</b>—2024-07-12 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2407.09304v2">arXiv</a>] Giorgio Zicari, Matteo Carlesso, Andrea Trombettoni, Mauro Paternostro</p>
+<p><b>Resonant cavity-QED with chiral flat bands</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09524v1">arXiv</a>] E. M. Broni, A. M. C. Souza, M. L. Lyra, F. A. B. F. de Moura, G. M. A. Almeida</p>
+<p><b>Finite temperature phase diagram of the extended Bose-Hubbard model in the presence of disorder</b>—2025-04-28 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2504.19837v2">arXiv</a>] Madhumita Kabiraj, Raka Dasgupta</p>
+<p><b>The Quantum Measurement Problem: A Review of Recent Trends</b>—2025-02-26 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2502.19278v2">arXiv</a>] Anderson A. Tomaz, Rafael S. Mattos, Mario Barbatti</p>
+<p><b>Exponential improvement in quantum simulations of bosons</b>—2025-05-05 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2505.02553v2">arXiv</a>] Masanori Hanada, Shunji Matsuura, Emanuele Mendicelli, Enrico Rinaldi</p>
+<p><b>Room-Temperature High-Purity Single Photon Emission from Carbon-Doped Boron Nitride Thin Films</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09556v1">arXiv</a>] Arka Chatterjee, Abhijit Biswas, Addis S. Fuhr, Tanguy Terlier, Bobby G. Sumpter, Pulickel M. Ajayan, Igor Aharonovich, Shengxi Huang</p>
+<p><b>The Magnus expansion for non-Hermitian Hamiltonians</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09559v1">arXiv</a>] Yair Mulian</p>
+<p><b>Improved Sample Upper and Lower Bounds for Trace Estimation of Quantum State Powers</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09563v1">arXiv</a>] Kean Chen, Qisheng Wang</p>
+<p><b>Experimental study of the distributions of off-diagonal scattering-matrix elements of quantum graphs with symplectic symmetry</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09573v1">arXiv</a>] Jiongning Che, Nils Gluth, Simon Köhnes, Thomas Guhr, Barbara Dietz</p>
+<p><b>Characterizing the Generalized Einstein-Podolsky-Rosen State</b>—2025-05-12 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2505.07412v2">arXiv</a>] Rashi Adhikari, Tabish Qureshi</p>
+<p><b>Non-Hermitian linear perturbation to a Hamiltonian with a constant electromagnetic field and Hall conductivity</b>—2025-02-18 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2502.14579v2">arXiv</a>] Jorge A. Lizarraga, Kenan Uriostegui</p>
+<p><b>Quantum simulation of bubble nucleation across a quantum phase transition</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09607v1">arXiv</a>] De Luo, Federica Maria Surace, Arinjoy De, Alessio Lerose, Elizabeth R. Bennewitz, Brayden Ware, Alexander Schuckert, Zohreh Davoudi, Alexey V. Gorshkov, Or Katz, Christopher Monroe</p>
+<p><b>Quantifying complexity of continuous-variable quantum states via Wehrl entropy and Fisher information</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09613v1">arXiv</a>] Siting Tang, Francesco Albarelli, Yue Zhang, Shunlong Luo, Matteo G. A. Paris</p>
+<p><b>Quantum Hall Effect without Chern Bands</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09677v1">arXiv</a>] Benjamin Michen, Jan Carl Budich</p>
+<p><b>Demonstration of low-overhead quantum error correction codes</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09684v1">arXiv</a>] Ke Wang, Zhide Lu, Chuanyu Zhang, Gongyu Liu, Jiachen Chen, Yanzhe Wang, Yaozu Wu, Shibo Xu, Xuhao Zhu, Feitong Jin, Yu Gao, Ziqi Tan, Zhengyi Cui, Ning Wang, Yiren Zou, Aosai Zhang, Tingting Li, Fanhao Shen, Jiarun Zhong, Zehang Bao, Zitian Zhu, Yihang Han, Yiyang He, Jiayuan Shen, Han Wang, Jia-Nan Yang, Zixuan Song, Jinfeng Deng, Hang Dong, Zheng-Zhi Sun, Weikang Li, Qi Ye, Si Jiang, Yixuan Ma, Pei-Xin Shen, Pengfei Zhang, Hekang Li, Qiujiang Guo, Zhen Wang, Chao Song, H. Wang, Dong-Ling Deng</p>
+<p><b>Efficient benchmarking of logical magic state</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09687v1">arXiv</a>] Su-un Lee, Ming Yuan, Senrui Chen, Kento Tsubouchi, Liang Jiang</p>
+<p><b>Deterministic and highly indistinguishable single photons in the telecom C-band</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09695v1">arXiv</a>] Nico Hauser, Matthias Bayerbach, Jochen Kaupp, Yorick Reum, Giora Peniakov, Johannes Michl, Martin Kamp, Tobias Huber-Loyola, Andreas T. Pfenning, Sven Höfling, Stefanie Barz</p>
+<p><b>Complexity transitions in chaotic quantum systems</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09707v1">arXiv</a>] Gopal Chandra Santra, Alex Windey, Soumik Bandyopadhyay, Andrea Legramandi, Philipp Hauke</p>
+<p><b>Overcoming the entanglement barrier with sampled tensor networks</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09714v1">arXiv</a>] Stefano Carignano, Guglielmo Lami, Jacopo De Nardis, Luca Tagliacozzo</p>
+<p><b>Discovery of entanglement generation by elastic collision to realise the original Einstein-Podolsky-Rosen thought experiment</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09721v1">arXiv</a>] Roman Schnabel</p>
+<p><b>State-space gradient descent and metastability in quantum systems</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09729v1">arXiv</a>] Shuchen Zhu, Yu Tong</p>
+<p><b>High-Temperature Fermionic Gibbs States are Mixtures of Gaussian States</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09730v1">arXiv</a>] Akshar Ramkumar, Yiyi Cai, Yu Tong, Jiaqing Jiang</p>
+<p><b>Quantum Measurement Without Collapse or Many Worlds: The Branched Hilbert Subspace Interpretation</b>—2025-04-21 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2504.14791v3">arXiv</a>] Xing M. Wang</p>
+<p><b>Antibunched emission from femtosecond laser-written nano-ablations on gallium nitride</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09774v1">arXiv</a>] Yanzhao Guo, Giulio Coccia, John P. Hadden, Shane M. Eaton, Anthony J. Bennett</p>
+<p><b>Constructor theory of time</b>—2025-05-13 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2505.08692v2">arXiv</a>] David Deutsch, Chiara Marletto</p>
+<p><b>Eigenstate Thermalization in the Two-Site SYK and SYK Chain Models</b>—2021-04-12 (updated: 2025-05-14)</p>
+<p>[<a href="http://arxiv.org/abs/2104.05291v2">arXiv</a>] Seyyed M. H. Halataei</p>
+<p><b>Efficient protocol to estimate the Quantum Fisher Information Matrix for Commuting-Block Circuits</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09818v1">arXiv</a>] Rafael Gómez-Lurbe</p>
+<p><b>A Constructive Definition of Space via Dynamical Evolution and Observational Acts</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09838v1">arXiv</a>] So Katagiri</p>
+<p><b>Matching high and low temperature regimes of massive scalar fields</b>—2025-05-14</p>
+<p>[<a href="http://arxiv.org/abs/2505.09863v1">arXiv</a>] Manuel Asorey, Fernando Ezquerro</p>
+<h2>Thursday | 2025-05-15</h2>
+<p><b>Biased Degenerate Ground-State Sampling of Small Ising Models with Converged QAOA</b>—2024-11-08 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2411.05294v2">arXiv</a>] Elijah Pelofske</p>
+<p><b>Quantum information in Riemannian spaces</b>—2024-12-04 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2412.02979v4">arXiv</a>] Pablo G. Camara</p>
+<p><b>A magnetically levitated conducting rotor with ultra-low rotational damping circumventing eddy loss</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.09895v1">arXiv</a>] Daehee Kim, Shilu Tian, Breno Calderoni, Cristina Sastre Jachimska, James Downes, Jason Twamley</p>
+<p><b>Public-Key Quantum Money and Fast Real Transforms</b>—2025-03-24 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2503.18890v2">arXiv</a>] Jake Doliskani, Morteza Mirzaei, Ali Mousavi</p>
+<p><b>Two-local modifications of SYK model with quantum chaos</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.09900v1">arXiv</a>] Masanori Hanada, Sam van Leuven, Onur Oktay, Masaki Tezuka</p>
+<p><b>Quantum Entanglement Dynamics of Spacetime and Matter</b>—2014-12-05 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/1412.3662v8">arXiv</a>] Zeng-Bing Chen</p>
+<p><b>Advancements in Entangled Photon Pairs in 2D Van der Waals Materials for On-chip Quantum Applications</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.09944v1">arXiv</a>] Abdus Salam Sarkar</p>
+<p><b>Complementary Collective Spin Descriptions of Superradiant Ramsey Spectroscopy</b>—2025-03-14 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2503.11580v2">arXiv</a>] Ke-Xin Gao, Yuan Zhang, Shi-Lei Su, Gang Chen, Chongxin Shan, Klaus Mølmer</p>
+<p><b>Near-Optimal Parameter Tuning of Level-1 QAOA for Ising Models</b>—2025-01-27 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2501.16419v2">arXiv</a>] V Vijendran, Dax Enshan Koh, Eunok Bae, Hyukjoon Kwon, Ping Koy Lam, Syed M Assad</p>
+<p><b>Research of the Variational Shadow Quantum Circuit Based on the Whale Optimization Algorithm in Image Classification</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.09994v1">arXiv</a>] Shuang Wu, Xueliang Song, Yumin Dong, Fanghua Jia</p>
+<p><b>Isospin precession in non-Abelian Aharonov-Bohm scattering</b>—2024-02-21 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2402.13883v3">arXiv</a>] Peng-Ming Zhang, Peter Horvathy</p>
+<p><b>Relativistic quantum Otto heat engine using a three-level Unruh-DeWitt detector</b>—2025-04-02 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2504.01435v2">arXiv</a>] Tomoya Hirotani, Kensuke Gallock-Yoshimura</p>
+<p><b>Prequantisation from the path integral viewpoint</b>—2024-02-27 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2402.17629v2">arXiv</a>] P A Horvathy</p>
+<p><b>Light Cone Cancellation for Variational Quantum Eigensolver Ansatz</b>—2024-04-30 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2404.19497v3">arXiv</a>] Xinjian Yan, Xinwei Lee, Ningyi Xie, Yoshiyuki Saito, Leo Kurosawa, Nobuyoshi Asai, Dongsheng Cai, Hoong Chuin Lau</p>
+<p><b>Quantum Computing and AI: Perspectives on Advanced Automation in Science and Engineering</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10012v1">arXiv</a>] Tadashi Kadowaki</p>
+<p><b>Structured search algorithm: A quantum leap</b>—2025-04-04 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2504.03426v2">arXiv</a>] Yash Prabhat, Snigdha Thakur, Ankur Raina</p>
+<p><b>Observation of Genuine High-dimensional Multi-partite Non-locality in Entangled Photon States</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10035v1">arXiv</a>] Xiao-Min Hu, Cen-Xiao Huang, Nicola d'Alessandro, Gabriele Cobucci, Chao Zhang, Yu Guo, Yun-Feng Huang, Chuan-Feng Li, Guang-Can Guo, Xiaoqin Gao, Marcus Huber, Armin Tavakoli, Bi-Heng Liu</p>
+<p><b>Optimal normalization in quantum-classical hybrid models for anti-cancer drug response prediction</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10037v1">arXiv</a>] Takafumi Ito, Lysenko Artem, Tatsuhiko Tsunoda</p>
+<p><b>Phase control of transmission and reflection in a sample of duplicated two-level systems driven by a stationary control field</b>—2024-06-04 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2406.02043v2">arXiv</a>] F. A. Hashmi, E. Brion, M. A. Bouchene</p>
+<p><b>Minimum-error state discrimination and Fano's inequality</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10042v1">arXiv</a>] Georgios M. Nikolopoulos</p>
+<p><b>Quantum Dynamics in Krylov Space: Methods and Applications</b>—2024-05-15 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2405.09628v3">arXiv</a>] Pratik Nandy, Apollonas S. Matsoukas-Roubeas, Pablo Martínez-Azcona, Anatoly Dymarsky, Adolfo del Campo</p>
+<p><b>Thermalization of finite complexity and its application to heat bath algorithmic cooling</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10054v1">arXiv</a>] Xueyuan Hu, Valerio Scarani</p>
+<p><b>Probing the geometry dependence of the Casimir-Polder interaction by matter-wave diffraction at a nano-grating</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10056v1">arXiv</a>] Matthieu Bruneau, Julien Lecoffre, Gabin Routier, Naceur Gaaloul, Gabriel Dutier, Quentin Bouton, Thorsten Emig</p>
+<p><b>Electron spin resonance with scanning tunneling microscopy: a tool for an on-surface quantum platform of identical qubits</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10079v1">arXiv</a>] Deung-Jang Choi, Soo-hyon Phark, Andreas J. Heinrich, Nicolás Lorente</p>
+<p><b>Role of scrambling and noise in temporal information processing with quantum systems</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10080v1">arXiv</a>] Weijie Xiong, Zoë Holmes, Armando Angrisani, Yudai Suzuki, Thiparat Chotibut, Supanut Thanasilp</p>
+<p><b>Generation of Motional Squeezed States for Neutral Atoms in Optical Tweezers</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10092v1">arXiv</a>] Vincent Lienhard, Romain Martin, Yuki Torii Chew, Takafumi Tomita, Kenji Ohmori, Sylvain de Léséleuc</p>
+<p><b>Compact superconducting vacuum-gap capacitors with low microwave loss and high mechanical coherence for scalable quantum circuits</b>—2025-01-06 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2501.03211v2">arXiv</a>] Amir Youssefi, Mahdi Chegnizadeh, Marco Scigliuzzo, Tobias J. Kippenberg</p>
+<p><b>Collective light shifts of many cavity modes probed by an optical frequency comb</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10115v1">arXiv</a>] Marin Ðujić, Mateo Kruljac, Lovre Kardum, Neven Šantić, Damir Aumiler, Ivor Krešić, Ticijana Ban</p>
+<p><b>Generation of frequency entanglement with an effective quantum dot-waveguide two-photon quadratic interaction</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10121v1">arXiv</a>] Mohamed Meguebel, Maxime Federico, Simone Felicetti, Nadia Belabas, Nicolas Fabre</p>
+<p><b>Spectral quantum algorithm for passive scalar transport in shear flows</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10136v1">arXiv</a>] Philipp Pfeffer, Peter Brearley, Sylvain Laizet, Jörg Schumacher</p>
+<p><b>Quantum network sensing with efficient multi-partite entanglement distribution via lossy channels</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10148v1">arXiv</a>] Yoshihiro Ueda, Makoto Ishihara, Wojciech Roga, Masahiro Takeoka</p>
+<p><b>Quantum feedback cooling of a trapped nanoparticle by using a low-pass filter</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10157v1">arXiv</a>] Shuma Sugiura, Masahito Ueda</p>
+<p><b>Multiple phase estimation with photon-added multi-mode coherent states of GHZ-type</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10161v1">arXiv</a>] Hanan Saidi, Abdallah Slaoui, Hanane El Hadfi, Rachid Ahl Laamara</p>
+<p><b>High-performance local automaton decoders for defect matching in 1D</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10162v1">arXiv</a>] Louis Paletta, Anthony Leverrier, Mazyar Mirrahimi, Christophe Vuillot</p>
+<p><b>Efficient Quantum Convolutional Neural Networks for Image Classification: Overcoming Hardware Constraints</b>—2025-05-09 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2505.05957v2">arXiv</a>] Peter Röseler, Oliver Schaudt, Helmut Berg, Christian Bauckhage, Matthias Koch</p>
+<p><b>Cavity-Mediated Electron-Electron Interactions: Renormalizing Dirac States in Graphene</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10166v1">arXiv</a>] Hang Liu, Francesco Troisi, Hannes Hübener, Simone Latini, Angel Rubio</p>
+<p><b>Multipartite Hardy paradox unlocks device-independent key sharing</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10170v1">arXiv</a>] Ranendu Adhikary, Mriganka Mandal</p>
+<p><b>Hybrid encoder for discrete and continuous variable QKD</b>—2024-08-30 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2408.17412v2">arXiv</a>] Mattia Sabatini, Tommaso Bertapelle, Paolo Villoresi, Giuseppe Vallone, Marco Avesani</p>
+<p><b>Localization transitions in quadratic systems without quantum chaos</b>—2024-10-07 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2410.05075v2">arXiv</a>] Mateusz Lisiecki, Lev Vidmar, Patrycja Łydżba</p>
+<p><b>Decoherence of Histories: Chaotic Versus Integrable Systems</b>—2024-06-21 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2406.15577v3">arXiv</a>] Jiaozi Wang, Philipp Strasberg</p>
+<p><b>Fast and Flexible Quantum-Inspired Differential Equation Solvers with Data Integration</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.17046v1">arXiv</a>] Lucas Arenstein, Martin Mikkelsen, Michael Kastoryano</p>
+<p><b>Self Clocked Digital LDO for Cryogenic Power Management in 22nm FDSOI with 98 Percent Efficiency</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10234v1">arXiv</a>] A. Ashok, A. Cabrera, S. Baje, A. Zambanini, K. Allinger, A. Bahr, S. van Waasen</p>
+<p><b>Short-time simulation of quantum dynamics by Pauli measurements</b>—2024-12-11 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2412.08719v2">arXiv</a>] Paul K. Faehrmann, Jens Eisert, Maria Kieferova, Richard Kueng</p>
+<p><b>Variational LOCC-assisted quantum circuits for long-range entangled states</b>—2024-09-11 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2409.07281v2">arXiv</a>] Yuxuan Yan, Muzhou Ma, You Zhou, Xiongfeng Ma</p>
+<p><b>Coherent nonlinear optical probe for cavity-dressed vibrational mode mixing: multidimensional double-quantum coherence and photon-echo signal</b>—2025-04-24 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2504.17907v2">arXiv</a>] Arunangshu Debnath</p>
+<p><b>The Many-Worlds Calculus</b>—2022-06-21 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2206.10234v6">arXiv</a>] Kostia Chardonnet, Marc de Visme, Benoît Valiron, Renaud Vilmart</p>
+<p><b>Global locations of Schmidt number witnesses</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10288v1">arXiv</a>] Kyung Hoon Han, Seung-Hyeok Kye</p>
+<p><b>Single photon emission and single spin coherence of a nitrogen vacancy centre encapsulated in silicon nitride</b>—2019-09-20 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/1909.09383v3">arXiv</a>] Joe A. Smith, Jorge Monroy-Ruz, John G. Rarity, Krishna C. Balram</p>
+<p><b>Country wide Shared FibreBased Infrastructure for Dissemination of Precise Time, Coherent Optical Frequency with Vibration Sensing</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10314v1">arXiv</a>] Josef Vojtech, Tomas Novak, Elisabeth Andriantsarazo, Vladimir Smotlacha, Ondrej Havlis, Rudolf Vohnout, Michal Spacek, Martin Slapak, Lada Altmannova, Radek Velc, Petr Pospisil, Jan Kundrat, Martin Cizek, Jan Hrabina, Simon Rerucha, Lenka Pravdova, Josef Lazar, Ondrej Cip, Jaroslav Roztocil</p>
+<p><b>Floquet engineering using pulse driving in a diamond two-level system under a large-amplitude modulation</b>—2022-04-26 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2204.12198v2">arXiv</a>] Shunsuke Nishimura, Kohei M. Itoh, Junko Ishi-Hayase, Kento Sasaki, Kensuke Kobayashi</p>
+<p><b>Towards Optimal Orders for Entanglement Swapping in Path Graphs: A Greedy Approach</b>—2025-04-18 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2504.14040v2">arXiv</a>] Van Sy Mai, Abderrahim Amlou, Amar Abane, Abdella Battou</p>
+<p><b>Comparative Study of Indicators of Chaos in the Closed and Open Dicke Model</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10327v1">arXiv</a>] Prasad Pawar, Arpan Bhattacharyya, B. Prasanna Venkatesh</p>
+<p><b>Coherent heat transfer leads to genuine quantum enhancement in the performances of continuous engines</b>—2024-04-08 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2404.05799v2">arXiv</a>] Brij Mohan, Rajeev Gangwar, Tanmoy Pandit, Mohit Lal Bera, Maciej Lewenstein, Manabendra Nath Bera</p>
+<p><b>Telecom-to-Visible Quantum Frequency Converter on a Silicon Nitride Chip</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10338v1">arXiv</a>] Sidarth Raghunathan, Richard Oliver, Yun Zhao, Karl McNulty, Chaitali Joshi, Michal Lipson, Alexander L. Gaeta</p>
+<p><b>Non-Markovian dynamics with a driven three-level giant atom in a semi-infinite photonic waveguide</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10340v1">arXiv</a>] S. J. Sun, Z. Y. Li, C. Cui, Shuang Xu, H. Z. Shen</p>
+<p><b>Fast and Automated Optical Polarization Compensation of Fiber Unitaries</b>—2024-11-18 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2411.12039v2">arXiv</a>] Niklas Braband, Arman Mansouri, Riza Fazili, Stefanie Czischek, Jeff S. Lundeen</p>
+<p><b>Multiplication triples from entangled quantum resources</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10385v1">arXiv</a>] Maxwell Gold, Eric Chitambar</p>
+<p><b>A Practical Cross-Platform, Multi-Algorithm Study of Quantum Optimisation for Configurational Analysis of Materials</b>—2025-04-09 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2504.06885v2">arXiv</a>] Kieran McDowall, Theodoros Kapourniotis, Christopher Oliver, Phalgun Lolur, Konstantinos Georgopoulos</p>
+<p><b>Geometrically Enhanced Topological Quantum Codes</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10403v1">arXiv</a>] David Aasen, Jeongwan Haah, Matthew B. Hastings, Zhenghan Wang</p>
+<p><b>Light-Matter Interaction in dispersive Superconducting Circuit QED</b>—2025-05-14 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2505.09322v2">arXiv</a>] Harsh Arora, Jay Deshmukh, Ansh Das, R. Vijay, Baladitya Suri</p>
+<p><b>High-fidelity dispersive spin sensing in a tuneable unit cell of silicon MOS quantum dots</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10435v1">arXiv</a>] Constance Lainé, Giovanni A. Oakes, Virginia Ciriano-Tejel, Jacob F. Chittock-Wood, Lorenzo Peri, Michael A. Fogarty, Sofia M. Patomäki, Stefan Kubicek, David F. Wise, Ross C. C. Leon, M. Fernando Gonzalez-Zalba, John J. L. Morton</p>
+<p><b>Edge modes and symmetry-protected topological states in open quantum systems</b>—2023-10-13 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2310.09406v2">arXiv</a>] Dawid Paszko, Dominic C. Rose, Marzena H. Szymańska, Arijeet Pal</p>
+<p><b>On the quantum computational complexity of classical linear dynamics with geometrically local interactions: Dequantization and universality</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10445v1">arXiv</a>] Kazuki Sakamoto, Keisuke Fujii</p>
+<p><b>Exotic Harmonium Model: Exploring Correlation Effects of Attractive Coulomb Interaction</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10452v1">arXiv</a>] Nahid Sadat Riyahi, Mohammad Goli, Shant Shahbazian</p>
+<p><b>Hopf Bifurcation of Nonlinear Non-Hermitian Skin Effect</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10469v1">arXiv</a>] Kohei Kawabata, Daichi Nakamura</p>
+<p><b>Characterizing quantum dynamics using multipartite entanglement generation</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10477v1">arXiv</a>] Gaurav Rudra Malik, Rohit Kumar Shukla, S. Aravinda, Sunil Kumar Mishra</p>
+<p><b>Experimental Tests of Invariant Set Theory</b>—2021-02-15 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2102.07795v3">arXiv</a>] Jonte R. Hance, Tim N. Palmer, John Rarity</p>
+<p><b>Simulation of the 1d XY model on a quantum computer</b>—2024-10-28 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2410.21143v3">arXiv</a>] Marc Farreras, Alba Cervera-Lierta</p>
+<p><b>Understanding Decoherence of the Boron Vacancy Center in Hexagonal Boron Nitride</b>—2025-05-06 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2505.03292v2">arXiv</a>] András Tárkányi, Viktor Ivády</p>
+<p><b>Achievable rates for concatenated square Gottesman-Kitaev-Preskill codes</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10499v1">arXiv</a>] Mahadevan Subramanian, Guo Zheng, Liang Jiang</p>
+<p><b>Universal fault tolerant quantum computation in 2D without getting tied in knots</b>—2025-03-19 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2503.15751v2">arXiv</a>] Margarita Davydova, Andreas Bauer, Julio C. Magdalena de la Fuente, Mark Webster, Dominic J. Williamson, Benjamin J. Brown</p>
+<p><b>Unlocking early fault-tolerant quantum computing with mitigated magic dilution</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10513v1">arXiv</a>] Surabhi Luthra, Alexandra E. Moylett, Dan E. Browne, Earl T. Campbell</p>
+<p><b>Efficient quantum readout-error mitigation for sparse measurement outcomes of near-term quantum devices</b>—2022-01-26 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2201.11046v3">arXiv</a>] Bo Yang, Rudy Raymond, Shumpei Uno</p>
+<p><b>Magnetic deflection of high-spin sodium dimers formed on helium nanodroplets</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10523v1">arXiv</a>] Thomas H. Villers, Benjamin S. Kamerin, Vitaly V. Kresin</p>
+<p><b>Testing Scalable Bell Inequalities for Quantum Graph States on IBM Quantum Devices</b>—2021-01-25 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2101.10307v2">arXiv</a>] Bo Yang, Rudy Raymond, Hiroshi Imai, Hyungseok Chang, Hidefumi Hiraishi</p>
+<p><b>Exploring Variational Entanglement Hamiltonians</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10530v1">arXiv</a>] Yanick S. Kind, Benedikt Fauseweh</p>
+<p><b>The power of a single Haar random state: constructing and separating quantum pseudorandomness</b>—2024-04-04 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2404.03295v4">arXiv</a>] Boyang Chen, Andrea Coladangelo, Or Sattath</p>
+<p><b>Magnon Nesting in Driven Two-Dimensional Quantum Magnets</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10531v1">arXiv</a>] Hossein Hosseinabadi, Yaroslav Tserkovnyak, Eugene Demler, Jamir Marino</p>
+<p><b>Narrow-Line Electric Quadrupole Cooling And Background-Free Imaging Of A Single Cs Atom With Spatially Structured Light</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10540v1">arXiv</a>] Karl N. Blodgett, Saumitra S. Phatak, Meng Raymond Chen, David Peana, Claire Pritts, Jonathan D. Hood</p>
+<p><b>Observing Bethe strings in an attractive Bose gas far from equilibrium</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10550v1">arXiv</a>] Milena Horvath, Alvise Bastianello, Sudipta Dhar, Rebekka Koch, Yanliang Guo, Jean-Sébastien Caux, Manuele Landini, Hanns-Christoph Nägerl</p>
+<p><b>Parastatistics and a secret communication challenge</b>—2024-12-17 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2412.13360v4">arXiv</a>] Zhiyuan Wang</p>
+<p><b>Flowing Through Hilbert Space: Quantum-Enhanced Generative Models for Lattice Field Theory</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10553v1">arXiv</a>] Jehu Martinez, Andrea Delgado</p>
+<p><b>Is diamagnetism really acausal?</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10612v1">arXiv</a>] Niclas Westerberg, Stephen M. Barnett</p>
+<p><b>Is there a conflict between causality and diamagnetism?</b>—2025-01-22 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2501.13098v2">arXiv</a>] Niclas Westerberg, Stephen M. Barnett</p>
+<p><b>Stabilizer-Accelerated Quantum Many-Body Ground-State Estimation</b>—2025-05-05 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2505.02923v2">arXiv</a>] Caroline E. P. Robin</p>
+<p><b>Fiber-coupled broadband quantum memory for polarization-encoded photonic qubits</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10638v1">arXiv</a>] Sandra Cheng, Carson Evans, Todd Pittman</p>
+<p><b>Temporal coherence of single photons emitted by hexagonal Boron Nitride defects at room temperature</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10644v1">arXiv</a>] J. -V. Vidal Martínez-Pons, S. -K. Kim, M. Behrens, A. Izquierdo-Molina, A. Menendez Rua, S. Paçal, S. Ateş, L. Viña, C. Antón-Solanas</p>
+<p><b>Algebraic Compression of Free Fermionic Quantum Circuits: Particle Creation, Arbitrary Lattices and Controlled Evolution</b>—2023-03-16 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2303.09538v2">arXiv</a>] Efekan Kökcü, Daan Camps, Lindsay Bassman Oftelie, Wibe A. de Jong, Roel Van Beeumen, A. F. Kemper</p>
+<p><b>Leveraging Reactant Entanglement in the Coherent Control of Ultracold Bimolecular Chemical Reactions</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10684v1">arXiv</a>] Adrien Devolder, Timur Tscherbul, Paul Brumer</p>
+<p><b>A Universal Quantum Computer From Relativistic Motion</b>—2024-10-31 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2411.00105v2">arXiv</a>] Philip A. LeMaitre, T. Rick Perche, Marius Krumm, Hans J. Briegel</p>
+<p><b>Distributed Realization of Color Codes for Quantum Error Correction</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10693v1">arXiv</a>] Nitish Kumar Chandra, David Tipper, Reza Nejabati, Eneet Kaur, Kaushik P. Seshadreesan</p>
+<p><b>Fermion Doubling in Quantum Cellular Automata</b>—2025-05-12 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2505.07900v2">arXiv</a>] Dogukan Bakircioglu, Pablo Arnault, Pablo Arrighi</p>
+<p><b>Multi-qubit entanglement generation with squeezed modes</b>—2024-10-24 (updated: 2025-05-15)</p>
+<p>[<a href="http://arxiv.org/abs/2410.18843v2">arXiv</a>] Alexandru Macridin, Andrew Cameron, Cristian Pena, Si Xie, Raju Valivarthi, Panagiotis Spentzouris</p>
+<p><b>Two exact quantum signal processing results</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10710v1">arXiv</a>] Bjorn K. Berntson, Christoph Sünderhauf</p>
+<p><b>Entanglement in Directed Graph States</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10716v1">arXiv</a>] Lucio De Simone, Roberto Franzosi</p>
+<p><b>New generation of cavity microscope for quantum simulations</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10733v1">arXiv</a>] Gaia Stella Bolognini, Zeyang Xue, Michael Alexander Eichenberger, Nick Sauerwein, Francesca Orsi, Ekaterina Fedotova, Rohit Prasad Bhatt, Jean-Philippe Brantut</p>
+<p><b>From noisy observables to accurate ground state energies: a quantum classical signal subspace approach with denoising</b>—2025-05-15</p>
+<p>[<a href="http://arxiv.org/abs/2505.10735v1">arXiv</a>] Hardeep Bassi, Yizhi Shen, Harish S. Bhat, Roel Van Beeumen</p>
+<h2>Friday | 2025-05-16</h2>
+<p><b>Implementation of Shor Algorithm: Factoring a 4096-Bit Integer Under Specific Constraints</b>—2025-04-07 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.03743v2">arXiv</a>] Abel C. H. Chen</p>
+<p><b>Multilevel Circuit Optimization in Quantum Compilers: A Case Study</b>—2025-05-14 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.09320v2">arXiv</a>] Tamiya Onodera, Yuki Sato, Toshinari Itoko, Naoki Yamamoto</p>
+<p><b>Exact multiple anomalous mobility edges in a flat band geometry</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10766v1">arXiv</a>] Zhanpeng Lu, Hui Liu, Yunbo Zhang, Zhihao Xu</p>
+<p><b>Classical simulability of constant-depth linear-optical circuits with noise</b>—2024-06-12 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2406.08086v2">arXiv</a>] Changhun Oh</p>
+<p><b>Quantum data generation in a denoising model with multiscale entanglement renormalization network</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10796v1">arXiv</a>] Wei-Wei Zhang, Xiaopeng Huang, Shenglin Shan, Wei Zhao, Beiya Yang, Wei Pan, Haobin Shi</p>
+<p><b>High-efficient long-distance device-independent quantum secret sharing based on single-photon sources</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10797v1">arXiv</a>] Qi Zhang, Cheng Zhang, Wei Zhong, Ming-Ming Du, Lan Zhou, Yu-Bo Sheng</p>
+<p><b>Molecular Quantum Transformer</b>—2025-03-27 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2503.21686v2">arXiv</a>] Yuichi Kamata, Quoc Hoan Tran, Yasuhiro Endo, Hirotaka Oshima</p>
+<p><b>High-Order Hermite Optimization: Fast and Exact Gradient Computation in Open-Loop Quantum Optimal Control using a Discrete Adjoint Approach</b>—2025-05-14 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.09857v2">arXiv</a>] Spencer Lee, Daniel Appelo</p>
+<p><b>Large-Scale Quantum Device Benchmarking via LXEB with Particle-Number-Conserving Random Quantum Circuits</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10820v1">arXiv</a>] Takumi Kaneda, Keisuke Fujii, Hiroshi Ueda</p>
+<p><b>Accelerating Parameter Initialization in Quantum Chemical Simulations via LSTM-FC-VQE</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10842v1">arXiv</a>] Ran-Yu Chang, Yu-Cheng Lin, Pei-Che Hsu, Tsung-Wei Huang, En-Jui Kuo</p>
+<p><b>Niobium coaxial cavities with internal quality factors exceeding 1.5 billion for circuit quantum electrodynamics</b>—2024-03-01 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2403.00286v2">arXiv</a>] Andrew E. Oriani, Fang Zhao, Tanay Roy, Alexander Anferov, Kevin He, Ankur Agrawal, Riju Banerjee, Srivatsan Chakram, David I. Schuster</p>
+<p><b>Security Analysis of Mode-Pairing Quantum Key Distribution with Flexible Pairing Strategy</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10868v1">arXiv</a>] Yi-Fei Lu, Yang Wang, Yan-Yang Zhou, Yu Zhou, Xiao-Lei Jiang, Xin-Hang Li, Hai-Tao Wang, Jia-Ji Li, Chun Zhou, Hong-Wei Li, Yu-Yao Guo, Lin-Jie Zhou, Wan-Su Bao</p>
+<p><b>Quantum Lattice Kinetic Scheme for Solving Two-dimensional and Three-dimensional Incompressible Flows</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10883v1">arXiv</a>] Yang Xiao, Liming Yang, Chang Shu, Yinjie Du, Hao Dong, Jie Wu</p>
+<p><b>Quantum Algorithm for Finding the Optimal Variable Ordering for Binary Decision Diagrams</b>—2019-09-27 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/1909.12658v3">arXiv</a>] Seiichiro Tani</p>
+<p><b>Digital quantum simulation of squeezed states via enhanced bosonic encoding in a superconducting quantum processor</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10895v1">arXiv</a>] Hengyue Li, Yusheng Yang, Zhe-Hui Wang, Shuxin Xie, Zilong Zha, Hantao Sun, Jie Chen, Jian Sun, Shenggang Ying</p>
+<p><b>Bipartite reweight-annealing algorithm of quantum Monte Carlo to extract large-scale data of entanglement entropy and its derivative</b>—2024-06-08 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2406.05324v6">arXiv</a>] Zhe Wang, Zhiyan Wang, Yi-Ming Ding, Bin-Bin Mao, Zheng Yan</p>
+<p><b>RH: An Architecture for Redesigning Quantum Circuits on Quantum Hardware Devices</b>—2024-12-30 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2412.20893v3">arXiv</a>] Runhong He, Ji Guan, Xin Hong, Guolong Cui, Shengbin Wang, Shenggang Ying</p>
+<p><b>Beyond real: Alternative unitary cluster Jastrow models for molecular electronic structure calculations on near-term quantum computers</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10963v1">arXiv</a>] Nikolay V. Tkachenko, Hang Ren, Wendy M. Billings, Rebecca Tomann, K. Birgitta Whaley, Martin Head-Gordon</p>
+<p><b>Probing phase transition and underlying symmetry breaking via entanglement entropy scanning</b>—2024-09-16 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2409.09942v3">arXiv</a>] Zhe Wang, Zehui Deng, Zenan Liu, Zhiyan Wang, Yi-Ming Ding, Long Zhang, Wenan Guo, Zheng Yan</p>
+<p><b>Towards local and compositional measurements in quantum field theory</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.10968v1">arXiv</a>] Robert Oeckl, Adamantia Zampeli</p>
+<p><b>Automated Synthesis of Fault-Tolerant State Preparation Circuits for Quantum Error Correction Codes</b>—2024-08-21 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2408.11894v3">arXiv</a>] Tom Peham, Ludwig Schmid, Lucas Berent, Markus Müller, Robert Wille</p>
+<p><b>Provably Efficient Simulation of 1D Long-Range Interacting Systems at Any Temperature</b>—2024-09-04 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2409.02819v2">arXiv</a>] Rakesh Achutha, Donghoon Kim, Yusuke Kimura, Tomotaka Kuwahara</p>
+<p><b>Discrete time quasi-crystal in Rydberg atomic chain</b>—2025-05-14 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.09117v2">arXiv</a>] Xiaofan Luo, Yaoting Zhou, Zhongxiao Xu, Weilun Jiang</p>
+<p><b>The measurement postulates of quantum mechanics are not redundant</b>—2023-07-12 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2307.06191v3">arXiv</a>] Adrian Kent</p>
+<p><b>Generalization Bounds for Quantum Learning via Rényi Divergences</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11025v1">arXiv</a>] Naqueeb Ahmad Warsi, Ayanava Dasgupta, Masahito Hayashi</p>
+<p><b>Implementing transferable annealing protocols for combinatorial optimisation on neutral atom quantum processors: a case study on smart-charging of electric vehicles</b>—2024-11-25 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2411.16656v3">arXiv</a>] Lucas Leclerc, Constantin Dalyac, Pascale Bendotti, Rodolphe Griset, Joseph Mikael, Loïc Henriet</p>
+<p><b>Local consistency and axioms of functional dependence</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11057v1">arXiv</a>] Timon Barlag, Miika Hannula, Juha Kontinen, Nina Pardal, Jonni Virtema</p>
+<p><b>Purcell enhanced and tunable single-photon emission at telecom wavelengths from InAs quantum dots in circular photonic crystal resonators</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11069v1">arXiv</a>] Andrea Barbiero, Ginny Shooter, Joanna Skiba-Szymanska, Junyang. Huang, Loganathan Ravi, J. Iwan Davies, Ben Ramsay, David J. P. Ellis, Andrew J. Shields, Tina Müller, R. Mark Stevenson</p>
+<p><b>Walsh-Floquet Theory of Periodic Kick Drives</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11071v1">arXiv</a>] James Walkling, Marin Bukov</p>
+<p><b>Analytical Fidelity Calculations for Photonic Linear Cluster State Generation</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11078v1">arXiv</a>] Rohit Prasad, Simon Reiß, Giora Peniakov, Yorick Reum, Peter van Loock, Sven Höfling, Tobias Huber-Loyola, Andreas Theo Pfenning</p>
+<p><b>Quantum Coherence and Chaotic Dynamics: Guiding Molecular Machines Toward Low-Entropy States</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11571v1">arXiv</a>] Andrei Tudor Patrascu</p>
+<p><b>Quantum Lifshitz points in an altermagnetic metal</b>—2025-05-15 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.10242v2">arXiv</a>] Hui Hu, Xia-Ji Liu</p>
+<p><b>ArtA: Automating Design Space Exploration of Spin Qubit Architectures</b>—2024-07-25 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2407.18151v3">arXiv</a>] Nikiforos Paraskevopoulos, David Hamel, Aritra Sarkar, Carmen G. Almudever, Sebastian Feld</p>
+<p><b>Sonification of entanglement dynamics in many-qubit systems</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11159v1">arXiv</a>] Juliette Tudoce, Marcin Płodzień, Maciej Lewenstein, Reiko Yamada</p>
+<p><b>Apparent teleportation of indistinguishable particles</b>—2025-03-13 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2503.10565v3">arXiv</a>] Marek Gazdzicki, Daniel Kikola, Ivan Pidhurskyi, Leonardo Tinti</p>
+<p><b>Learning transitions in classical Ising models and deformed toric codes</b>—2025-04-16 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2504.12385v2">arXiv</a>] Malte Pütz, Samuel J. Garratt, Hidetoshi Nishimori, Simon Trebst, Guo-Yi Zhu</p>
+<p><b>MetaSym: A Symplectic Meta-learning Framework for Physical Intelligence</b>—2025-02-23 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2502.16667v2">arXiv</a>] Pranav Vaidhyanathan, Aristotelis Papatheodorou, Mark T. Mitchison, Natalia Ares, Ioannis Havoutis</p>
+<p><b>Geodesic Algorithm for Unitary Gate Design with Time-Independent Hamiltonians</b>—2024-01-11 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2401.05973v2">arXiv</a>] Dylan Lewis, Roeland Wiersema, Juan Carrasquilla, Sougato Bose</p>
+<p><b>The State of Factoring on Quantum Computers</b>—2024-10-18 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2410.14397v2">arXiv</a>] Dennis Willsch, Philipp Hanussek, Georg Hoever, Madita Willsch, Fengping Jin, Hans De Raedt, Kristel Michielsen</p>
+<p><b>Decentralized Framework for Teleportation in Quantum Core Interconnects</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11195v1">arXiv</a>] Rajeswari Suance P S, Ruchika Gupta, Maurizio Palesi, John Jose</p>
+<p><b>Path-Integral Approach to Quantum Acoustics</b>—2025-05-01 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.00861v2">arXiv</a>] Joost V. de Nijs, Anton M. Graf, Eric J. Heller, Joonas Keski-Rahkonen</p>
+<p><b>Harnessing Photon Indistinguishability in Quantum Extreme Learning Machines</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11238v1">arXiv</a>] Malo Joly, Adrian Makowski, Baptiste Courme, Lukas Porstendorfer, Steffen Wilksen, Edoardo Charbon, Christopher Gies, Hugo Defienne, Sylvain Gigan</p>
+<p><b>Nitrogen-vacancy centre in lonsdaleite: a novel nanoscale sensor?</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11240v1">arXiv</a>] Anjay Manian, Mitchell O. de Vries, Daniel Stavrevski, Qiang Sun, Salvy P. Russo, Andrew D. Greentree</p>
+<p><b>Enantiospecific Two-Photon Electric-Dipole Selection Rule of Chiral Molecules</b>—2025-04-17 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2504.12648v2">arXiv</a>] Fen Zou, Yong Li, Peng Zhang</p>
+<p><b>Emergent Thermalization Thresholds in Unitary Dynamics of Inhomogeneously Disordered Systems</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11253v1">arXiv</a>] Soumya Kanti Pal, C L Sriram, Shamik Gupta</p>
+<p><b>Observation of optical vortex generation via magnon-induced Brillouin light scattering</b>—2025-05-06 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.03152v2">arXiv</a>] Ryusuke Hisatomi, Alto Osada, Kotaro Taga, Haruka Komiyama, Takuya Takahashi, Shutaro Karube, Yoichi Shiota, Teruo Ono</p>
+<p><b>Quantum counting, and a relevant sign</b>—2023-10-11 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2310.07428v2">arXiv</a>] Natalie Chung, Rafael I. Nepomechie</p>
+<p><b>Lower Bounds on Learning Pauli Channels with Individual Measurements</b>—2023-01-22 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2301.09192v2">arXiv</a>] Omar Fawzi, Aadil Oufkir, Daniel Stilck França</p>
+<p><b>Heading towards an Algebraic Heisenberg Cut</b>—2024-12-21 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2412.16574v3">arXiv</a>] Mathias Van Den Bossche, Philippe Grangier</p>
+<p><b>Quantum compressed sensing tomographic reconstruction algorithm</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11286v1">arXiv</a>] Arim Ryou, Kiwoong Kim, Kyungtaek Jun</p>
+<p><b>Time-dependent Hole States in Multiconfigurational Time-Dependent Hartree-Fock Approaches: A Time-Domain Generalization of Extended Koopmans' Theorem</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11290v1">arXiv</a>] Zhao-Han Zhang, Yang Li, Himadri Pathak, Takeshi Sato, Kenichi L. Ishikawa, Feng He</p>
+<p><b>QuXAI: Explainers for Hybrid Quantum Machine Learning Models</b>—2025-05-15 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.10167v2">arXiv</a>] Saikat Barua, Mostafizur Rahman, Shehenaz Khaled, Md Jafor Sadek, Rafiul Islam, Shahnewaz Siddique</p>
+<p><b>Quantum Correlations in Three-Beam Symmetric Gaussian States Accessed via Photon-Number-Resolving Detection and Quantum Universal Invariants</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11303v1">arXiv</a>] Jan Peřina Jr., Nazarii Sudak, Artur Barasiński, Antonín Černoch</p>
+<p><b>Time-dependent Hole States in Multiconfigurational Time-Dependent Hartree-Fock Approaches: Applications in Photoionization of Water Molecule</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11319v1">arXiv</a>] Zhao-Han Zhang, Yang Li, Himadri Pathak, Takeshi Sato, Kenichi L. Ishikawa, Feng He</p>
+<p><b>General recipe for immediate entanglement death-birth transitions via Bell states: environmental Heisenberg exchange as an example</b>—2024-10-06 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2410.04396v3">arXiv</a>] Son-Hsien Chen, Seng Ghee Tan, Che-Chun Huang</p>
+<p><b>QKD security proofs for decoy-state BB84: protocol variations, proof techniques, gaps and limitations</b>—2025-02-14 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2502.10340v2">arXiv</a>] Devashish Tupkary, Ernest Y. -Z. Tan, Shlok Nahar, Lars Kamin, Norbert Lütkenhaus</p>
+<p><b>Tensor decomposition technique for qubit encoding of maximal-fidelity Lorentzian orbitals in real-space quantum chemistry</b>—2025-01-13 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2501.07211v2">arXiv</a>] Taichi Kosugi, Xinchi Huang, Hirofumi Nishi, Yu-ichiro Matsushita</p>
+<p><b>General Hamiltonian description of nonreciprocal interactions</b>—2025-05-08 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.05246v3">arXiv</a>] Yu-Bo Shi, Roderich Moessner, Ricard Alert, Marin Bukov</p>
+<p><b>Channel coding against quantum jammers via minimax</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11362v1">arXiv</a>] Michael X. Cao, Yongsheng Yao, Mario Berta</p>
+<p><b>Compactifying linear optical unitaries using multiport beamsplitters</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11371v1">arXiv</a>] P. A. Ameen Yasir, Peter van Loock</p>
+<p><b>TensorMixedStates: a Julia library for simulating pure and mixed quantum states using matrix product states</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11377v1">arXiv</a>] Jérôme Houdayer, Grégoire Misguich</p>
+<p><b>Absence of censoring inequalities in random quantum circuits</b>—2025-02-21 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2502.15995v2">arXiv</a>] Daniel Belkin, James Allen, Bryan K. Clark</p>
+<p><b>Path superposition as resource for perfect quantum teleportation with separable states</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11398v1">arXiv</a>] Sayan Mondal, Priya Ghosh, Ujjwal Sen</p>
+<p><b>Probing Quantum Structure in Gravitational Radiation</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11407v1">arXiv</a>] Sreenath K. Manikandan, Frank Wilczek</p>
+<p><b>Noisy atomic magnetometry with Kalman filtering and measurement-based feedback</b>—2024-03-21 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2403.14764v3">arXiv</a>] Julia Amoros-Binefa, Jan Kolodynski</p>
+<p><b>Lattice models with subsystem/weak non-invertible symmetry-protected topological order</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11419v1">arXiv</a>] Yuki Furukawa</p>
+<p><b>Unified Quantum Dynamics: The Emergence of the Born Rule</b>—2025-04-08 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2504.06495v2">arXiv</a>] Martin Weidner</p>
+<p><b>The fate of the Fermi surface coupled to a single-wave-vector cavity mode</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11452v1">arXiv</a>] Bernhard Frank, Michele Pini, Johannes Lang, Francesco Piazza</p>
+<p><b>Magnetic field orientation dependence of continuous-wave optically detected magnetic resonance with nitrogen-vacancy ensembles</b>—2025-04-25 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2504.18478v2">arXiv</a>] Pralekh Dubey, Shashank Kumar, Chinmaya Singh, Jemish Naliyapara, Monish A Poojar, Harikrishnan K B, Anshul Poonia, Phani Peddibhotla</p>
+<p><b>Solving Large-Scale QUBO with Transferred Parameters from Multilevel QAOA of low depth</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11464v1">arXiv</a>] Bao G Bach, Filip B. Maciejewski, Ilya Safro</p>
+<p><b>A comprehensive exploration of interaction networks reveals a connection between entanglement and network structure</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11466v1">arXiv</a>] Yoshiaki Horiike, Yuki Kawaguchi</p>
+<p><b>Unbiased observable estimation via noisy channel mixtures for fault-tolerant quantum computation</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11486v1">arXiv</a>] Dmitrii Khitrin, Kenneth R. Brown, Abhinav Anand</p>
+<p><b>Area and volume from entangled qubits</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11487v1">arXiv</a>] Juan M. Romero, Emiliano Montoya-González</p>
+<p><b>Exactly solvable many-body dynamics from space-time duality</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11489v1">arXiv</a>] Bruno Bertini, Pieter W. Claeys, Tomaž Prosen</p>
+<p><b>Non-coherent evolution of closed weakly interacting system leads to equidistribution of probabilities of microstates</b>—2024-02-22 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2402.14971v4">arXiv</a>] A. P. Meilakhs</p>
+<p><b>Exactly solvable dissipative dynamics and one-form strong-to-weak spontaneous symmetry breaking in interacting two-dimensional spin systems</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11501v1">arXiv</a>] Lucas Sá, Benjamin Béri</p>
+<p><b>Imaging-based Quantum Optomechanics</b>—2024-07-09 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2407.07060v2">arXiv</a>] Christian M. Pluchar, Wenhua He, Jack Manley, Nicolas Deshler, Saikat Guha, Dalziel J. Wilson</p>
+<p><b>Superoscillating Quantum Control Induced By Sequential Selections</b>—2023-05-07 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2305.04303v2">arXiv</a>] Yongcheng Ding, Yiming Pan, Xi Chen</p>
+<p><b>Exponential quantum speedups in quantum chemistry with linear depth</b>—2025-03-26 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2503.21041v2">arXiv</a>] Oskar Leimkuhler, K. Birgitta Whaley</p>
+<p><b>Enhancing Network Anomaly Detection with Quantum GANs and Successive Data Injection for Multivariate Time Series</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11631v1">arXiv</a>] Wajdi Hammami, Soumaya Cherkaoui, Shengrui Wang</p>
+<p><b>Comparing GHZ-Based Strategies for Multipartite Entanglement Distribution in 2D Repeater Networks</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11632v1">arXiv</a>] Mohadeseh Azari, Amy Babay, Prashant Krishnamurthy, Kaushik Seshadreesan</p>
+<p><b>Toward Mixed Analog-Digital Quantum Signal Processing: Quantum AD/DA Conversion and the Fourier Transform</b>—2024-08-27 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2408.14729v2">arXiv</a>] Yuan Liu, John M. Martyn, Jasmine Sinanan-Singh, Kevin C. Smith, Steven M. Girvin, Isaac L. Chuang</p>
+<p><b>Photonic Networking of Quantum Memories in High-Dimensions</b>—2025-05-16</p>
+<p>[<a href="http://arxiv.org/abs/2505.11704v1">arXiv</a>] Mikhail Shalaev, Sagnik Saha, George Toh, Isabella Goetting, Ashish Kalakuntla, Harriet Bufan Shi, Jameson O'Reilly, Yichao Yu, Christopher Monroe</p>
+<p><b>QMProt: A Comprehensive Dataset of Quantum Properties for Proteins</b>—2025-05-13 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2505.08956v2">arXiv</a>] Laia Coronas Sala, Parfait Atchade-Adelemou</p>
+<p><b>Blockchain with proof of quantum work</b>—2025-03-18 (updated: 2025-05-16)</p>
+<p>[<a href="http://arxiv.org/abs/2503.14462v2">arXiv</a>] Mohammad H. Amin, Jack Raymond, Daniel Kinn, Firas Hamze, Kelsey Hamer, Joel Pasvolsky, William Bernoudy, Andrew D. King, Samuel Kortas</p>
+<h2>Saturday | 2025-05-17</h2>
+<p><b>Redefining Neural Operators in $d+1$ Dimensions</b>—2025-05-17</p>
+<p>[<a href="http://arxiv.org/abs/2505.11766v1">arXiv</a>] Haoze Song, Zhihao Li, Xiaobo Zhang, Zecheng Gan, Zhilu Lai, Wei Wang</p>
+<p><b>Optimal control for preparing fractional quantum Hall states in optical lattices</b>—2025-01-18 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2501.10720v3">arXiv</a>] Ling-Na Wu, Xikun Li, Nathan Goldman, Botao Wang</p>
+<p><b>Proof of absence of local conserved quantities in two- and higher-dimensional quantum Ising models</b>—2024-12-25 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2412.18903v3">arXiv</a>] Yuuya Chiba</p>
+<p><b>Quantum gyroscope based on the cavity magnomechanical system</b>—2025-05-13 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2505.08466v2">arXiv</a>] Zhe-Qi Yang, Lei Chen, Yu-Rong Lin, Wei Qin, Zhi-Rong Zhong</p>
+<p><b>Q-Policy: Quantum-Enhanced Policy Evaluation for Scalable Reinforcement Learning</b>—2025-05-17</p>
+<p>[<a href="http://arxiv.org/abs/2505.11862v1">arXiv</a>] Kalyan Cherukuri, Aarav Lala, Yash Yardi</p>
+<p><b>Exact path integrals on half-line in quantum cosmology with a fluid clock and aspects of operator ordering ambiguity</b>—2025-01-20 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2501.11680v2">arXiv</a>] Vikramaditya Mondal, Harkirat Singh Sahota, Kinjalk Lochan</p>
+<p><b>Evaluating many-body stabilizer Rényi entropy by sampling reduced Pauli strings: singularities, volume law, and nonlocal magic</b>—2025-01-21 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2501.12146v3">arXiv</a>] Yi-Ming Ding, Zhe Wang, Zheng Yan</p>
+<p><b>Understanding the Monty Hall Problem Through a Quantum Measurement Analogy</b>—2025-05-17</p>
+<p>[<a href="http://arxiv.org/abs/2506.00012v1">arXiv</a>] Mo Li</p>
+<p><b>Bethe Ansatz, Quantum Circuits, and the F-basis</b>—2024-11-04 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2411.02519v2">arXiv</a>] Roberto Ruiz, Alejandro Sopena, Esperanza López, Germán Sierra, Balázs Pozsgay</p>
+<p><b>Time-dependent conformal transformations and the propagator for quadratic systems</b>—2021-05-16 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2105.07374v5">arXiv</a>] Q. -L. Zhao, P. -M. Zhang, P. A. Horvathy</p>
+<p><b>Robust and digital hyper-polarization protocol of nuclear spins via magic sequential sequence</b>—2025-04-25 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2504.18132v2">arXiv</a>] Haiyang Li, Hao Liao, Ping Wang</p>
+<p><b>Unlocking Photon Magnon Interplay via Saturation Magnetization</b>—2025-05-17</p>
+<p>[<a href="http://arxiv.org/abs/2505.11977v1">arXiv</a>] Sachin Verma, Jiten Mahalik, Abhishek Maurya, Rajeev Singh, Biswanath Bhoi</p>
+<p><b>Peak state transfer in continuous quantum walks</b>—2025-05-17</p>
+<p>[<a href="http://arxiv.org/abs/2505.11986v1">arXiv</a>] Gabriel Coutinho, Krystal Guo, Vincent Schmeits</p>
+<p><b>On-demand single-microwave-photon source in a superconducting circuit with wideband frequency tunability</b>—2024-09-08 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2409.05117v2">arXiv</a>] Samarth Hawaldar, Siddhi Satish Khaire, Per Delsing, Baladitya Suri</p>
+<p><b>Variational quantum simulation of a nonadditive relaxation dynamics in a qubit coupled to a finite-temperature bath</b>—2025-05-17</p>
+<p>[<a href="http://arxiv.org/abs/2505.12013v1">arXiv</a>] Lucas Q. Galvão, Clebson Cruz, Antonio Cesar do Prado Rosa Junior, Marcelo A. Moret</p>
+<p><b>Isoholonomic inequality and tight implementations of holonomic quantum gates</b>—2024-12-16 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2412.12013v2">arXiv</a>] Ole Sönnerborn</p>
+<p><b>Parallel transport in rotating frames and projective holonomic quantum computation</b>—2024-05-31 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2405.20812v4">arXiv</a>] Ole Sönnerborn</p>
+<p><b>Test of the physical significance of Bell nonlocality</b>—2024-02-01 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2402.00801v2">arXiv</a>] Carlos Vieira, Ravishankar Ramanathan, Adán Cabello</p>
+<p><b>Entanglement generation and dynamical equilibrium within de Broglie Bohm theory</b>—2025-05-15 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2505.10221v2">arXiv</a>] Mustafa Kemal Döner</p>
+<p><b>Quantum Entanglement is Quantum: ZZ Production at the LHC</b>—2025-05-17</p>
+<p>[<a href="http://arxiv.org/abs/2505.12125v1">arXiv</a>] Dorival Gonçalves, Ajay Kaladharan, Frank Krauss, Alberto Navarro</p>
+<p><b>Scalable quantum simulator with an extended gate set in giant atoms</b>—2025-03-06 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2503.04537v2">arXiv</a>] Guangze Chen, Anton Frisk Kockum</p>
+<p><b>New Lower-bounds for Quantum Computation with Non-Collapsing Measurements</b>—2024-11-06 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2411.04085v2">arXiv</a>] David Miloschewsky, Supartha Podder</p>
+<p><b>The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth</b>—2024-12-17 (updated: 2025-05-17)</p>
+<p>[<a href="http://arxiv.org/abs/2412.12558v2">arXiv</a>] Gregory D. Kahanamoku-Meyer, Seyoon Ragavan, Vinod Vaikuntanathan, Katherine Van Kirk</p>
+<h2>Sunday | 2025-05-18</h2>
+<p><b>Optimized four-qubit quantum error correcting code for amplitude damping channel</b>—2024-11-20 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2411.12952v2">arXiv</a>] Xuanhui Mao, Qian Xu, Liang Jiang</p>
+<p><b>Tailoring the van der Waals interaction with rotation</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.12177v1">arXiv</a>] H. S. G. Amaral, P. P. Abrantes, F. Impens, P. A. Maia Neto, R. de Melo e Souza</p>
+<p><b>Speeding up quantum Markov processes through lifting</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.12187v1">arXiv</a>] Bowen Li, Jianfeng Lu</p>
+<p><b>Modeling error correction with Lindblad dynamics and approximate channels</b>—2024-02-26 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2402.16727v3">arXiv</a>] Zohar Schwartzman-Nowik, Liran Shirizly, Haggai Landa</p>
+<p><b>Dirac-von Neumann Axiomatic Structure for Classical Electromagnetism</b>—2024-12-31 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2501.01995v2">arXiv</a>] Daniel W. Piasecki</p>
+<p><b>Finite-time stabilization of ladder multi-level quantum systems</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.12303v1">arXiv</a>] Zeping Su, Sen Kuang, Daoyi Dong</p>
+<p><b>Nonlinear optical realization of non-integrable phases accompanying quantum phase transitions</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.12347v1">arXiv</a>] Chon-Fai Kam</p>
+<p><b>Spin manipulation and nuclear polarization enhancement in particle beams with static magnetic fields</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.12365v1">arXiv</a>] Chrysovalantis S. Kannis, Ralf Engels, Tarek El-Kordy, Nicolas Faatz, Simon J. Pütz, Vincent Verhoeven, T. Peter Rakitzis, Markus Büscher</p>
+<p><b>Visibility Stokes parameters as a foundation for quantum information science with undetected photons</b>—2024-09-16 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2409.10740v2">arXiv</a>] Jaroslav Kysela, Markus Gräfe, Jorge Fuenzalida</p>
+<p><b>From the Bloch equation to a thermodynamically consistent master equation</b>—2025-05-08 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2505.05289v2">arXiv</a>] Eugenia Pyurbeeva, Ronnie Kosloff</p>
+<p><b>Quantum Algorithms for Inverse Participation Ratio Estimation in multi-qubit and multi-qudit systems</b>—2024-05-06 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2405.03338v2">arXiv</a>] Yingjian Liu, Piotr Sierant, Paolo Stornati, Maciej Lewenstein, Marcin Płodzień</p>
+<p><b>Adaptive Optimization of Latency and Throughput with Fidelity Constraints in Quantum Networks Using Deep Neural Networks</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.12459v1">arXiv</a>] Gongyu Ni, Lester Ho, Holger Claussen</p>
+<p><b>Entanglement Request Scheduling in Quantum Networks Using Deep Q-Network</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.12461v1">arXiv</a>] Gongyu Ni, Lester Ho, Holger Claussen</p>
+<p><b>Exploring Quantum Aspects of Dark Matter Axions and Dark Photons Transitioning to Photons in a Resonant Cavity</b>—2024-10-16 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2410.12634v2">arXiv</a>] Ruifeng Zheng, Puxian Wei, Qiaoli Yang</p>
+<p><b>Noise-Robust Self-Testing: Detecting Non-Locality in Noisy Non-Local Inputs</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.13537v1">arXiv</a>] Romi Lifshitz</p>
+<p><b>Revealing hidden nonlocality and preparation contextuality for an arbitrary input Bell inequality</b>—2025-04-25 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2504.18045v2">arXiv</a>] Asmita Kumari, Saikat Patra</p>
+<p><b>Universal adjointation of isometry operations using conversion of quantum supermaps</b>—2024-01-18 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2401.10137v3">arXiv</a>] Satoshi Yoshida, Akihito Soeda, Mio Murao</p>
+<p><b>Probing new physics in the top sector using quantum information</b>—2025-05-18</p>
+<p>[<a href="http://arxiv.org/abs/2505.12522v1">arXiv</a>] Rafael Aoude, Hannah Banks, Chris D. White, Martin J. White</p>
+<p><b>Experimental Quantum Simulation of Chemical Dynamics</b>—2024-09-06 (updated: 2025-05-18)</p>
+<p>[<a href="http://arxiv.org/abs/2409.04044v3">arXiv</a>] T. Navickas, R. J. MacDonell, C. H. Valahu, V. C. Olaya-Agudelo, F. Scuccimarra, M. J. Millican, V. G. Matsos, H. L. Nourse, A. D. Rao, M. J. Biercuk, C. Hempel, I. Kassal, T. R. Tan</p>
+<h2>Monday | 2025-05-19</h2>
+<p><b>Sample Complexity Bounds for Scalar Parameter Estimation Under Quantum Differential Privacy</b>—2025-01-24 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2501.14184v3">arXiv</a>] Farhad Farokhi</p>
+<p><b>Quantum Deep Sets and Sequences</b>—2025-04-03 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2504.02241v2">arXiv</a>] Vladimir Vargas-Calderón</p>
+<p><b>Driven Critical Dynamics in Tricitical Point</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12595v1">arXiv</a>] Ting-Long Wang, Yi-Fan Jiang, Shuai Yin</p>
+<p><b>A silicon spin vacuum: isotopically enriched $^{28}$silicon-on-insulator and $^{28}$silicon from ultra-high fluence ion implantation</b>—2025-04-04 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2504.03332v2">arXiv</a>] Shao Qi Lim, Brett C. Johnson, Sergey Rubanov, Nico Klingner, Bin Gong, Alexander M. Jakob, Danielle Holmes, David N. Jamieson, Jim S. Williams, Jeffrey C. McCallum</p>
+<p><b>Dictionary-based sparse block encoding with low subnormalization and circuit depth</b>—2024-05-28 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2405.18007v4">arXiv</a>] Chunlin Yang, Zexian Li, Hongmei Yao, Zhaobing Fan, Guofeng Zhang, Jianshe Liu</p>
+<p><b>Inverse nonlinear fast Fourier transform on SU(2) with applications to quantum signal processing</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12615v1">arXiv</a>] Hongkang Ni, Rahul Sarkar, Lexing Ying, Lin Lin</p>
+<p><b>Online Learning of Pure States is as Hard as Mixed States</b>—2025-02-02 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2502.00823v2">arXiv</a>] Maxime Meyer, Soumik Adhikary, Naixu Guo, Patrick Rebentrost</p>
+<p><b>Exploring dynamical quantum phase transition from pure states to mixed states through extended Su-Schrieffer-Heeger models</b>—2025-01-12 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2501.06794v3">arXiv</a>] Kaiyuan Cao, Tianren Zhang, Xiangping Jiang, Jian Wang</p>
+<p><b>From Quantum Indistinguishability to Classical Distinguishability: Statistics and Measurement of Two-Particle Distributions</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12675v1">arXiv</a>] Won-Young Hwang, Kicheon Kang</p>
+<p><b>Light-controlled strong coupling of optical cavity modes spaced by 200 THz</b>—2025-03-02 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2503.00833v2">arXiv</a>] Lavanya Taneja, David I Schuster, Jonathan Simon</p>
+<p><b>Deterministic carving of quantum states with Grover's algorithm</b>—2025-01-31 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2501.18884v3">arXiv</a>] Omar Nagib, M. Saffman, K. Mølmer</p>
+<p><b>Efficient preparation of entangled states in cavity QED with Grover's algorithm</b>—2025-01-31 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2501.18881v3">arXiv</a>] Omar Nagib, M. Saffman, K. Mølmer</p>
+<p><b>Phase Transitions in Open Dicke Model: a degenerate perturbation theory approach</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12696v1">arXiv</a>] Wenqi Tong, H. Alaeian, F. Robicheaux</p>
+<p><b>Josephson Junctions in the Age of Quantum Discovery</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12724v1">arXiv</a>] Hyunseong Kim, Gyunghyun Jang, Seungwon Jin, Dongbin Shin, Hyeon-Jin Shin, Jie Luo, Irfan Siddiqi, Yosep Kim, Hoon Hahn Yoon, Long B. Nguyen</p>
+<p><b>Ehrenfest's theorem beyond the Ehrenfest time</b>—2023-06-23 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2306.13717v2">arXiv</a>] Felipe Hernández, Daniel Ranard, C. Jess Riedel</p>
+<p><b>Quantum Resource Theories beyond Convexity</b>—2024-05-09 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2405.05785v4">arXiv</a>] Roberto Salazar, Jakub Czartowski, Ricard Ravell Rodríguez, Grzegorz Rajchel-Mieldzioć, Paweł Horodecki, Karol Życzkowski</p>
+<p><b>Classical correspondence beyond the Ehrenfest time for open quantum systems with general Lindbladians</b>—2023-07-07 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2307.05326v3">arXiv</a>] Felipe Hernández, Daniel Ranard, C. Jess Riedel</p>
+<p><b>Entangling two levitated particles in free space via trap modulation and Bayesian feedback</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12865v1">arXiv</a>] Jinke Cao, Qi Guo, Huatang Tan</p>
+<p><b>Quantum Algorithms for Causal Estimands</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12873v1">arXiv</a>] Rishi Goel, Casey R. Myers, Sally Shrapnel</p>
+<p><b>Thermodynamic and energetic constraints on transition probabilities of small-scale quantum systems</b>—2024-09-02 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2409.00981v3">arXiv</a>] Ludovico Tesser, Matteo Acciai, Christian Spånslätt, Inès Safi, Janine Splettstoesser</p>
+<p><b>Spectral Properties of Two Superconducting Artificial Atoms Coupled to a Resonator in the Ultrastrong Coupling Regime</b>—2023-07-28 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2307.15437v3">arXiv</a>] Akiyoshi Tomonaga, Roberto Stassi, Hiroto Mukai, Franco Nori, Fumiki Yoshihara, Jaw-Shen Tsai</p>
+<p><b>An additive refinement of quantum channel capacities</b>—2022-05-15 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2205.07205v2">arXiv</a>] D. -S. Wang</p>
+<p><b>Variational Quantum Subspace Construction via Symmetry-Preserving Cost Functions</b>—2024-11-25 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2411.16915v2">arXiv</a>] Hamzat A. Akande, Alexandre Perrin, Bruno Senjean, Matthieu Saubanere</p>
+<p><b>Generalized $α$-Observational Entropy</b>—2023-12-06 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2312.03572v3">arXiv</a>] Shivam Sinha, Nripendra Majumbdar, S. Aravinda</p>
+<p><b>Doubling Qubits in a Trapped-Ion System via Vibrational Dual-Rail Encoding</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12937v1">arXiv</a>] Minhyeok Kang, Wentao Chen, Hyukjoon Kwon, Kihwan Kim, Joonsuk Huh</p>
+<p><b>Quantum (Inspired) $D^2$-sampling with Applications</b>—2024-05-22 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2405.13351v2">arXiv</a>] Poojan Shah, Ragesh Jaiswal</p>
+<p><b>On neutron holography, neutron interferometry and neutron orbital angular momentum</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12959v1">arXiv</a>] Wolfgang Treimer, Frank Haußer, Ingeborg Beckers, Martin Suda, Terrence Jach</p>
+<p><b>Countermeasure against Detector Blinding Attack with Secret Key Leakage Estimation</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12974v1">arXiv</a>] Dmitry M. Melkonian, Daniil S. Bulavkin, Kirill E. Bugai, Kirill A. Balygin, Dmitriy A. Dvoretskiy</p>
+<p><b>Tricritical Kibble-Zurek Scaling in Rydberg Atom Ladders</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12979v1">arXiv</a>] Hanteng Wang, Xingyu Li, Chengshu Li</p>
+<p><b>Stark Energy Shifts due to Quantum Gravity in RGUP Algebra</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12985v1">arXiv</a>] Gaurav Bhandari, S. D. Pathak</p>
+<p><b>From Theory to Practice: Analyzing VQPM for Quantum Optimization of QUBO Problems</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.12990v1">arXiv</a>] Ammar Daskin</p>
+<p><b>Characterizing asymmetric and bimodal long-term financial return distributions through quantum walks</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13019v1">arXiv</a>] Stijn De Backer, Luis E. C. Rocha, Jan Ryckebusch, Koen Schoors</p>
+<p><b>Physics-Aware Compilation for Parallel Quantum Circuit Execution on Neutral Atom Arrays</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13049v1">arXiv</a>] Geng Chen, Guowu Yang, Wenjie Sun, Lianhui Yu, Guangwei Deng, Desheng Zheng, Xiaoyu Li</p>
+<p><b>Verifying Quantum Memory in the Dynamics of Spin Boson Models</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13067v1">arXiv</a>] Charlotte Bäcker, Valentin Link, Walter T. Strunz</p>
+<p><b>Superadditivity of Convex Roof Coherence Measures in Multipartite System</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13095v1">arXiv</a>] Honglin Ren, Lin Chen</p>
+<p><b>Planar quantum low-density parity-check codes with open boundaries</b>—2025-04-11 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2504.08887v2">arXiv</a>] Zijian Liang, Jens Niklas Eberhardt, Yu-An Chen</p>
+<p><b>Transfer and routing of Gaussian states through quantum complex networks with and without community structure</b>—2024-03-08 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2403.05623v2">arXiv</a>] Markku Hahto, Johannes Nokkala, Guillermo García-Pérez, Sabrina Maniscalco, Jyrki Piilo</p>
+<p><b>Generalized toric codes on twisted tori for quantum error correction</b>—2025-03-05 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2503.03827v2">arXiv</a>] Zijian Liang, Ke Liu, Hao Song, Yu-An Chen</p>
+<p><b>Exponential enhancement of sensitivity in Ramsey interferometry with optically thick ensemble of atoms</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13146v1">arXiv</a>] S. A. Moiseev, K. I. Gerasimov, M. M. Minnegaliev, I. V. Brekotkin, E. S. Moiseev</p>
+<p><b>Conditions for Quantum Violation of Macrorealism in Large-spin Limit</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13162v1">arXiv</a>] Qi-Hong Cai, Xue-Hao Yu, Ma-Cheng Yang, Ao-Xiang Liu, Cong-Feng Qiao</p>
+<p><b>An entanglement-enhanced atomic gravimeter</b>—2024-04-29 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2404.18668v2">arXiv</a>] Christophe Cassens, Bernd Meyer-Hoppe, Ernst Rasel, Carsten Klempt</p>
+<p><b>Parametric Stability Analysis for Circuit Quantum Electrodynamical Hardwares</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13177v1">arXiv</a>] Maria Gabriela Boada, Andrea Delgado, Jose Morales Escalante</p>
+<p><b>Repeated quantum backflow and overflow</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13184v1">arXiv</a>] Christopher J. Fewster, Harkan J. Kirk-Karakaya</p>
+<p><b>A Physics-Inspired Optimizer: Velocity Regularized Adam</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13196v1">arXiv</a>] Pranav Vaidhyanathan, Lucas Schorling, Natalia Ares, Michael A. Osborne</p>
+<p><b>Quantum Kinetic Uncertainty Relations in Mesoscopic Conductors at Strong Coupling</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13200v1">arXiv</a>] Gianmichele Blasi, Ricard Ravell Rodríguez, Mykhailo Moskalets, Rosa López, Géraldine Haack</p>
+<p><b>Quantum Knowledge Distillation for Large Language Models</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13205v1">arXiv</a>] Lingxiao Li, Yihao Wang, Jiacheng Fan, Jing Li, Sujuan Qin, Qiaoyan Wen, Fei Gao</p>
+<p><b>Discrete Time Crystals in the spin-s Central Spin Model</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13207v1">arXiv</a>] Hillol Biswas, Sayan Choudhury</p>
+<p><b>Efficient Generation of Parameterised Quantum Circuits from Large Texts</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13208v1">arXiv</a>] Colin Krawchuk, Nikhil Khatri, Neil John Ortega, Dimitri Kartsaklis</p>
+<p><b>Quantum confinement and carbon nanodots: A conceptual view for the origin of diffuse interstellar bands</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13209v1">arXiv</a>] A. P. Jones</p>
+<p><b>Quantum Hamiltonian Certification</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13217v1">arXiv</a>] Minbo Gao, Zhengfeng Ji, Qisheng Wang, Wenjun Yu, Qi Zhao</p>
+<p><b>Projective squeezing for translation symmetric bosonic codes</b>—2024-03-21 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2403.14218v2">arXiv</a>] Suguru Endo, Keitaro Anai, Yuichiro Matsuzaki, Yuuki Tokunaga, Yasunari Suzuki</p>
+<p><b>Phonon-Coupled Hole-Spin Qubits in High-Purity Germanium: Design and Modeling of a Scalable Architecture</b>—2025-04-16 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2504.12221v2">arXiv</a>] D. -M. Mei, S. A. Panamaldeniya, K. Dong, S. Bhattarai, N. Budhathoki, A. Warren</p>
+<p><b>Reshaping quantum device noise via repetition code circuits</b>—2024-11-01 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2411.00751v2">arXiv</a>] Yue Ma, Michael Hanks, Evdokia Gneusheva, M. S. Kim</p>
+<p><b>Boundary anomaly detection in two-dimensional subsystem symmetry-protected topological phases</b>—2024-12-10 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2412.07563v2">arXiv</a>] Ke Ding, Hao-Ran Zhang, Bai-Ting Liu, Shuo Yang</p>
+<p><b>Bethe-ansatz diagonalization of steady state of boundary driven integrable spin chains</b>—2024-08-17 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2408.09302v2">arXiv</a>] Vladislav Popkov, Xin Zhang, Carlo Presilla, Tomaz Prosen</p>
+<p><b>A strong-driving toolkit for topological Floquet energy pumps with superconducting circuits</b>—2025-01-29 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2501.17915v2">arXiv</a>] Martin Ritter, David M. Long, Qianao Yue, Maya Amouzegar, Anushya Chandran, Alicia J. Kollár</p>
+<p><b>Dimer problem on a spherical surface</b>—2025-02-10 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2502.06724v2">arXiv</a>] A. Tononi, D. S. Petrov, M. Lewenstein</p>
+<p><b>Level Generation with Quantum Reservoir Computing</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13287v1">arXiv</a>] João S. Ferreira, Pierre Fromholz, Hari Shaji, James R. Wootton</p>
+<p><b>Calibration-free single-frame super-resolution fluorescence microscopy</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13293v1">arXiv</a>] Anežka Dostálová, Dominik Vašinka, Robert Stárek, Miroslav Ježek</p>
+<p><b>Diffraction of correlated biphotons through transparent samples</b>—2024-10-30 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2410.22635v2">arXiv</a>] Nazanin Dehghan, Alessio D'Errico, Yingwen Zhang, Benjamin Sussman, Ebrahim Karimi</p>
+<p><b>Autonomous Stabilization of Floquet States Using Static Dissipation</b>—2024-10-16 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2410.12908v2">arXiv</a>] Martin Ritter, David M. Long, Qianao Yue, Anushya Chandran, Alicia J. Kollár</p>
+<p><b>Quantum neural network with ensemble learning to mitigate barren plateaus and cost function concentration</b>—2024-02-08 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2402.06026v2">arXiv</a>] Lucas Friedrich, Jonas Maziero</p>
+<p><b>Accelerating Simulation of Quantum Circuits under Noise via Computational Reuse</b>—2022-03-25 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2203.13892v2">arXiv</a>] Meng Wang, Swamit Tannu, Prashant J. Nair</p>
+<p><b>A Game-Theoretic Quantum Algorithm for Solving Magic Squares</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13366v1">arXiv</a>] Sarah Chehade, Andrea Delgado, Elaine Wong</p>
+<p><b>Reflection phase shifts of bouncing Bogoliubov waves</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13367v1">arXiv</a>] Carsten Henkel</p>
+<p><b>Sample Complexity of Black Box Work Extraction</b>—2024-12-03 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2412.02673v2">arXiv</a>] Shantanav Chakraborty, Siddhartha Das, Arnab Ghorui, Soumyabrata Hazra, Uttam Singh</p>
+<p><b>Simulating Work Extraction in a Dinuclear Quantum Battery Using a Variational Quantum Algorithm</b>—2025-02-26 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2502.19331v2">arXiv</a>] Lucas Galvão, Ana Clara das Neves, Maron Anka, Clebson Cruz</p>
+<p><b>Unraveling superradiance: entanglement and mutual information in collective decay</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13401v1">arXiv</a>] Xin H. H. Zhang, Daniel Malz, Peter Rabl</p>
+<p><b>STE-QUEST -- Space Time Explorer and QUantum Equivalence principle Space Test: The 2022 medium-class mission concept</b>—2022-11-28 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2211.15412v4">arXiv</a>] Naceur Gaaloul, Holger Ahlers, Leonardo Badurina, Angelo Bassi, Baptiste Battelier, Quentin Beaufils, Kai Bongs, Philippe Bouyer, Claus Braxmaier, Oliver Buchmueller, Matteo Carlesso, Eric Charron, Maria Luisa Chiofalo, Robin Corgier, Sandro Donadi, Fabien Droz, John Ellis, Frédéric Estève, Enno Giese, Jens Grosse, Aurélien Hees, Thomas A. Hensel, Waldemar Herr, Philippe Jetzer, Gina Kleinsteinberg, Carsten Klempt, Steve Lecomte, Louise Lopes, Sina Loriani, Victor Martín, Gilles Métris, Gabriel Müller, Miquel Nofrarias, Franck Pereira Dos Santos, Ernst M. Rasel, Mike Salter, Dennis Schlippert, Christian Schubert, Thilo Schuldt, Carlos F. Sopuerta, Christian Struckmann, Guglielmo M. Tino, Tristan Valenzuela, Wolf von Klitzing, Lisa Wörner, Nan Yu, Martin Zelan, Peter Wolf</p>
+<p><b>Eigenstate thermalization in spin-$\frac{1}{2}$ systems with SU(2) symmetry</b>—2025-03-03 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2503.01846v2">arXiv</a>] Rohit Patil, Marcos Rigol</p>
+<p><b>Optical signatures of coherence in molecular dimers</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13435v1">arXiv</a>] Priyankar Banerjee, Adam Burgess, Julian Wiercinski, Moritz Cygorek, Erik M. Gauger</p>
+<p><b>Fast correlated decoding of transversal logical algorithms</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13587v1">arXiv</a>] Madelyn Cain, Dolev Bluvstein, Chen Zhao, Shouzhen Gu, Nishad Maskara, Marcin Kalinowski, Alexandra A. Geim, Aleksander Kubica, Mikhail D. Lukin, Hengyun Zhou</p>
+<p><b>String-Membrane-Nets from Higher-Form Gauging: An Alternate Route to $p$-String Condensation</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13604v1">arXiv</a>] Pranay Gorantla, Abhinav Prem, Nathanan Tantivasadakarn, Dominic J. Williamson</p>
+<p><b>Non-Hermitian Multipole Skin Effects Challenge Localization</b>—2025-04-14 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2504.10580v2">arXiv</a>] Jacopo Gliozzi, Federico Balducci, Taylor L. Hughes, Giuseppe De Tomasi</p>
+<p><b>Classical Criticality via Quantum Annealing</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13625v1">arXiv</a>] Pratik Sathe, Andrew D. King, Susan M. Mniszewski, Carleton Coffrin, Cristiano Nisoli, Francesco Caravelli</p>
+<p><b>Measurement-induced entanglement and complexity in random constant-depth 2D quantum circuits</b>—2024-10-30 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2410.23248v2">arXiv</a>] Max McGinley, Wen Wei Ho, Daniel Malz</p>
+<p><b>OH molecule as a quantum probe to jointly estimate electric and magnetic fields</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13634v1">arXiv</a>] Luca Previdi, Francesco Albarelli, Matteo G. A. Paris</p>
+<p><b>A solvable embedding mechanism for one-dimensional spinless and Majorana fermions in higher-dimensional spin-1/2 magnets</b>—2024-06-24 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2406.17034v2">arXiv</a>] Sumiran Pujari</p>
+<p><b>Detecting Errors in a Quantum Network with Pauli Checks</b>—2024-05-24 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2405.15236v4">arXiv</a>] Alvin Gonzales, Daniel Dilley, Bikun Li, Liang Jiang, Zain H. Saleem</p>
+<p><b>The non-Abelian Aharonov-Bohm effect</b>—2023-12-26 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2312.16133v2">arXiv</a>] P. A. Horvathy</p>
+<p><b>Balanced Product Codes, Demystified</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13679v1">arXiv</a>] Heather Leitch, Alastair Kay</p>
+<p><b>QuESat: Satellite-Assisted Quantum Internet for Global-Scale Entanglement Distribution</b>—2025-01-26 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2501.15376v2">arXiv</a>] Huayue Gu, Ruozhou Yu, Zhouyu Li, Xiaojian Wang, Guoliang Xue</p>
+<p><b>Entropic limitations on fixed causal order</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13681v1">arXiv</a>] Matheus Capela, Kaumudibikash Goswami</p>
+<p><b>On the Sign of the Casimir Force Between Two Bodies Coupled to a Dirac field</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13682v1">arXiv</a>] Aitor Fernández, César D. Fosco, Guillermo Hansen</p>
+<p><b>Genesis: A Compiler Framework for Hamiltonian Simulation on Hybrid CV-DV Quantum Computers</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13683v1">arXiv</a>] Zihan Chen, Jiakang Li, Minghao Guo, Henry Chen, Zirui Li, Joel Bierman, Yipeng Huang, Huiyang Zhou, Yuan Liu, Eddy Z. Zhang</p>
+<p><b>Optimality Condition for the Petz Map</b>—2024-10-31 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2410.23622v4">arXiv</a>] Bikun Li, Zhaoyou Wang, Guo Zheng, Yat Wong, Liang Jiang</p>
+<p><b>An Open Quantum System of Coupled Rotors</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13686v1">arXiv</a>] V V Sreedhar, Ankit Yadav</p>
+<p><b>Large-scale quantum reservoir computing using a Gaussian Boson Sampler</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13695v1">arXiv</a>] Valeria Cimini, Mandar M. Sohoni, Federico Presutti, Benjamin K. Malia, Shi-Yuan Ma, Ryotatsu Yanagimoto, Tianyu Wang, Tatsuhiro Onodera, Logan G. Wright, Peter L. McMahon</p>
+<p><b>Nonlinear Nonlocal: Comparing A. O. Barut's Theory to Mine with special emphasis on That Dot on the Screen</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13704v1">arXiv</a>] W. David Wick</p>
+<p><b>Quantum Computational Unpredictability Entropy and Quantum Leakage Resilience</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13710v1">arXiv</a>] Noam Avidan, Rotem Arnon</p>
+<p><b>Quantum state preparation with polynomial resources: Branched-Subspaces Adiabatic Preparation (B-SAP)</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13717v1">arXiv</a>] Davide Cugini, Giacomo Guarnieri, Mario Motta, Dario Gerace</p>
+<p><b>Non-degenerate SPDC photon-pair source for UV-A illumination</b>—2025-05-19</p>
+<p>[<a href="http://arxiv.org/abs/2505.13721v1">arXiv</a>] Preetisha Goswami, Marta Gilaberte Basset, Jorge Fuenzalida, Markus Gräfe, Valerio Flavio Gili</p>
+<p><b>Quantum many-body spin ratchets</b>—2024-06-03 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2406.01571v3">arXiv</a>] Lenart Zadnik, Marko Ljubotina, Žiga Krajnik, Enej Ilievski, Tomaž Prosen</p>
+<p><b>Relating Quantum Tamper-Evident Encryption to Other Cryptographic Notions</b>—2024-11-05 (updated: 2025-05-19)</p>
+<p>[<a href="http://arxiv.org/abs/2411.02742v2">arXiv</a>] Sébastien Lord</p>
+<h2>Tuesday | 2025-05-20</h2>
+<p><b>Correlated noise can be beneficial to quantum transducers</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13790v1">arXiv</a>] Yu-Bo Hou, Xiaoan Ai, Ruizhe You, Changchun Zhong</p>
+<p><b>General Construction of Bra-Ket Formalism for Identical Particle Systems in Rigged Hilbert Space Approach</b>—2024-03-01 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2403.00234v2">arXiv</a>] S. Ohmori, J. Takahashi</p>
+<p><b>$k$-nonseparablity and $k$-partite entanglement criteria of multipartite quantum states</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13810v1">arXiv</a>] Xiaofei Qi, Yuyang Pang, Jinchuan Hou</p>
+<p><b>Quantum Opacity, Classical Clarity: A Hybrid Approach to Quantum Circuit Obfuscation</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13848v1">arXiv</a>] Amal Raj, Vivek Balachandran</p>
+<p><b>Rise of conditionally clean ancillae for efficient quantum circuit constructions</b>—2024-07-25 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2407.17966v2">arXiv</a>] Tanuj Khattar, Craig Gidney</p>
+<p><b>Rethink the Role of Deep Learning towards Large-scale Quantum Systems</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13852v1">arXiv</a>] Yusheng Zhao, Chi Zhang, Yuxuan Du</p>
+<p><b>Information-theoretically secure quantum timestamping with one-time universal hashing</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13884v1">arXiv</a>] Ming-Yang Li, Chen-Xun Weng, Wen-Bo Liu, Mengya Zhu, Zeng-Bing Chen</p>
+<p><b>State-Based Quantum Simulation: Releasing the Powers of Quantum States and Copies</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13901v1">arXiv</a>] S. Alipour, A. T. Rezakhani, Alireza Tavanfar, K. Mölmer, T. Ala-Nissila</p>
+<p><b>Quantum Reservoir Computing for Realized Volatility Forecasting</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13933v1">arXiv</a>] Qingyu Li, Chiranjib Mukhopadhyay, Abolfazl Bayat, Ali Habibnia</p>
+<p><b>Modes, states and superselection rules in quantum optics and quantum information</b>—2025-01-07 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2501.03943v4">arXiv</a>] Eloi Descamps, Astghik Saharyan, Adrien Chivet, Arne Keller, Pérola Milman</p>
+<p><b>Path Integrals from Spacetime Quantum Actions</b>—2021-11-09 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2111.05383v6">arXiv</a>] N. L. Diaz, J. M. Matera, R. Rossignoli</p>
+<p><b>Demonstrating Coherent Quantum Routers for Bucket-Brigade Quantum Random Access Memory on a Superconducting Processor</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13958v1">arXiv</a>] Sheng Zhang, Yun-Jie Wang, Peng Wang, Ren-Ze Zhao, Xiao-Yan Yang, Ze-An Zhao, Tian-Le Wang, Hai-Feng Zhang, Zhi-Fei Li, Yuan Wu, Hao-Ran Tao, Liang-Liang Guo, Lei Du, Chi Zhang, Zhi-Long Jia, Wei-Cheng Kong, Zhuo-Zhi Zhang, Xiang-Xiang Song, Yu-Chun Wu, Zhao-Yun Chen, Peng Duan, Guo-Ping Guo</p>
+<p><b>One-shot manipulation of coherence in dynamic quantum resource theory</b>—2025-02-13 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2502.09345v3">arXiv</a>] Yu Luo</p>
+<p><b>Reproducing EPR correlations without superluminal signalling: backward conditional probabilities and Statistical Independence</b>—2025-01-19 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2501.11064v3">arXiv</a>] Simon Friederich</p>
+<p><b>A heralded quantum amplifier of multi-photon states</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.13992v1">arXiv</a>] Luis Villegas-Aguilar, Farzad Ghafari, Matthew S. Winnel, Varun B. Verma, Lynden K. Shalm, Timothy C. Ralph, Geoff J. Pryde, Sergei Slussarenko</p>
+<p><b>Hidden symmetries of a self-dual monopole</b>—2024-01-24 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2401.13404v3">arXiv</a>] L. Feher, P. Horvathy, L. O'Raifeartaigh</p>
+<p><b>Transfer learning of optimal QAOA parameters in combinatorial optimization</b>—2024-02-08 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2402.05549v2">arXiv</a>] J. A. Montanez-Barrera, Dennis Willsch, Kristel Michielsen</p>
+<p><b>Complexity of graph-state preparation by Clifford circuits</b>—2024-02-08 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2402.05874v3">arXiv</a>] Soh Kumabe, Ryuhei Mori, Yusei Yoshimura</p>
+<p><b>Mesoscopic Hamiltonian for Josephson travelling-wave parametric amplifiers</b>—2018-12-14 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/1812.05907v5">arXiv</a>] T. H. A. van der Reep</p>
+<p><b>Further results on the power-law decay of the fraction of the mixed eigenstates in kicked-top model with mixed-type classical phase space</b>—2024-04-24 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2404.15874v3">arXiv</a>] Hua Yan, Qian Wang, Marko Robnik</p>
+<p><b>Quantum Internet, Governance, Trust, and the Promise of Secure Communication: On building a Quantum Internet that will be used</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.15852v1">arXiv</a>] Pieter E. Vermaas, Luca Possati, Zeki C. Seskir</p>
+<p><b>Real Spectra in PT Symmetry Hamiltonians using Tridiagonal Representation Approach</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.17079v1">arXiv</a>] Tunde Joseph Taiwo</p>
+<p><b>Casimir effect for scalar field rotating on a disk</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14093v1">arXiv</a>] M. Bordag, I. G. Pirozhenko</p>
+<p><b>Carrier-envelope phase effects in one- and two-photon directional photoionization of non-isotropic atomic states</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14097v1">arXiv</a>] Juan J. Omiste, Lars Bojer Madsen</p>
+<p><b>Sequential information theoretic protocols in continuous variable systems</b>—2024-10-19 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2410.15032v2">arXiv</a>] Sudipta Das, Ayan Patra, Rivu Gupta, Aditi Sen De, Himadri Shekhar Dhar</p>
+<p><b>Solving graph problems using permutation-invariant quantum machine learning</b>—2025-05-19 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2505.12764v2">arXiv</a>] Maximilian Balthasar Mansky, Tobias Rohe, Gerhard Stenzel, Alejandro Bravo de la Serna, Santiago Londoño Castillo, Gautham Sathish, Dimitra Nikolaidou, Dmytro Bondarenko, Linus Menzel, Claudia Linnhoff-Popien</p>
+<p><b>Measurement of parity-dependent energy-phase relation of the low-energy states in a potential artificial Kitaev chain utilizing a transmon qubit</b>—2025-01-23 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2501.13367v2">arXiv</a>] Enna Zhuo, Xiaozhou Yang, Yuyang Huang, Zhaozheng Lyu, Ang Li, Bing Li, Yunxiao Zhang, Xiang Wang, Duolin Wang, Yukun Shi, Anqi Wang, E. P. A. M. Bakkers, Xiaodong Han, Xiaohui Song, Peiling Li, Bingbing Tong, Ziwei Dou, Guangtong Liu, Fanming Qu, Jie Shen, Li Lu</p>
+<p><b>Quantum Contextuality Requires Counterfactual Gain</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14119v1">arXiv</a>] Yuki Sagawa, Jonte R. Hance, Holger F. Hofmann, Takafumi Ono</p>
+<p><b>Disentangling signalling and causal influence</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14120v1">arXiv</a>] Kathleen Barsse, Paolo Perinotti, Alessandro Tosini, Leonardo Vaglini</p>
+<p><b>Quantum and Critical Casimir Effects: Bridging Fluctuation Physics and Nanotechnology</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14127v1">arXiv</a>] Roberto Passante, Lucia Rizzuto, Peter Schall, Emanuele Marino</p>
+<p><b>Noisy simulations of Quantum Walk and Quantum Walk search via Quantum Cellular Automata on a semiconducting spin processor emulator</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14134v1">arXiv</a>] Andrea Mammola, Quentin Schaeverbeke, Giuseppe Di Molfetta</p>
+<p><b>Towards complexity of primary-deformed Virasoro circuits</b>—2024-09-12 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2409.08319v2">arXiv</a>] Johanna Erdmenger, Jani Kastikainen, Tim Schuhmann</p>
+<p><b>Second Law of Entanglement Manipulation with Entanglement Battery</b>—2024-05-17 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2405.10599v2">arXiv</a>] Ray Ganardi, Tulja Varun Kondra, Nelly H. Y. Ng, Alexander Streltsov</p>
+<p><b>Tailoring Synthetic Gauge Fields in Ultracold Atoms via Spatially Engineered Vector Beams</b>—2025-01-26 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2501.15479v3">arXiv</a>] Huan Wang, Shangguo Zhu, Yun Long, Mingbo Pu, Xiangang Luo</p>
+<p><b>Bosonic two-stroke heat engines with polynomial nonlinear coupling</b>—2025-02-24 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2502.17409v2">arXiv</a>] Giovanni Chesi, Chiara Macchiavello, Massimiliano Federico Sacchi</p>
+<p><b>Limitations of the paraxial beam model in the study of quantum vacuum signals</b>—2025-03-06 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2503.04368v2">arXiv</a>] Felix Karbstein, Fabian Schütze</p>
+<p><b>Extracting topological orders of generalized Pauli stabilizer codes in two dimensions</b>—2023-12-18 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2312.11170v4">arXiv</a>] Zijian Liang, Yijia Xu, Joseph T. Iosue, Yu-An Chen</p>
+<p><b>QSVM-QNN: Quantum Support Vector Machine Based Quantum Neural Network Learning Algorithm for Brain-Computer Interfacing Systems</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14192v1">arXiv</a>] Bikash K. Behera, Saif Al-Kuwari, Ahmed Farouk</p>
+<p><b>Quantum thermal machine regimes in the transverse-field Ising model</b>—2024-10-31 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2410.23710v3">arXiv</a>] Vishnu Muraleedharan Sajitha, Bodhaditya Santra, Matthew J. Davis, L. A. Williamson</p>
+<p><b>Interplay of magnetic field and chemical potential induced anisotropy and frame dependent chaos of a $Q\bar{Q}$ pair in holographic QCD</b>—2024-11-26 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2411.17279v2">arXiv</a>] Bhaskar Shukla, Jasper Nongmaithem, David Dudal, Subhash Mahapatra</p>
+<p><b>Operational verification of the existence of a spacetime manifold</b>—2022-09-11 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2209.04783v3">arXiv</a>] Nikola Paunkovic, Marko Vojinovic</p>
+<p><b>Device-Independent Quantum Key Distribution: Protocols, Quantum Games, and Security</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14243v1">arXiv</a>] Syed M. Arslan, Saif Al-Kuwari, M. T. Rahim, Hashir Kuniyal</p>
+<p><b>Spontaneous Collapse of the Wavefunction: A Testable Proposal Motivated by Discrete Physics</b>—2023-03-03 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2303.03096v2">arXiv</a>] Martin J. Leckey, Adrian P. Flitney</p>
+<p><b>Rubidium-Doped KTiOPO$_4$ Waveguides as a Dual-Type Photon Pair Source</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14269v1">arXiv</a>] Patrick Hendra, Josué R. León-Torres, Valerio Flavio Gili, Markus Gräfe</p>
+<p><b>An engineering guide to superconducting quantum circuit shielding</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14274v1">arXiv</a>] Elizaveta I. Malevannaya, Viktor I. Polozov, Anton I. Ivanov, Aleksei R. Matanin, Nikita S. Smirnov, Vladimir V. Echeistov, Dmitry O. Moskalev, Dmitry A. Mikhalin, Denis E. Shirokov, Yuri V. Panfilov, Ilya A. Ryzhikov, Aleksander V. Andriyash, Ilya A. Rodionov</p>
+<p><b>CMOS-Compatible, Wafer-Scale Processed Superconducting Qubits Exceeding Energy Relaxation Times of 200us</b>—2025-05-13 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2505.08424v3">arXiv</a>] T. Mayer, J. Weber, E. Music, C. Moran Guizan, S. J. K. Lang, L. Schwarzenbach, C. Dhieb, B. Kiliclar, A. Maiwald, Z. Luo, W. Lerch, D. Zahn, I. Eisele, R. N. Pereira, C. Kutter</p>
+<p><b>Waveguides in a quantum perspective</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14292v1">arXiv</a>] Eddy Collin, Alexandre Delattre</p>
+<p><b>Benchmarking data encoding methods in Quantum Machine Learning</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14295v1">arXiv</a>] Orlane Zang, Grégoire Barrué, Tony Quertier</p>
+<p><b>Spin relaxation in a single-electron bilayer graphene quantum dot</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14308v1">arXiv</a>] Lin Wang, Guido Burkard</p>
+<p><b>Lifting a CSS code via its handlebody realization</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14327v1">arXiv</a>] Virgile Guemard</p>
+<p><b>Approximation of diffeomorphisms for quantum state transfers</b>—2025-03-18 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2503.14450v3">arXiv</a>] Eugenio Pozzoli, Alessandro Scagliotti</p>
+<p><b>Butterfly velocity and chaos suppression in de Sitter space</b>—2021-05-05 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2105.02258v3">arXiv</a>] Dmitry S. Ageev</p>
+<p><b>Quantum State Evolution and Berry Potentials at Exceptional Points and Quantum Phase Transitions</b>—2024-03-25 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2403.16503v4">arXiv</a>] Chia-Yi Ju, Fu-Hsiang Huang</p>
+<p><b>Approximate Wigner Approach to Coulomb Entanglement</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14375v1">arXiv</a>] Mauro Ballicchia, Clemens Etl, Mihail Nedjalkov, David K. Ferry, Hans Kosina, Josef Weinbub</p>
+<p><b>Superactivation of memory effects in a classical Markov environment</b>—2024-11-26 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2411.17396v2">arXiv</a>] Fabio Benatti, Giovanni Nichele</p>
+<p><b>Hamiltonian-Driven Architectures for Non-Markovian Quantum Reservoir Computing</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14450v1">arXiv</a>] Daiki Sasaki, Ryosuke Koga, Taihei Kuroiwa, Yuya Ito, Chih-Chieh Chen, Tomah Sogabe</p>
+<p><b>Fermion-to-qubit encodings with arbitrary code distance</b>—2025-05-05 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2505.02916v2">arXiv</a>] Manuel G. Algaba, Miha Papič, Inés de Vega, Alessio Calzona, Fedor Šimkovic IV</p>
+<p><b>Lattice random walks and quantum A-period conjecture</b>—2024-12-30 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2412.21128v2">arXiv</a>] Li Gan</p>
+<p><b>MicroCrypt Assumptions with Quantum Input Sampling and Pseudodeterminism: Constructions and Separations</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14461v1">arXiv</a>] Mohammed Barhoush, Ryo Nishimaki, Takashi Yamakawa</p>
+<p><b>Exponential concentration and symmetries in Quantum Reservoir Computing</b>—2025-05-15 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2505.10062v2">arXiv</a>] Antonio Sannia, Gian Luca Giorgi, Roberta Zambrini</p>
+<p><b>Protecting information in a parametrically driven hybrid quantum system</b>—2022-07-28 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2207.14354v4">arXiv</a>] Siddharth Tiwary, Harsh Sharma, Himadri Shekhar Dhar</p>
+<p><b>Distributed quantum computing with black-box subroutines</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14519v1">arXiv</a>] X. Xu, Y. -D. Liu, S. Shi, Y. -J. Wang, D. -S. Wang</p>
+<p><b>Interplay between time and energy in bosonic noisy quantum metrology</b>—2024-09-27 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2409.18791v3">arXiv</a>] Wojciech Górecki, Francesco Albarelli, Simone Felicetti, Roberto Di Candia, Lorenzo Maccone</p>
+<p><b>A Note on Instantons in a 1D Same-Level Asymmetric Double Well</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14557v1">arXiv</a>] Klaus Bering</p>
+<p><b>Strict area law entanglement versus chirality</b>—2024-08-19 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2408.10306v2">arXiv</a>] Xiang Li, Ting-Chun Lin, John McGreevy, Bowen Shi</p>
+<p><b>The stellar decomposition of Gaussian quantum states</b>—2025-04-14 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2504.10455v2">arXiv</a>] Arsalan Motamedi, Yuan Yao, Kasper Nielsen, Ulysse Chabaud, J. Eli Bourassa, Rafael N. Alexander, Filippo Miatto</p>
+<p><b>Entanglement-assisted multiparameter estimation with a solid-state quantum sensor</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14578v1">arXiv</a>] Takuya Isogawa, Guoqing Wang, Boning Li, Zhiyao Hu, Shunsuke Nishimura, Ayumi Kanamoto, Haidong Yuan, Paola Cappellaro</p>
+<p><b>Assessing Projected Quantum Kernels for the Classification of IoT Data</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14593v1">arXiv</a>] Francesco D'Amore, Luca Mariani, Carlo Mastroianni, Francesco Plastina, Luca Salatino, Jacopo Settino, Andrea Vinci</p>
+<p><b>Pontus-Mpemba effects</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14622v1">arXiv</a>] Andrea Nava, Reinhold Egger</p>
+<p><b>Large-Scale Tree-Type Photonic Cluster State Generation with Recurrent Quantum Photonic Neural Networks</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14628v1">arXiv</a>] Jacob Ewaniuk, Bhavin J. Shastri, Nir Rotenberg</p>
+<p><b>Engineering the Kondo impurity problem with alkaline-earth atom arrays</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14630v1">arXiv</a>] Adriano Amaricci, Andrea Richaud, Massimo Capone, Nelson Darkwah Oppong, Francesco Scazza</p>
+<p><b>Parity-deformed $sl(2,R)$, $su(2)$ and $so(3)$ Algebras: a Basis for Quantum Optics and Quantum Communications Applications</b>—2024-07-16 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2407.12157v3">arXiv</a>] W. S. Chung, H. Hassanabadi, L. M. Nieto, S. Zarrinkamar</p>
+<p><b>A quantum unstructured search algorithm for discrete optimisation: the use case of portfolio optimisation</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14645v1">arXiv</a>] Titos Matsakos, Adrian Lomas</p>
+<p><b>On symmetry-resolved generalized entropies</b>—2024-12-18 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2412.14165v2">arXiv</a>] Fei Yan, Sara Murciano, Pasquale Calabrese, Robert Konik</p>
+<p><b>Quantum Optimization via Gradient-Based Hamiltonian Descent</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14670v1">arXiv</a>] Jiaqi Leng, Bin Shi</p>
+<p><b>Performance analysis of GKP error correction</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14775v1">arXiv</a>] Frederik K. Marqversen, Janus H. Wesenberg, Nikolaj T. Zinner, Ulrik L. Andersen</p>
+<p><b>Solving MNIST with a globally trained Mixture of Quantum Experts</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14789v1">arXiv</a>] Paolo Alessandro Xavier Tognini, Leonardo Banchi, Giacomo De Palma</p>
+<p><b>Impact of Clifford operations on non-stabilizing power and quantum chaos</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14793v1">arXiv</a>] Naga Dileep Varikuti, Soumik Bandyopadhyay, Philipp Hauke</p>
+<p><b>Introducing Quantum Computing to High-School Curricula: A Global Perspective</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14809v1">arXiv</a>] María Gragera Garcés, Luis Gómez Orzechowski, Juan Francisco Rodríguez Hernández</p>
+<p><b>Exchange-Symmetrized Qudit Bell Bases and Bell-State Distinguishability</b>—2024-12-13 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2412.10297v3">arXiv</a>] Oscar Scholin, Theresa W. Lynn</p>
+<p><b>Bell sampling in Quantum Monte Carlo simulations</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14869v1">arXiv</a>] Poetri Sonya Tarabunga, Yi-Ming Ding</p>
+<p><b>Enhanced frequency estimation by non-Gaussianity of Fock states</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14870v1">arXiv</a>] Jonas F. G. Santos</p>
+<p><b>Quantum complexity and localization in random and time-periodic unitary circuits</b>—2024-09-05 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2409.03656v2">arXiv</a>] Himanshu Sahu, Aranya Bhattacharya, Pingal Pratyush Nath</p>
+<p><b>Ultrafast All-Optical Measurement of Squeezed Vacuum in a Lithium Niobate Nanophotonic Circuit</b>—2025-02-01 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2502.00518v3">arXiv</a>] James Williams, Elina Sendonaris, Rajveer Nehra, Robert M Gray, Ryoto Sekine, Luis Ledezma, Alireza Marandi</p>
+<p><b>RISC-Q: A Generator for Real-Time Quantum Control System-on-Chips Compatible with RISC-V</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14902v1">arXiv</a>] Junyi Liu, Yi Lee, Haowei Deng, Connor Clayton, Gengzhi Yang, Xiaodi Wu</p>
+<p><b>Improved entanglement entropy estimates from filtered bitstring probabilities</b>—2024-11-11 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2411.07092v3">arXiv</a>] Avi Kaufman, James Corona, Zane Ozzello, Blake Senseman, Muhammad Asaduzzaman, Yannick Meurice</p>
+<p><b>The pretty bad measurement</b>—2024-03-25 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2403.17252v4">arXiv</a>] Caleb McIrvin, Ankith Mohan, Jamie Sikora</p>
+<p><b>A finite dimensional trace formula</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14947v1">arXiv</a>] Tianhong Zhao</p>
+<p><b>Improved Classical Shadow Tomography Using Quantum Computation</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14953v1">arXiv</a>] Zahra Honjani, Mohsen Heidari</p>
+<p><b>A Multi-Messenger Search for Exotic Field Emission with a Global Magnetometer Network</b>—2024-07-18 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2407.13919v2">arXiv</a>] Sami S. Khamis, Ibrahim A. Sulai, Paul Hamilton, S. Afach, B. C. Buchler, D. Budker, N. L. Figueroa, R. Folman, D. Gavilán-Martín, M. Givon, Z. D. Grujić, H. Guo, M. P. Hedges, D. F. Jackson Kimball, D. Kim, E. Klinger, T. Kornack, A. Kryemadhi, N. Kukowski, G. Lukasiewicz, H. Masia-Roig, M. Padniuk, C. A. Palm, S. Y. Park, X. Peng, M. Pospelov, S. Pustelny, Y. Rosenzweig, O. M. Ruimi, P. C. Segura, T. Scholtes, Y. K. Semertzidis, Y. C. Shin, J. E. Stalnaker, D. Tandon, A. Weis, A. Wickenbrock, T. Wilson, T. Wu, J. Zhang, Y. Zhao</p>
+<p><b>Two-photon superradiance and subradiance</b>—2025-05-20</p>
+<p>[<a href="http://arxiv.org/abs/2505.14965v1">arXiv</a>] Wenxuan Xie, Imran Mirza, John C Schotland</p>
+<p><b>The Quantum Toll Framework: A Thermodynamic Model of Collapse and Coherence</b>—2025-05-10 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2505.06509v2">arXiv</a>] L. S. Montejo</p>
+<p><b>Tensor Factorized Hamiltonian Downfolding To Optimize The Scaling Complexity Of The Electronic Correlations Problem on Classical and Quantum Computers</b>—2023-03-13 (updated: 2025-05-20)</p>
+<p>[<a href="http://arxiv.org/abs/2303.07051v5">arXiv</a>] Ritam Banerjee, Ananthakrishna Gopal, Soham Bhandary, Pavitra Batra, Geetha Thiagarajan, Manoj Nambiar, Anirban Mukherjee</p></body>
+            </html>
+            
