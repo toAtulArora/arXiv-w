@@ -1,25 +1,20 @@
-# # git add . && git commit -am "Updated" && git push
-# #falls back on 500 seconds if no parameter is passed to the script
-# waitFor=${1:-500}
-# #this fetches the date
-
-# while true; do now=$(date); git add .; git commit -am "updated at $now"; git pull; git push; read -t $waitFor -p "Hit return to trigger now. Else will trigger later automatically."; done
-
+# git add . && git commit -am "Updated" && git push
+#falls back on 500 seconds if no parameter is passed to the script
 waitFor=${1:-500}
+#this fetches the date
 
-while true; do
-  now=$(date)
+while true; do now=$(date); git add .; git commit -am "updated at $now"; git pull; git push; read -t $waitFor -p "Hit return to trigger now. Else will trigger later automatically."; done
 
-  git add .
-  git diff --cached --quiet || git commit -m "updated at $now"
+# waitFor=${1:-500}
 
-  git pull --no-rebase --no-edit
-  git push
+# while true; do
+#   now=$(date)
 
-  # if [[ -t 0 ]]; then
-  #   read -t "$waitFor" -p "Press Enter to trigger early..." || true
-  # else
-  #   sleep "$waitFor"
-  # fi
-  sleep "$waitFor"
-done
+#   git add .
+#   git diff --cached --quiet || git commit -m "updated at $now"
+
+#   git pull --no-rebase --no-edit
+#   git push
+
+#   sleep "$waitFor"
+# done
