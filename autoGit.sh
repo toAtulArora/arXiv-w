@@ -16,10 +16,10 @@ while true; do
   git pull --no-rebase --no-edit
   git push
 
-  if [[ -t 0 ]]; then
-    read -t "$waitFor" -p "Press Enter to trigger early..." || true
-  else
-    sleep "$waitFor"
-  fi
-  # sleep "$waitFor"
+  # if [[ -t 0 ]]; then
+  #   read -t "$waitFor" -p "Press Enter to trigger early..." || true
+  # else
+  #   sleep "$waitFor"
+  # fi
+  sleep "$waitFor"
 done
